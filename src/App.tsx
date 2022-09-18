@@ -1,10 +1,9 @@
 const App = () => {
   return (
     <>
-      <h1>Rama de Prueba</h1>
-      <h1>Rama de Prueba</h1>
-      <h1>Rama de Prueba</h1>
-      <h1>Rama de Prueba</h1>
+      <header></header>
+      <main>Mercado Libre</main>
+      <footer></footer>
     </>
   );
 };
