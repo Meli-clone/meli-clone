@@ -1,0 +1,30 @@
+// Colors
+
+$yellow:#fff159;
+$blue: #3483fa;
+$blue-dark: #2968C8;
+$green:#2FB670;
+$green-dark: #00a650;
+$gradient-pink: #a90f90;
+$gradient-blue: #0e1a52;
+
+$black: #000;
+$white: #fff;
+
+$background:#ebebeb;
+
+$gray-dark: #333;
+$gray: #787878;
+$gray-light: #a2a2a2;
+
+$select-navbar: #f5f5f5;
+
+//Flex
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
