@@ -142,11 +142,18 @@ const DropdownAccess = () => {
   };
 
   return (
-    <div className={`nav_dropdown_access ${isOpen ? 'open' : ''}`}>
-      <label className='dropdown_switch' onClick={handleSwitch}>
+    <div
+      className={`nav_dropdown_access ${isOpen ? 'open' : ''}`}
+      data-testid='nav_dropdown_access'
+    >
+      <button
+        name='dropdown_switch'
+        className='dropdown_switch'
+        onClick={handleSwitch}
+      >
         Más información
         <div>↑</div>
-      </label>
+      </button>
       <div className='dropdown_content'>
         <nav className='nav_dropdown_content'>
           <ul className='list_dropdown_content'>
