@@ -1,0 +1,127 @@
+@import '@/utils/sass/theme.scss';
+
+.nav_footer {
+  width: 100%;
+}
+
+.nav_footer_donwloadapp_banner {
+  background-color: $yellow;
+  border-top: 1px solid #f2e454;
+  border-bottom: 1px solid #f2e454;
+  height: 72px;
+  padding: 10px 10%;
+  width: 100%;
+  text-align: left;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nav_footer_downloadapp {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  span {
+    color: $gray-dark;
+    font-size: 18px;
+  }
+}
+
+.nav_icon_downloadapp {
+  display: inline-block;
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px 0 #00000030;
+  margin-right: 16px;
+
+  /* Solo está para centrar la palabra 'LOGO' */
+  /* En un futuro tal vez se elimine */
+  display: grid;
+  place-content: center;
+}
+
+.nav_footer_mobile_links_bounds {
+  padding: 26px 10%;
+}
+
+.nav_footer_mobile_links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 20px;
+
+  a {
+    font-size: 14px;
+    text-decoration: none;
+    color: $gray-dark;
+  }
+}
+
+.nav_footer_user_info {
+  border-top: 1px solid #ededed;
+  padding: 22px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav_footer_user {
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.nav_footer_login,
+.nav_footer_registration {
+  color: $blue;
+  text-decoration: none;
+  font-family: 16px;
+}
+
+.nav_footer_login {
+  padding-right: 10px;
+  border-right: 1px solid $background;
+}
+
+.nav_footer_registration {
+  padding-left: 10px;
+}
+
+.nav_footer_navigation_container {
+  max-width: 1200px;
+}
+
+.nav_footer_navigation {
+  margin-bottom: 8px;
+
+  a {
+    text-decoration: none;
+    padding: 0 4px;
+    font-size: 14px;
+    color: $gray-dark;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+.nav_footer_copyright {
+  color: $gray-light;
+  font-size: 12px;
+}
+
+.nav_footer_secondaryinfo {
+  color: $gray-light;
+  font-size: 12px;
+}
+
+@media screen and (min-width: $tablet) {
+  .nav_footer_donwloadapp_banner,
+  .nav_footer_mobile_links,
+  .nav_footer_mobile_links_bounds,
+  .nav_footer_user {
+    display: none;
+  }
+}
