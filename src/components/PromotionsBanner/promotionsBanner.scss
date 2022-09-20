@@ -1,0 +1,52 @@
+@import '../../utils/sass/theme.scss';
+
+.promotionsBanner {
+    background-color: $white;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+    overflow: hidden;
+    margin: 16px; // delete before push
+
+}
+
+.promotionsBanner_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    color: $white;
+    background: linear-gradient(90deg, $gradient-pink 55%, $gradient-blue);
+}
+
+.promotionsBanner_header-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    width: 45%;
+}
+
+.promotionsBanner_prices {
+    font-weight: 600;
+    line-height: 1;
+    position: relative;
+}
+
+.promotionsBanner_prices-separator::before {
+    border-left: 2px solid $white;
+    content: '';
+    height: 40px;
+    left: -8px;
+    position: absolute;
+    top: 0;
+}
+
+.promotionsBanner_prices-price-strike {
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: line-through;
+}
+
+.prices_price-bold {
+    font-size: 24px;
+}
+
