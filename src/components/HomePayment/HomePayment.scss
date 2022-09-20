@@ -39,14 +39,13 @@
 @media only screen and (min-width: $tablet) {
   .homePayment {
     grid-template-columns: 2fr 2fr;
-    margin: 40px;
-    max-width: 1184px;
   }
 }
 
 @media only screen and (min-width: $laptop) {
   .homePayment {
     grid-template-columns: 1fr 1fr 1fr 1fr 0.4fr;
+    margin: 0 auto;
     .homePayment_viewmore {
       align-self: center;
       display: block;
@@ -63,17 +62,6 @@
 @media only screen and (min-width: $desktop) {
   .homePayment {
     height: 90px;
-    max-width: 1184px;
-    margin: 40px;
-    .homePayment_viewmore {
-      align-self: center;
-      display: block;
-      padding: 20px;
-      border-left: 1px solid $background;
-      button {
-        border: none;
-        background-color: transparent;
-      }
-    }
+    max-width: $max-width;
   }
 }
