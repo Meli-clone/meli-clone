@@ -78,19 +78,19 @@ const ACCESS_LIST = [
     items: [
       {
         name: 'Twitter',
-        href: '#',
+        href: 'https://twitter.com/ML_Argentina',
       },
       {
         name: 'Facebook',
-        href: '#',
+        href: 'https://www.facebook.com/MercadoLibre',
       },
       {
         name: 'Instagram',
-        href: '#',
+        href: 'https://www.instagram.com/mercadolibre.arg/',
       },
       {
         name: 'YouTube',
-        href: '#',
+        href: 'https://www.youtube.com/user/mercadolibre',
       },
     ],
   },
