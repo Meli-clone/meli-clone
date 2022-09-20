@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: -1px;
 }
 
 .nav_dropdown_access.open {
@@ -18,6 +19,7 @@
   .dropdown_content {
     max-height: 250px;
     background-color: $select-navbar;
+    border-bottom: 1px solid #ededed;
   }
 }
 
@@ -47,11 +49,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-top: 1px solid #ededed;
 }
 
 .nav_dropdown_content {
   padding: 0 110px;
-  border-top: 1px solid #ededed;
   max-width: 1200px;
   width: 100%;
 }
