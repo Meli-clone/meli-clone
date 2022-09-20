@@ -1,9 +1,9 @@
+import MainLayout from './layout/MainLayout';
+
 const App = () => {
   return (
     <>
-      <header></header>
-      <main>Mercado Libre</main>
-      <footer></footer>
+      <MainLayout />
     </>
   );
 };
