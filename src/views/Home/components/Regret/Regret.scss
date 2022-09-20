@@ -1,0 +1,40 @@
+@import '@/utils/sass/theme.scss';
+
+.regret_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.box_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid $background;
+  border-radius: 5px;
+  padding: 16px;
+  text-align: center;
+
+  p {
+    color: $gray-light;
+  }
+
+  a {
+    color: $blue;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .regret_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    gap: 40px;
+  }
+}
