@@ -1,5 +1,4 @@
 // Colors
-
 $yellow:#fff159;
 $blue: #3483fa;
 $blue-dark: #2968C8;
@@ -19,6 +18,13 @@ $gray-light: #a2a2a2;
 
 $select-navbar: #f5f5f5;
 
+// Media query
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1366px;
+
+$max-width: 1200px;
+
 //Flex
 
 @mixin flex($direction, $justify, $align) {
@@ -27,4 +33,3 @@ $select-navbar: #f5f5f5;
     justify-content: $justify;
     align-items: $align;
 }
-
