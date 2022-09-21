@@ -36,31 +36,3 @@
     display: none;
   }
 }
-
-.carousel_shopping_card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
-  padding: 25px 50px;
-  width: 100%;
-
-  h2 {
-    font-size: 20px;
-    font-weight: 500;
-    color: $gray-dark;
-  }
-
-  p {
-    font-size: 15px;
-    color: $gray;
-  }
-
-  a {
-    font-size: 14px;
-    color: $blue;
-    text-decoration: none;
-  }
-}
