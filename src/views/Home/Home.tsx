@@ -1,9 +1,11 @@
-import Regret from './components/Regret/Regret';
+import Regret from './components/Regret';
+import ShoppingInfo from './components/ShoppingInfo';
 import './Home.scss';
 
 const Home = () => {
   return (
     <div>
+      <ShoppingInfo />
       <Regret />
     </div>
   );
