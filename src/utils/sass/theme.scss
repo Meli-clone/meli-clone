@@ -23,6 +23,8 @@ $tablet: 768px;
 $laptop: 1024px;
 $desktop: 1366px;
 
+$max-width: 1200px;
+
 //Flex
 @mixin flex($direction, $justify, $align) {
   display: flex;
