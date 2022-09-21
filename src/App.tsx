@@ -1,12 +1,9 @@
-import PromotionsBanner from './components/PromotionsBanner/PromotionsBanner';
+import MainLayout from './layout/MainLayout';
 
 const App = () => {
   return (
     <>
-      <header></header>
-      <main>Mercado Libre</main>
-      <PromotionsBanner />
-      <footer></footer>
+      <MainLayout />
     </>
   );
 };
