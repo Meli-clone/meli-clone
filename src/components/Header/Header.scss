@@ -1,0 +1,72 @@
+@import '@/utils/sass/theme.scss';
+
+
+.header {
+  width: 100%;
+  background: $yellow ;
+  height: 87px;
+  padding: 0px 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  
+  
+  &__logo {
+    color: $blue;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    
+    img {
+      height: 32px;
+    }
+  }
+
+  &__search-input{
+    height: 32px;
+    flex-grow: 1;
+    margin: 0 10px;
+    border-style: none;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+
+    &::placeholder{
+      padding: 0px 5px;
+    }
+  }
+
+  &__nav_bar_button{
+    font-size: 30px;
+  }
+
+  &__nav_bar{
+    display: none;
+  }
+
+  &__user_address{
+    width: 100%;
+    height: 35px;
+    order: 1;
+    border-style: solid;
+    border-width: 1px 0px 0px;
+    border-color: $gray-light;
+    padding-top: 5px;
+    font-size: 13px;
+    @include flex(row,center,center);
+    color: $gray;
+
+    span {
+      flex-grow: 1;
+      margin-left: 5px;
+    }
+    &__icon{
+      font-size: 16px;
+    }
+  }
+
+  &__user_info{
+    font-size: 20px;
+    color: $gray-dark;
+    font-weight: lighter;
+  }
+}
