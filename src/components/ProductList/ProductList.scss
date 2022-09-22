@@ -1,0 +1,38 @@
+@import '@/utils/sass/theme.scss';
+
+.productList {
+  padding: 0 10px;
+  .productList_title {
+    display: inline-block;
+    color: $gray;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 22px;
+  }
+  .productList_viewmore {
+    display: inline-block;
+    font-size: 15px;
+    margin: 0 10px;
+    color: $blue;
+    &:hover {
+      color: $blue-dark;
+    }
+  }
+  .productList_gridContainer {
+    @include flex(row, flex-start, center);
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: $laptop) {
+  .productList {
+    .productList_title {
+      font-size: 26px;
+    }
+    .productList_viewmore {
+      font-size: 16px;
+      margin: 0 20px;
+    }
+  }
+}
