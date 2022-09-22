@@ -25,7 +25,7 @@ $desktop: 1366px;
 
 $max-width: 1200px;
 
-//Flex
+// Flex
 @mixin flex($direction, $justify, $align) {
   display: flex;
   flex-direction: $direction;
