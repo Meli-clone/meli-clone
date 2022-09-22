@@ -1,14 +1,15 @@
 import PromotionsBanner from '@/components/PromotionsBanner/PromotionsBanner';
 import HomePayment from '@/components/HomePayment';
+import Descubre from '@/components/Descubre/Descubre';
 import Footer from '../Footer';
 import Header from '@/components/Header';
 
 const MainLayout = () => {
   return (
     <>
-      <Header />
-      <PromotionsBanner />
       <HomePayment />
+      <Descubre />
+      <PromotionsBanner />
       <Footer />
     </>
   );
