@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 const MainLayout = () => {
   return (
     <>
+      <Header />
       <HomePayment />
       <Descubre />
       <PromotionsBanner />
