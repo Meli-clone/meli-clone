@@ -1,76 +1,7 @@
 import { useEffect, useState } from 'react';
-import boxImage from '@/assets/images/shopping-info-box.svg';
-import cardImage from '@/assets/images/shopping-info-card.svg';
-import protectImage from '@/assets/images/shopping-info-protect.svg';
 import './ShoppingInfoMobile.scss';
 import useWindowSize from '@/hooks/useWindowSize';
 import ShoppingCard from './ShoppingCard';
-
-const SHOPPING_INFO_DATA = [
-  {
-    id: 0,
-    img: protectImage,
-    altimg: 'Escudo',
-    title: 'Seguridad, de principio a fin',
-    description:
-      '¿No te gusta? ¡Devolvelo! En Mercado Libre no hay nada que no puedas hacer, porque estás siempre protegido.',
-    link: {
-      label: 'Cómo te protegemos',
-      href: '#',
-    },
-  },
-  {
-    id: 1,
-    img: cardImage,
-    altimg: 'Tarjeta',
-    title: 'Elige como pagar',
-    description:
-      'Puedes pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin tarjeta con Mercado Crédito.',
-    link: {
-      label: 'Cómo pagar tus compras',
-      href: '#',
-    },
-  },
-
-  {
-    id: 2,
-    img: boxImage,
-    altimg: 'Caja',
-    title: 'Envío gratis desde $5.500',
-    description:
-      'Solo por estar registrado en Mercado Libre tienes envíos gratis en miles de productos. Es un beneficio de Mercado Puntos.',
-    link: {
-      label: 'Conoce más sobre este beneficio',
-      href: '#',
-    },
-  },
-  {
-    id: 3,
-    img: protectImage,
-    altimg: 'Escudo',
-    title: 'Seguridad, de principio a fin',
-    description:
-      '¿No te gusta? ¡Devolvelo! En Mercado Libre no hay nada que no puedas hacer, porque estás siempre protegido.',
-    link: {
-      label: 'Cómo te protegemos',
-      href: '#',
-    },
-  },
-
-  {
-    id: 4,
-    img: cardImage,
-    altimg: 'Tarjeta',
-    title: 'Elige como pagar',
-    description:
-      'Puedes pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin tarjeta con Mercado Crédito.',
-    link: {
-      label: 'Cómo pagar tus compras',
-      href: '#',
-    },
-  },
-];
-
 interface ShoppingData {
   id: number;
   img: string;
@@ -83,8 +14,11 @@ interface ShoppingData {
   };
 }
 
-const ShoppingInfoMobile = () => {
-  const [shoppingData, setShoppingData] = useState<Array<ShoppingData>>([]);
+interface Prop {
+  shoppingData: Array<ShoppingData>;
+}
+
+const ShoppingInfoMobile = ({ shoppingData }: Prop) => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchPageX, setTouchPageX] = useState(0);
   const [isTransition, setIsTransition] = useState(false);
@@ -95,10 +29,6 @@ const ShoppingInfoMobile = () => {
   useEffect(() => {
     setTouchPageX(-width);
   }, [width]);
-
-  useEffect(() => {
-    setShoppingData(SHOPPING_INFO_DATA);
-  }, []);
 
   const handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
     setTouchStart(event.changedTouches[0].pageX - touchPageX);

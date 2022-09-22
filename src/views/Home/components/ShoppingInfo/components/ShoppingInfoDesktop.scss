@@ -1,0 +1,34 @@
+@import '@/utils/sass/theme.scss';
+
+.shopping_info_desktop_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shopping_info_desktop {
+  max-width: $max-width;
+  display: flex;
+
+  & > :nth-child(2) {
+    position: relative;
+  }
+
+  & > :nth-child(2)::before {
+    width: 1px;
+    height: 67px;
+    content: '';
+    position: absolute;
+    left: 0;
+    background-color: $background;
+  }
+
+  & > :nth-child(2)::after {
+    width: 1px;
+    height: 67px;
+    content: '';
+    position: absolute;
+    right: 0;
+    background-color: $background;
+  }
+}
