@@ -13,9 +13,15 @@
       margin-bottom: 20px;
       max-height: 200px;
       width: 100%;
+      transition: box-shadow 0.3s;
       box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
       -webkit-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
       -moz-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+      &:hover {
+        box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
+        -webkit-box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
+        -moz-box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
+      }
       .descubre_textContainer {
         @include flex(column, space-around, flex-start);
         min-height: 180px;
@@ -40,6 +46,7 @@
           border: none;
           background-color: transparent;
           font-size: 14px;
+          transition: color 0.3s;
           &:hover {
             color: $blue-dark;
           }
@@ -76,14 +83,8 @@
       .descubre_innerContainer {
         @include flex(row, space-around, center);
         width: 100%;
-        transition: all 0.3s;
         max-height: 250px;
         margin: 0;
-        &:hover {
-          box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
-          -webkit-box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
-          -moz-box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
-        }
         .descubre_textContainer {
           .descubre_category {
             font-size: 12px;
@@ -99,6 +100,7 @@
             padding: 13px 15px;
             border-radius: 2px;
             font-weight: 400;
+            transition: background-color 0.3s;
             &:hover {
               background-color: $blue-dark;
               color: $white;
