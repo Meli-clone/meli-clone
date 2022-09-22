@@ -1,9 +1,9 @@
-import Header from './components/Header';
+import MainLayout from './layout/MainLayout';
 
 const App = () => {
   return (
     <>
-      <Header />
+      <MainLayout />
     </>
   );
 };
