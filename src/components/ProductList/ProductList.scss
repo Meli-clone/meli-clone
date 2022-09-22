@@ -19,9 +19,10 @@
     }
   }
   .productList_gridContainer {
-    @include flex(row, flex-start, center);
+    @include flex(row, flex-start, flex-start);
     flex-wrap: nowrap;
     overflow: hidden;
+    height: 350px;
   }
 }
 
