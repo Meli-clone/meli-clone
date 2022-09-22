@@ -1,0 +1,97 @@
+.slider_container {
+  position: relative;
+  width: 100%;
+
+  .slider_wrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+
+    .slider_container_images {
+      display: flex;
+      flex-direction: row;
+      will-change: transform;
+      transition: transform 300ms ease;
+
+      .slider_content_image {
+        display: flex;
+        height: 100%;
+
+        & a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+
+          .slider_image {
+            display: block;
+            width: 100%;
+            max-width: 1600px;
+            height: 100%;
+            min-height: 200px;
+            max-height: 340px;
+            object-fit: cover;
+            object-position: top;
+          }
+        }
+      }
+    }
+
+    .slider_button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      background-color: white;
+      border: none;
+      border-top-right-radius: 64px;
+      border-bottom-right-radius: 64px;
+      height: 64px;
+      width: 32px;
+      top: 50%;
+      cursor: pointer;
+
+      &--prev {
+        left: 0;
+        right: unset;
+        transform: translateY(-50%);
+      }
+
+      &--next {
+        left: unset;
+        right: 0;
+        transform: rotate(180deg) translateY(50%);
+      }
+
+      &:hover {
+        box-shadow: 0 8px 16px 0 rgb(0 0 0 / 10%);
+      }
+    }
+
+    .slider_pagination {
+      position: absolute;
+      display: flex;
+      gap: 5px;
+      bottom: 20px;
+      right: 50%;
+      transform: translateX(50%);
+      list-style: none;
+
+      .slider_pagination_item {
+        .slider_pagination_button {
+          background-color: transparent;
+          border: 1px solid #fff;
+          border-radius: 50%;
+          height: 8px;
+          width: 8px;
+          cursor: pointer;
+          transition: all ease 500ms;
+          &--active {
+            border-color: #000;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
