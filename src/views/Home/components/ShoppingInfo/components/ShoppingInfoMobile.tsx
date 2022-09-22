@@ -84,6 +84,11 @@ const ShoppingInfoMobile = ({ shoppingData }: Prop) => {
     width: `${width * 5}px`,
   };
 
+  const handleSlick = (newPageXValue: number, newSlickValue: number) => {
+    setTouchPageX(newPageXValue * newSlickValue);
+    setSlickDots(newSlickValue);
+  };
+
   return (
     <section
       className='carousel_shopping_container'
@@ -99,19 +104,19 @@ const ShoppingInfoMobile = ({ shoppingData }: Prop) => {
       <ul>
         <li>
           <button
-            onClick={() => setTouchPageX(-width)}
+            onClick={() => handleSlick(-width, 1)}
             className={slickDots === 1 || slickDots >= 4 ? 'slick_active' : ''}
           />
         </li>
         <li>
           <button
-            onClick={() => setTouchPageX(-width * 2)}
+            onClick={() => handleSlick(-width, 2)}
             className={slickDots === 2 ? 'slick_active' : ''}
           />
         </li>
         <li>
           <button
-            onClick={() => setTouchPageX(-width * 3)}
+            onClick={() => handleSlick(-width, 3)}
             className={slickDots === 3 || slickDots <= 0 ? 'slick_active' : ''}
           />
         </li>
