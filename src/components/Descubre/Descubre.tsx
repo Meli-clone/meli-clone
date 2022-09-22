@@ -5,7 +5,7 @@ const Descubre = () => {
     <section className="descubre">
         <h2 className="descubre_title">Descubre</h2>
         <div className="descubre_container">
-            <div className="descubre_innerContainer extra">
+            <div className="descubre_innerContainer descubre_extra">
                 <div className="descubre_textContainer">
                     <div>
                         <h4 className="descubre_category">Especial Primavera</h4>
