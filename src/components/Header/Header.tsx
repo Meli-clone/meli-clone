@@ -28,7 +28,7 @@ const Header = () => {
           <HamburgerMenu />
         </div>
         <div className='header__disney_promo'>
-          <img src={disneyPromoImg}></img>
+          <img src={disneyPromoImg} alt='logo de mercado libre'></img>
         </div>
         <div className='header__user_address'>
           <div>
