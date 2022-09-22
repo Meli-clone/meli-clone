@@ -16,7 +16,23 @@
     box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
     -webkit-box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
     -moz-box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
-    height: 330px;
+    height: 340px;
+  }
+  .productListCard_button {
+    opacity: 0;
+    transition: opacity 0.3s;
+    position: relative;
+    top: 12px;
+    left: 190px;
+    background-color: transparent;
+    border: 0;
+    .productListCard_icon {
+      color: $blue;
+      font-size: 20px;
+      &:hover {
+        color: $blue-dark;
+      }
+    }
   }
   .productListCard_imageContainer {
     border-bottom: 1px solid $background;

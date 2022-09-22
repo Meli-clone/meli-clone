@@ -1,5 +1,6 @@
 import './ProductListCard.scss';
 import { useState } from "react";
+import { BsHeart } from 'react-icons/bs';
 
 const ProductListCard = ({producto}) => {
   const [productHover, setProductHover] = useState(false);
@@ -14,6 +15,7 @@ const ProductListCard = ({producto}) => {
 
   return(
         <div className="productListCard" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <button className="productListCard_button" style={{opacity: productHover ? '1' : '0'}}><BsHeart className="productListCard_icon"/></button>
             <div className="productListCard_imageContainer">
                 <img className="productListCard_image" src={producto.image} alt={producto.title}/>
             </div>
