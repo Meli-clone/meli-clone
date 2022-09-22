@@ -2,7 +2,7 @@ import PromotionsBanner from '@/components/PromotionsBanner/PromotionsBanner';
 import HomePayment from '@/components/HomePayment';
 import Descubre from '@/components/Descubre/Descubre';
 import Footer from '../Footer';
-import Header from '@/components/Header';
+import Header from '../Header';
 
 const MainLayout = () => {
   return (
