@@ -1,11 +1,9 @@
-import Slider from "./components/Slider/Slider";
+import MainLayout from './layout/MainLayout';
 
 const App = () => {
   return (
     <>
-      <header></header>
-      <main><Slider/></main>
-      <footer></footer>
+      <MainLayout />
     </>
   );
 };

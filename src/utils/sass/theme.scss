@@ -1,9 +1,8 @@
 // Colors
-
-$yellow:#fff159;
+$yellow: #fff159;
 $blue: #3483fa;
-$blue-dark: #2968C8;
-$green:#2FB670;
+$blue-dark: #2968c8;
+$green: #2fb670;
 $green-dark: #00a650;
 $gradient-pink: #a90f90;
 $gradient-blue: #0e1a52;
@@ -11,7 +10,7 @@ $gradient-blue: #0e1a52;
 $black: #000;
 $white: #fff;
 
-$background:#ebebeb;
+$background: #ebebeb;
 
 $gray-dark: #333;
 $gray: #787878;
@@ -19,12 +18,17 @@ $gray-light: #a2a2a2;
 
 $select-navbar: #f5f5f5;
 
+// Media query
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1366px;
+
+$max-width: 1200px;
+
 //Flex
-
 @mixin flex($direction, $justify, $align) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
 }
-
