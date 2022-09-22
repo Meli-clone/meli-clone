@@ -36,13 +36,12 @@ const INITIAL_STATE = [
   },
 ];
 
-// Hook getDimensions || Util getDimensions
-interface dimensions {
+interface Dimensions {
   width: number;
   height: number;
 }
 
-const getWindowDimensions = (): dimensions => {
+const getWindowDimensions = (): Dimensions => {
   const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
@@ -51,7 +50,7 @@ const getWindowDimensions = (): dimensions => {
 };
 
 const useWindowDimensions = () => {
-  const [windowDimensions, setWindowDimensions] = useState<dimensions>(
+  const [windowDimensions, setWindowDimensions] = useState<Dimensions>(
     getWindowDimensions(),
   );
 
@@ -66,7 +65,6 @@ const useWindowDimensions = () => {
 
   return windowDimensions;
 };
-// End to Hook or Util
 
 const Slider = () => {
   const { width } = useWindowDimensions();
@@ -74,11 +72,7 @@ const Slider = () => {
   const [index, setIndex] = useState<number>(0);
 
   useEffect(() => {
-    const firstImage = INITIAL_STATE[0];
-    const lastImage = INITIAL_STATE[INITIAL_STATE.length - 1];
-
-    setListImages([lastImage, ...INITIAL_STATE, firstImage]);
-    // setListImages(INITIAL_STATE);
+    setListImages(INITIAL_STATE);
   }, []);
 
   const handleTest = (action: 'next' | 'prev') => {
@@ -99,7 +93,7 @@ const Slider = () => {
         return setIndex(0);
       }
 
-      setIndex(index - 1);
+      setIndex(newIndex);
     }
   };
 
@@ -108,7 +102,10 @@ const Slider = () => {
       <div className='slider_wrapper'>
         <div
           className='slider_container_images'
-          style={{ transform: `translateX(${index * width}px)` }}
+          style={{
+            transform: `translateX(${index * width}px)`,
+            width: `${listImages.length * width}px`,
+          }}
         >
           {listImages.map((element, i) => {
             return (
@@ -163,9 +160,7 @@ const Slider = () => {
         </button>
 
         <ul className='slider_pagination'>
-          {listImages.map((_, i, array) => {
-            if (i === 0 || i === array.length - 1) return;
-
+          {listImages.map((_, i) => {
             return (
               <li key={i} className='slider_pagination_item'>
                 <button

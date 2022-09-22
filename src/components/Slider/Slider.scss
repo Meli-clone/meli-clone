@@ -5,13 +5,13 @@
   .slider_wrapper {
     position: relative;
     height: 100%;
+    overflow: hidden;
 
     .slider_container_images {
       display: flex;
       flex-direction: row;
       will-change: transform;
       transition: transform 300ms ease;
-      // overflow: hidden;
 
       .slider_content_image {
         display: flex;
@@ -21,11 +21,15 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 100vw;
+          width: 100%;
 
           .slider_image {
             display: block;
             width: 100%;
+            max-width: 1600px;
+            height: 100%;
+            min-height: 200px;
+            max-height: 340px;
             object-fit: cover;
             object-position: top;
           }
@@ -33,9 +37,8 @@
       }
     }
 
-    // Done
     .slider_button {
-      display: none;
+      display: flex;
       justify-content: center;
       align-items: center;
       position: absolute;
@@ -90,34 +93,5 @@
         }
       }
     }
-  }
-
-  &:hover {
-    .slider_wrapper .slider_button {
-      display: flex;
-    }
-  }
-}
-
-// Organizar con los theme realizados
-@media (min-width: 1024px) {
-  /*   .slider_container_images {
-    overflow-x: hidden;
-  } */
-  .slider_image {
-    height: 340px;
-    max-width: 1600px;
-  }
-}
-
-@media (max-width: 1023px) {
-  /*   .slider_container_images {
-    overflow-x: scroll;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  } */
-  .slider_image {
-    height: 255px;
   }
 }
