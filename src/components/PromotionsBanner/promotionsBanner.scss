@@ -1,0 +1,174 @@
+@import '@/utils/sass/theme.scss';
+
+.promotionsBanner {
+    background-color: $white;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+    overflow: hidden;
+    margin: 24px 10px 0;
+    max-width: $max-width;
+}
+
+/* Header */
+
+.promotionsBanner_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    color: $white;
+    background: linear-gradient(90deg, $gradient-pink 55%, $gradient-blue);
+    .promotionsBanner_header-title {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 22px;
+        width: 45%;
+    }
+    .promotionsBanner_prices {
+        font-weight: 600;
+        line-height: 1;
+        position: relative;
+        .promotionsBanner_prices-price-strike {
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: line-through;
+        } 
+        .prices_price-bold {
+            font-size: 24px;
+        }
+    }
+    .promotionsBanner_prices-separator::before {
+        border-left: 2px solid $white;
+        content: '';
+        height: 40px;
+        left: -8px;
+        position: absolute;
+        top: 0;
+    }
+}
+
+@media screen and (min-width: $laptop) {
+    .promotionsBanner {
+        margin: 0 auto;
+        .promotionsBanner_header {
+            padding: 16px 24px;
+            min-height: 55px;
+            .promotionsBanner_header-title {
+                font-size: 26px;
+                line-height: 30px;
+            }
+        }
+    }  
+}
+
+/* Body */
+
+.promotionsBanner_body {
+    padding: 16px;
+    .promotionsBanner_body-title {
+        display: block;
+        font-weight: 600;
+        max-width: 220px;
+        line-height: 18px;
+    }
+    .promotionsBanner_body-benefits {
+        margin-top: 12px;
+        .promotionsBanner_body-benefit {
+            display: flex;
+            align-items: center;
+            .body-benefit-logo {
+                width: 48px;
+                min-width: 48px;
+                height: 48px;
+                min-height: 48px;
+                img {
+                    height: auto;
+                    width: 100%;
+                }
+            }
+            .body-benefit-text {
+                margin-left: 8px;
+                line-height: 18px;
+            } 
+        }
+    }
+}
+
+@media screen and (min-width: $laptop) { 
+    .promotionsBanner_body {
+        padding: 24px;
+        .promotionsBanner_body-title {
+            display: inline;
+            font-weight: 400;
+            font-size: 18px;
+        }
+        .promotionsBanner_body-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: space-evenly;
+            margin-top: 32px;
+            .body-benefit-logo {
+                border: 1px solid $background;
+                border-radius: 50%;
+                width: 72px;
+                min-width: 72px;
+                height: 72px;
+                min-height: 72px;
+            }
+            .body-benefit-text {
+                font-size: 16px;
+                line-height: 16px;
+                margin-left: 16px;
+                margin-right: 16px;
+                width: 100%;
+                font-weight: 400;
+            }
+        }
+    }   
+}
+
+/* Buttom */
+
+.promotionsBanner_buttons {
+    border-top: 1px solid $background;
+    padding: 13px 16px;
+    .promotionsBanner_button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        .promotionsBanner_button-text {
+            color: $blue;
+            font-weight: 600;
+            line-height: 18px;
+        }
+        .promotionsBanner_button-arrow {
+            stroke: $blue;
+            height: 14px;
+            width: 9px;
+        }
+    }
+}
+
+@media screen and (min-width: $laptop) {
+    .promotionsBanner_buttons {
+        .promotionsBanner_button {
+            justify-content: flex-end;
+            margin-left: 89%;
+            .promotionsBanner_button-text {
+                color: $white;
+                background-color: $blue;
+                font-size: 16px;
+                font-weight: 600;
+                text-align: center;
+                line-height: 48px;
+                height: 48px;
+                padding: 0 24px;
+                border-radius: 6px;
+            }
+            .promotionsBanner_button-arrow {
+                display: none;
+            }
+        }  
+    }
+}
