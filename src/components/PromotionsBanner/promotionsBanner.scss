@@ -1,4 +1,4 @@
-@import '../../utils/sass/theme.scss';
+@import '@/utils/sass/theme.scss';
 
 .promotionsBanner {
     background-color: $white;
@@ -6,12 +6,7 @@
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
     overflow: hidden;
     margin: 24px 10px 0;
-}
-
-@media screen and (min-width: $laptop) {
-    .promotionsBanner {
-        width: 1180px;
-    }
+    max-width: $max-width;
 }
 
 /* Header */
@@ -53,12 +48,15 @@
 }
 
 @media screen and (min-width: $laptop) {
-    .promotionsBanner_header {
-        padding: 16px 24px;
-        min-height: 55px;
-        .promotionsBanner_header-title {
-            font-size: 26px;
-            line-height: 30px;
+    .promotionsBanner {
+        margin: 0 auto;
+        .promotionsBanner_header {
+            padding: 16px 24px;
+            min-height: 55px;
+            .promotionsBanner_header-title {
+                font-size: 26px;
+                line-height: 30px;
+            }
         }
     }  
 }
@@ -155,8 +153,7 @@
 @media screen and (min-width: $laptop) {
     .promotionsBanner_buttons {
         .promotionsBanner_button {
-            justify-content: flex-end;
-            margin-left: 1100px;
+            margin-left: 89%;
             .promotionsBanner_button-text {
                 color: $white;
                 background-color: $blue;
@@ -172,13 +169,5 @@
                 display: none;
             }
         }  
-    }
-}
-
-@media screen and (min-width: $desktop) {
-    .promotionsBanner_buttons {
-        .promotionsBanner_button {
-            margin-left: 1100px;
-        }
     }
 }
