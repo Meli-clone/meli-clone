@@ -10,12 +10,12 @@ interface Image {
 
 const INITIAL_STATE = [
   {
-    alt: 'Imagen2',
+    alt: 'Imagen1',
     to: '/',
     url: 'https://http2.mlstatic.com/D_NQ_984744-MLA51575658259_092022-OO.webp',
   },
   {
-    alt: 'Imagen1',
+    alt: 'Imagen2',
     to: '/',
     url: 'https://http2.mlstatic.com/D_NQ_804382-MLA51014059401_082022-OO.webp',
   },
@@ -38,86 +38,144 @@ const INITIAL_STATE = [
 
 // Hook getDimensions || Util getDimensions
 interface dimensions {
-  width: number,
-  height: number
+  width: number;
+  height: number;
 }
 
-const getWindowDimensions = () :dimensions => {
+const getWindowDimensions = (): dimensions => {
   const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
-    height
+    height,
   };
-}
+};
 
 const useWindowDimensions = () => {
-  const [windowDimensions, setWindowDimensions] = useState<dimensions>(getWindowDimensions());
+  const [windowDimensions, setWindowDimensions] = useState<dimensions>(
+    getWindowDimensions(),
+  );
 
   useEffect(() => {
     const handleResize = () => {
       setWindowDimensions(getWindowDimensions());
-    }
+    };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return windowDimensions;
-}
+};
 // End to Hook or Util
-
 
 const Slider = () => {
   const { width } = useWindowDimensions();
-  const [listImages, setListImages] = useState<Array<Image>>(INITIAL_STATE);
-  const [index, setIndex] = useState<number>(0)
+  const [listImages, setListImages] = useState<Array<Image>>([]);
+  const [index, setIndex] = useState<number>(0);
 
-  const handleTest = (action: "next" | "prev") => {
-    if(action == "prev"){
-      const newIndex = index + 1
-      if(newIndex > 0){
-        return setIndex(-(listImages.length-1))
+  useEffect(() => {
+    const firstImage = INITIAL_STATE[0];
+    const lastImage = INITIAL_STATE[INITIAL_STATE.length - 1];
+
+    setListImages([firstImage, ...INITIAL_STATE, lastImage]);
+    // setListImages(INITIAL_STATE);
+  }, []);
+
+  const handleTest = (action: 'next' | 'prev') => {
+    if (action == 'prev') {
+      const newIndex = index + 1;
+
+      if (newIndex > 0) {
+        return setIndex(-(listImages.length - 1));
       }
-      setIndex(newIndex)
+
+      setIndex(newIndex);
     }
-    if(action == "next"){
-      const newIndex = index - 1
-      if(newIndex <= (-listImages.length)){
-        return setIndex(0)
+
+    if (action == 'next') {
+      const newIndex = index - 1;
+
+      if (newIndex <= -listImages.length) {
+        return setIndex(0);
       }
-      setIndex(index - 1)
+
+      setIndex(index - 1);
     }
-  }
+  };
 
   return (
     <div className='slider_container'>
       <div className='slider_wrapper'>
-
-        <div className='slider_container_images' style={{transform: `translateX(${index * width}px)`}}>
+        <div
+          className='slider_container_images'
+          style={{ transform: `translateX(${index * width}px)` }}
+        >
           {listImages.map((element, i) => {
             return (
-              <div key={i} className='slider_content_image' style={{width: `${width}px`}}>
+              <div
+                key={i}
+                className='slider_content_image'
+                style={{ width: `${width}px` }}
+              >
                 <Link to={element.to}>
-                  <img className='slider_image' src={element.url} alt={element.alt} />
+                  <img
+                    className='slider_image'
+                    src={element.url}
+                    alt={element.alt}
+                  />
                 </Link>
               </div>
             );
           })}
         </div>
 
-        <button className='slider_button slider_button--prev' onClick={()=>handleTest("prev")}><svg width="24" height="24" viewBox="0 0 24 24" fill="rgba(0, 0, 0, 0.9)"><path d="M14.0656 4.9325L15.1263 5.99316L9.12254 11.9969L15.1325 18.0069L14.0719 19.0676L7.00122 11.9969L14.0656 4.9325Z" fill="rgba(0, 0, 0, 0.9)"></path></svg></button>
-        <button className='slider_button slider_button--next' onClick={()=>handleTest("next")}><svg width="24" height="24" viewBox="0 0 24 24" fill="rgba(0, 0, 0, 0.9)"><path d="M14.0656 4.9325L15.1263 5.99316L9.12254 11.9969L15.1325 18.0069L14.0719 19.0676L7.00122 11.9969L14.0656 4.9325Z" fill="rgba(0, 0, 0, 0.9)"></path></svg></button>
+        <button
+          className='slider_button slider_button--prev'
+          onClick={() => handleTest('prev')}
+        >
+          <svg
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='rgba(0, 0, 0, 0.9)'
+          >
+            <path
+              d='M14.0656 4.9325L15.1263 5.99316L9.12254 11.9969L15.1325 18.0069L14.0719 19.0676L7.00122 11.9969L14.0656 4.9325Z'
+              fill='rgba(0, 0, 0, 0.9)'
+            ></path>
+          </svg>
+        </button>
+        <button
+          className='slider_button slider_button--next'
+          onClick={() => handleTest('next')}
+        >
+          <svg
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='rgba(0, 0, 0, 0.9)'
+          >
+            <path
+              d='M14.0656 4.9325L15.1263 5.99316L9.12254 11.9969L15.1325 18.0069L14.0719 19.0676L7.00122 11.9969L14.0656 4.9325Z'
+              fill='rgba(0, 0, 0, 0.9)'
+            ></path>
+          </svg>
+        </button>
 
         <ul className='slider_pagination'>
           {listImages.map((_, i) => {
             return (
-            <li key={i} className='slider_pagination_item'>
-              <button onClick={()=>setIndex(-i)} className={`slider_pagination_button${i == (index*-1) ? ' slider_pagination_button--active' : ''}`}></button>
-            </li>
-            )
+              <li key={i} className='slider_pagination_item'>
+                <button
+                  onClick={() => setIndex(-i)}
+                  className={`slider_pagination_button${
+                    i == index * -1 ? ' slider_pagination_button--active' : ''
+                  }`}
+                ></button>
+              </li>
+            );
           })}
         </ul>
-        
       </div>
     </div>
   );

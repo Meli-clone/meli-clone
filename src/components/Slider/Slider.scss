@@ -1,23 +1,28 @@
 .slider_container {
-  width: 100%;
   position: relative;
+  width: 100%;
+
   .slider_wrapper {
     position: relative;
     height: 100%;
+
     .slider_container_images {
       display: flex;
       flex-direction: row;
       will-change: transform;
       transition: transform 300ms ease;
+      // overflow: hidden;
+
       .slider_content_image {
         display: flex;
         height: 100%;
+
         & a {
           display: flex;
           justify-content: center;
           align-items: center;
           width: 100vw;
-          overflow: hidden;
+
           .slider_image {
             display: block;
             width: 100%;
@@ -42,16 +47,19 @@
       width: 32px;
       top: 50%;
       cursor: pointer;
+
       &--prev {
         left: 0;
         right: unset;
         transform: translateY(-50%);
       }
+
       &--next {
         left: unset;
         right: 0;
         transform: rotate(180deg) translateY(50%);
       }
+
       &:hover {
         box-shadow: 0 8px 16px 0 rgb(0 0 0 / 10%);
       }
@@ -93,7 +101,7 @@
 
 // Organizar con los theme realizados
 @media (min-width: 1024px) {
-/*   .slider_container_images {
+  /*   .slider_container_images {
     overflow-x: hidden;
   } */
   .slider_image {
@@ -103,7 +111,7 @@
 }
 
 @media (max-width: 1023px) {
-/*   .slider_container_images {
+  /*   .slider_container_images {
     overflow-x: scroll;
     &::-webkit-scrollbar {
       display: none;
