@@ -1,14 +1,18 @@
-import HomePayment from '@/components/HomePayment';
-import PromotionsBanner from '@/components/PromotionsBanner/PromotionsBanner';
+import './Home.scss';
+import Descubre from './components/Descubre';
+import HomePayment from './components/HomePayment';
+import PromotionsBanner from './components/PromotionsBanner';
 import Regret from './components/Regret';
 import ShoppingInfo from './components/ShoppingInfo';
-import './Home.scss';
+import Slider from './components/Slider/Slider';
 
 const Home = () => {
   return (
-    <div>
-      <PromotionsBanner />
+    <div className='home_container'>
+      <Slider />
       <HomePayment />
+      <PromotionsBanner />
+      <Descubre />
       <ShoppingInfo />
       <Regret />
     </div>
