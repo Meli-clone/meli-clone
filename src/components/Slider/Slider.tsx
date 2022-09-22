@@ -77,7 +77,7 @@ const Slider = () => {
     const firstImage = INITIAL_STATE[0];
     const lastImage = INITIAL_STATE[INITIAL_STATE.length - 1];
 
-    setListImages([firstImage, ...INITIAL_STATE, lastImage]);
+    setListImages([lastImage, ...INITIAL_STATE, firstImage]);
     // setListImages(INITIAL_STATE);
   }, []);
 
@@ -163,7 +163,9 @@ const Slider = () => {
         </button>
 
         <ul className='slider_pagination'>
-          {listImages.map((_, i) => {
+          {listImages.map((_, i, array) => {
+            if (i === 0 || i === array.length - 1) return;
+
             return (
               <li key={i} className='slider_pagination_item'>
                 <button
