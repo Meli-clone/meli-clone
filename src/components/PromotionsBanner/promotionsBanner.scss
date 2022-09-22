@@ -153,6 +153,7 @@
 @media screen and (min-width: $laptop) {
     .promotionsBanner_buttons {
         .promotionsBanner_button {
+            justify-content: flex-end;
             margin-left: 89%;
             .promotionsBanner_button-text {
                 color: $white;
