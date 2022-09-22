@@ -5,6 +5,7 @@ import PromotionsBanner from './components/PromotionsBanner';
 import Regret from './components/Regret';
 import ShoppingInfo from './components/ShoppingInfo';
 import Slider from './components/Slider/Slider';
+import PopularCategories from './components/PopularCategories';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <HomePayment />
       <PromotionsBanner />
       <Descubre />
+      <PopularCategories />
       <ShoppingInfo />
       <Regret />
     </div>
