@@ -1,20 +1,23 @@
 @import '@/utils/sass/theme.scss';
 
-.popular_categories_container {
+.popular_categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: $background;
+}
+
+.popular_categories_container {
+  max-width: $max-width;
   padding: 10px;
+  width: 100%;
 
   & > h2 {
     font-size: 18px;
     font-weight: 400;
     color: $gray;
     padding-bottom: 16px;
-  }
-
-  .category_list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(170px, 1fr));
-    gap: 10px;
   }
 
   & > a {
@@ -33,6 +36,8 @@
 
 @media screen and (min-width: $tablet) {
   .popular_categories_container {
+    padding: 20px 0;
+
     .category_list {
       gap: 1px;
     }

@@ -1,0 +1,18 @@
+.category_list_desktop_container {
+  overflow: hidden;
+  position: relative;
+  max-width: 1200px;
+  height: 340px;
+  overflow: hidden;
+
+  .category_list_desktop {
+    display: flex;
+    gap: 1px;
+
+    & > .column {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+  }
+}

@@ -12,7 +12,7 @@ interface Props {
 
 const PopularCategoriesMobile = ({ categoryList }: Props) => {
   return (
-    <div>
+    <div className='category_list_mobile'>
       {categoryList
         .filter((e, i) => i < 6)
         .map(card => (

@@ -89,6 +89,50 @@ const INITIAL_DATA = [
     icon: '',
     title: 'Electrónica, Audio y Video15',
   },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video16',
+  },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video17',
+  },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video18',
+  },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video19',
+  },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video20',
+  },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video21',
+  },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video22',
+  },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video23',
+  },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video24',
+  },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video25',
+  },
+  {
+    icon: '',
+    title: 'Electrónica, Audio y Video26',
+  },
 ];
 
 interface CategoryData {
@@ -105,20 +149,18 @@ const PopularCategories = () => {
     setCategoryList(INITIAL_DATA);
   }, []);
 
-  console.log(width);
-
   return (
-    <div className='popular_categories_container'>
-      <h2>Categorías populares</h2>
-      <div className='category_list'>
+    <section className='popular_categories'>
+      <div className='popular_categories_container'>
+        <h2>Categorías populares</h2>
         {width < 768 ? (
           <PopularCategoriesMobile categoryList={categoryList} />
         ) : (
-          <PopularCategoriesDesktop categoryList={categoryList} />
+          <PopularCategoriesDesktop categoryList={categoryList} width={width} />
         )}
+        <a>Ver más categorías</a>
       </div>
-      <a>Ver más categorías</a>
-    </div>
+    </section>
   );
 };
 
