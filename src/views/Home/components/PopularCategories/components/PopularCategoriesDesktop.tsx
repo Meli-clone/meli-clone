@@ -1,3 +1,4 @@
+import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import CardPopularCategories from './CardPopularCategories';
 import './PopularCategoriesDesktop.scss';
 
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const PopularCategoriesDesktop = ({ categoryList, width }: Props) => {
-  const handleColumnSize = () => {
+  const getColumnSize = () => {
     const minWidth = 170;
 
     if (width >= 1200) {
@@ -26,37 +27,50 @@ const PopularCategoriesDesktop = ({ categoryList, width }: Props) => {
     return width / numberOfColumns;
   };
 
-  const handleChangeCategories = () => {
-    if (width >= 1200) return 1200;
+  const handleChangeCategories = (action: 'next' | 'previous') => {
+    const columnSize = getColumnSize();
 
+    if (action === 'next') {
+      if (width >= 1200) return -1200;
+      return -width;
+    }
+
+    if (width >= 1200) return 1200;
     return width;
   };
 
   const columnStyle = {
-    width: `${handleColumnSize()}px`,
-    transform: `translateX(${-handleChangeCategories()}px)`,
+    width: `${getColumnSize()}px`,
+    transform: `translateX(${handleChangeCategories('next')}px)`,
   };
 
   return (
-    <div className='category_list_desktop_container'>
-      <div className='wrapper' style={{ width: '4500px' }}>
-        <ul className='category_list_desktop'>
-          {categoryList.map((card, index, array) => {
-            if (index % 2 === 0) {
-              return (
-                <div className='column' style={columnStyle}>
-                  <CardPopularCategories key={card.title} {...card} />
-                  <CardPopularCategories
-                    key={array[index + 1].title}
-                    {...array[index + 1]}
-                  />
-                </div>
-              );
-            }
-          })}
-        </ul>
+    <>
+      <div className='category_buttons'>
+        <button className='category_button previous_button'>
+          {<MdOutlineArrowBackIosNew />}
+        </button>
+        <button className='category_button next_button'>
+          {<MdOutlineArrowBackIosNew />}
+        </button>
       </div>
-    </div>
+      <div className='category_list_desktop_container'>
+        <div className='wrapper' style={{ width: '4500px' }}>
+          <ul className='category_list_desktop'>
+            {categoryList.map((card, index, array) => {
+              if (index % 2 === 0) {
+                return (
+                  <div key={card.title} className='column' style={columnStyle}>
+                    <CardPopularCategories {...card} />
+                    <CardPopularCategories {...array[index + 1]} />
+                  </div>
+                );
+              }
+            })}
+          </ul>
+        </div>
+      </div>
+    </>
   );
 };
 
