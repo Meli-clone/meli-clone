@@ -10,6 +10,7 @@ import disneyPromoImg from '@/assets/images/header-disney-promo.png';
 import { BsCart2 } from 'react-icons/bs';
 import { IoLocationOutline } from 'react-icons/io5';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const screenWidth = window.innerWidth;
@@ -17,9 +18,9 @@ const Header = () => {
   return (
     <div className='header'>
       <div className='header__container'>
-        <a className='header__logo'>
+        <Link to='/' className='header__logo'>
           <img src={meliLogo2}></img>
-        </a>
+        </Link>
         <input
           className='header__search-input'
           placeholder='Buscar productos, marcas y más...'
@@ -63,9 +64,9 @@ const Header = () => {
             <a href='#'>Mis compras</a>
           </div>
 
-          <div className='user_options__car_btn'>
+          <Link to='/cart' className='user_options__car_btn'>
             <BsCart2 />
-          </div>
+          </Link>
         </div>
       </div>
     </div>
