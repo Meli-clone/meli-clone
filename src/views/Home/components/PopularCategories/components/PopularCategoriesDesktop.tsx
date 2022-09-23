@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import CardPopularCategories from './CardPopularCategories';
 import './PopularCategoriesDesktop.scss';
@@ -13,49 +14,72 @@ interface Props {
 }
 
 const PopularCategoriesDesktop = ({ categoryList, width }: Props) => {
+  const [categoriesDisplay, setCategoriesDisplay] = useState(0);
+
   const getColumnSize = () => {
     const minWidth = 170;
+    const widthDisplay = width >= 1200 ? 1200 : width;
 
-    if (width >= 1200) {
-      const numberOfColumns = Math.trunc(1200 / minWidth);
-
-      // 0.9375 -> value of quantity gap divide columns (15/16)
-      return 1200 / numberOfColumns - 0.9375;
-    }
-
-    const numberOfColumns = Math.trunc(width / minWidth);
-    return width / numberOfColumns;
+    const numberOfColumns = Math.trunc(widthDisplay / minWidth);
+    // 0.9375 -> value of quantity gap divide columns (15/16)
+    return widthDisplay / numberOfColumns - 15 / 16;
   };
 
   const handleChangeCategories = (action: 'next' | 'previous') => {
     const columnSize = getColumnSize();
+    const widthDisplay = width < 1200 ? width : 1200;
 
-    if (action === 'next') {
-      if (width >= 1200) return -1200;
-      return -width;
+    if (action === 'previous') {
+      setCategoriesDisplay(prevState => {
+        if (prevState + widthDisplay >= 0) return 0;
+        return prevState + widthDisplay;
+      });
     }
 
-    if (width >= 1200) return 1200;
-    return width;
+    if (action === 'next') {
+      setCategoriesDisplay(prevState => {
+        const newDisplay = prevState - widthDisplay;
+        const nextDisplay = prevState - widthDisplay * 2;
+        const displayAvailable = columnSize * 16;
+
+        if (-nextDisplay >= displayAvailable) {
+          // 15 --> total gap size
+          return newDisplay - (nextDisplay + displayAvailable) - 15;
+        }
+
+        return newDisplay;
+      });
+    }
   };
 
   const columnStyle = {
     width: `${getColumnSize()}px`,
-    transform: `translateX(${handleChangeCategories('next')}px)`,
+  };
+
+  const displayStyle = {
+    width: '4500px',
+    transform: `translateX(${categoriesDisplay}px)`,
+    transition: 'transform 300ms ease',
   };
 
   return (
     <>
       <div className='category_buttons'>
-        <button className='category_button previous_button'>
+        <button
+          className='category_button previous_button'
+          onClick={() => handleChangeCategories('previous')}
+        >
           {<MdOutlineArrowBackIosNew />}
         </button>
-        <button className='category_button next_button'>
+        <button
+          className='category_button next_button'
+          onClick={() => handleChangeCategories('next')}
+        >
           {<MdOutlineArrowBackIosNew />}
         </button>
       </div>
       <div className='category_list_desktop_container'>
-        <div className='wrapper' style={{ width: '4500px' }}>
+        <div className='wrapper' style={displayStyle}>
           <ul className='category_list_desktop'>
             {categoryList.map((card, index, array) => {
               if (index % 2 === 0) {
