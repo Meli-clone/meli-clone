@@ -3,7 +3,7 @@ import MainLayout from './layout/MainLayout';
 import Home from './views/Home';
 import Login from './views/Login';
 import SearchResults from './views/SearchResults';
-import ProdructDetails from './views/ProductDetails';
+import ProductDetails from './views/ProductDetails';
 import Cart from './views/Cart';
 import Register from './views/Register';
 
@@ -15,7 +15,7 @@ const App = () => {
       <Route element={<MainLayout />}>
         <Route path='/' element={<Home />} />
         <Route path='/search_results/:search' element={<SearchResults />} />
-        <Route path='/product_details/:product' element={<ProdructDetails />} />
+        <Route path='/product_details/:product' element={<ProductDetails />} />
         <Route path='/cart' element={<Cart />} />
       </Route>
     </Routes>
