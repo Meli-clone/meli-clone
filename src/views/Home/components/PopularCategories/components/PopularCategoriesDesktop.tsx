@@ -15,6 +15,8 @@ interface Props {
 
 const PopularCategoriesDesktop = ({ categoryList, width }: Props) => {
   const [categoriesDisplay, setCategoriesDisplay] = useState(0);
+  const [arrowLeftDisabled, setArrowLeftDisabled] = useState(true);
+  const [arrowRightDisabled, setArrowRightDisabled] = useState(false);
 
   const getColumnSize = () => {
     const minWidth = 170;
@@ -30,8 +32,14 @@ const PopularCategoriesDesktop = ({ categoryList, width }: Props) => {
     const widthDisplay = width < 1200 ? width : 1200;
 
     if (action === 'previous') {
+      setArrowRightDisabled(false);
+
       setCategoriesDisplay(prevState => {
-        if (prevState + widthDisplay >= 0) return 0;
+        if (prevState + widthDisplay >= 0) {
+          setArrowLeftDisabled(true);
+          return 0;
+        }
+
         return prevState + widthDisplay;
       });
     }
@@ -42,7 +50,10 @@ const PopularCategoriesDesktop = ({ categoryList, width }: Props) => {
         const nextDisplay = prevState - widthDisplay * 2;
         const displayAvailable = columnSize * 16;
 
+        setArrowLeftDisabled(false);
+
         if (-nextDisplay >= displayAvailable) {
+          setArrowRightDisabled(true);
           // 15 --> total gap size
           return newDisplay - (nextDisplay + displayAvailable) - 15;
         }
@@ -68,12 +79,14 @@ const PopularCategoriesDesktop = ({ categoryList, width }: Props) => {
         <button
           className='category_button previous_button'
           onClick={() => handleChangeCategories('previous')}
+          disabled={arrowLeftDisabled}
         >
           {<MdOutlineArrowBackIosNew />}
         </button>
         <button
           className='category_button next_button'
           onClick={() => handleChangeCategories('next')}
+          disabled={arrowRightDisabled}
         >
           {<MdOutlineArrowBackIosNew />}
         </button>
