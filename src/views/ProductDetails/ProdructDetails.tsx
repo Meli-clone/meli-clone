@@ -1,5 +1,5 @@
-function ProdructDetails() {
+const ProdructDetails = () => {
   return <div>ProdructDetails</div>;
-}
+};
 
 export default ProdructDetails;

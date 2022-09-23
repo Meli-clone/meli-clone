@@ -5,11 +5,13 @@ import Login from './views/Login';
 import SearchResults from './views/SearchResults';
 import ProdructDetails from './views/ProductDetails';
 import Cart from './views/Cart';
+import Register from './views/Register';
 
 const App = () => {
   return (
     <Routes>
       <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Register />} />
       <Route element={<MainLayout />}>
         <Route path='/' element={<Home />} />
         <Route path='/search_results/:search' element={<SearchResults />} />
