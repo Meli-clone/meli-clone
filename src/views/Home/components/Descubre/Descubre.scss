@@ -9,9 +9,10 @@
     @include flex(column, space-between, center);
     .descubre_innerContainer {
       @include flex(row, center, center);
+      border-radius: 3px;
       background-color: $white;
       margin-bottom: 20px;
-      max-height: 200px;
+      max-height: 205px;
       width: 100%;
       transition: box-shadow 0.3s;
       box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
@@ -80,10 +81,11 @@
     margin: 0 auto;
     .descubre_container {
       @include flex(row, space-between, center);
+      width: $max-width;
       .descubre_innerContainer {
         @include flex(row, space-around, center);
         width: 100%;
-        max-height: 250px;
+        max-height: 255px;
         margin: 0;
         .descubre_textContainer {
           .descubre_category {
