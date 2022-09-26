@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import PromotionsBanner from '@/components/PromotionsBanner/PromotionsBanner';
 import HomePayment from '@/components/HomePayment';
 <<<<<<< HEAD
@@ -9,11 +10,16 @@ import Descubre from '@/components/Descubre/Descubre';
 =======
 import Home from '@/views/Home';
 >>>>>>> 2603e18e10290a099f4a36797664ccb4fdf41f6b
+=======
+import { Outlet } from 'react-router-dom';
+>>>>>>> 23822b204c9d157ee44c01b3dd0bb3587a6c5555
 import Footer from '../Footer';
+import Header from '../Header';
 
 const MainLayout = () => {
   return (
     <>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <HomePayment/>
 <<<<<<< HEAD
@@ -25,6 +31,10 @@ const MainLayout = () => {
 =======
       <Home />
 >>>>>>> 2603e18e10290a099f4a36797664ccb4fdf41f6b
+=======
+      <Header />
+      <Outlet />
+>>>>>>> 23822b204c9d157ee44c01b3dd0bb3587a6c5555
       <Footer />
     </>
   );
