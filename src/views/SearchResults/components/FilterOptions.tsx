@@ -2,15 +2,6 @@ import { useState, useEffect } from 'react';
 import Filter from './Filter';
 import './FilterOptions.scss';
 
-interface FilterData {
-  title: string;
-  data: Array<{
-    href: string;
-    label: string;
-    quantity: number;
-  }>;
-}
-
 const FILTER_DATA = [
   {
     title: 'Tiendas oficiales',
@@ -68,6 +59,15 @@ const FILTER_DATA = [
     ],
   },
 ];
+
+interface FilterData {
+  title: string;
+  data: Array<{
+    href: string;
+    label: string;
+    quantity: number;
+  }>;
+}
 
 const FilterOptions = () => {
   const [filterOptions, setFilterOptions] = useState<Array<FilterData>>([]);
