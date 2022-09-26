@@ -11,10 +11,9 @@ interface Products {
 
 interface Props {
   producto: Products
-  /* translate: number */
 }
 
-const ProductListCard = ({producto/* , translate */}: Props) => {
+const ProductListCard = ({producto}: Props) => {
   const [productHover, setProductHover] = useState(false);
 
   const handleMouseOver = () => {
@@ -26,7 +25,7 @@ const ProductListCard = ({producto/* , translate */}: Props) => {
   }
 
   return(
-  <div className="productListCard" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} /* style={{ transform: `translateX(${translate}px)` }} */>
+  <div className="productListCard" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
       <button className="productListCard_button" style={{opacity: productHover ? '1' : '0'}}><BsHeart className="productListCard_icon"/></button>
       <div className="productListCard_imageContainer">
           <img className="productListCard_image" src={producto.image} alt={producto.title}/>

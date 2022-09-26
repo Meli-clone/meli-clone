@@ -77,8 +77,6 @@ interface Products {
 const ProductList = () => {
   const [productos, setProductos] = useState<Array<Products>>([]);
   const [translate, setTranslate] = useState(0);
-  const [distanceTranslate, setDistanceTranslate] = useState(240);
-  const [showButton, setShowButton] = useState(true);
 
   const [width] = useWindowSize();
 
@@ -88,54 +86,16 @@ const ProductList = () => {
   }, [width]);
 
   const handleButtonRight = () => {
-    /* if(width < 768 && translate > -2161){
-      if(translate == -1920){
-        setTranslate(translate - distanceTranslate);
-        setShowButton(false);
-      }else {
-        setTranslate(translate - distanceTranslate);
-      }
-    } else if(width > 768 && width < 1024 && translate > -2100){
-      if(translate == -1440){
-        setTranslate(translate - distanceTranslate);
-        setShowButton(false);
-      }else {
-        setTranslate(translate - distanceTranslate);
-      }
-    } else if (width > 1024 && width < 1366 && translate > -961) {
-      if(translate == -960){
-        setTranslate(translate - distanceTranslate);
-        setShowButton(false);
-      }else {
-        setTranslate(translate - distanceTranslate);
-      }
-    } else if ( width > 1366 && translate !== (-distanceTranslate)){
-        setTranslate(translate - distanceTranslate);
-        setShowButton(false);
-    } */
     setTranslate(prevState => prevState - handleWidth() - 16);
-    console.log({ translate: translate*-1, total: (224*productos.length) / 2})
-    if(translate*-1 >= (224*productos.length) / 2){
-      setShowButton(false);
-    }
   }
 
   const handleButtonLeft = () => {
     if(translate !== 0){
-      /* setTranslate(translate + distanceTranslate) */
       setTranslate(prevState => prevState + handleWidth() + 16);
-      setShowButton(true);
     }
   }
 
   const handleWidth = () => {
-   /*  if(width > 768 && width < 1024){
-      setDistanceTranslate(720)
-    } else if (width > 1024 && width < 1366) {
-      setDistanceTranslate(960)
-    } else if ( width > 1366){
-      setDistanceTranslate(1200)
-    } */
     if(width > 1200){
       return 1200
     }
@@ -162,7 +122,7 @@ const ProductList = () => {
         <div className="productList_gridContainer" style={{ transform: `translateX(${translate}px)`, width: `${handleWidth()}px`}}>
           {productos.map((item, index) => {
             return(
-              <ProductListCard key={index} producto={item}/*  translate={translate} *//>
+              <ProductListCard key={index} producto={item}/>
             )
           })}
         </div>
