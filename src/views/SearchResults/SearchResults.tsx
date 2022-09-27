@@ -20,6 +20,10 @@ export interface Product {
       discount_percentage: number;
     }>;
   };
+  shipping: {
+    free_shipping: boolean;
+    logistic_type: 'fulfillment' | 'xd_drop_off';
+  };
 }
 
 const SearchResults = () => {
@@ -36,7 +40,17 @@ const SearchResults = () => {
     setProductList(res);
   };
 
-  console.log(productList[0]);
+  console.log(productList[1]);
+
+  // free_shipping: true
+  // logistic_type: "fulfillment"
+  // mode: "me2"
+  // store_pick_up: false
+
+  // free_shipping: false
+  // logistic_type: "xd_drop_off"
+  // mode: "me2"
+  // store_pick_up: false
 
   return (
     <div

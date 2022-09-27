@@ -38,6 +38,10 @@
     }
 
     .item_price {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
       .price_off {
         color: $gray-light;
         font-size: 12px;
@@ -57,6 +61,12 @@
           display: flex;
           gap: 5px;
         }
+      }
+
+      .item_groud--shipping {
+        display: flex;
+        align-items: center;
+        gap: 15px;
       }
     }
   }

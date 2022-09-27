@@ -1,13 +1,16 @@
 import './Result.scss';
 import { Product } from '../SearchResults';
 import PurchaseDiscount from './PurchaseDiscount';
+import FreeShipping from './FreeShipping';
+import Fulfillment from './Fulfillment';
 
 interface Prop {
   product: Product;
 }
 
 const Result = ({ product }: Prop) => {
-  const { title, price, sale_price, thumbnail, seller, prices } = product;
+  const { title, price, sale_price, thumbnail, seller, prices, shipping } =
+    product;
 
   return (
     <li className='result_container'>
@@ -19,9 +22,7 @@ const Result = ({ product }: Prop) => {
         <div className='item-title'>
           <span className='label'>{title}</span>
           {seller?.eshop?.nick_name && (
-            <span className='seller'>
-              Vendido por {seller?.eshop?.nick_name}
-            </span>
+            <span className='seller'>Vendido por {seller.eshop.nick_name}</span>
           )}
         </div>
         <div className='item_price'>
@@ -40,6 +41,10 @@ const Result = ({ product }: Prop) => {
                 }
               </span>
             )}
+          </div>
+          <div className='item_groud--shipping'>
+            {shipping.free_shipping && <FreeShipping />}
+            {shipping.logistic_type === 'fulfillment' && <Fulfillment />}
           </div>
         </div>
       </div>
