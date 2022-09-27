@@ -1,5 +1,6 @@
 import './Result.scss';
 import { Product } from '../SearchResults';
+import PurchaseDiscount from './PurchaseDiscount';
 
 interface Prop {
   product: Product;
@@ -32,7 +33,11 @@ const Result = ({ product }: Prop) => {
             </span>
             {prices.purchase_discounts[0] && (
               <span>
-                {prices.purchase_discounts[0].discount_percentage * 100}% OFF
+                {
+                  <PurchaseDiscount
+                    discount={prices.purchase_discounts[0].discount_percentage}
+                  />
+                }
               </span>
             )}
           </div>
