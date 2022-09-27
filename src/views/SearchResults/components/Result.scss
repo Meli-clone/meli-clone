@@ -44,13 +44,22 @@
         text-decoration: line-through;
       }
 
-      .price {
-        color: $gray-dark;
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 1.25;
+      .price_container {
         display: flex;
-        gap: 5px;
+        align-items: center;
+        gap: 10px;
+        color: $green;
+        font-size: 14px;
+        font-weight: 400;
+
+        .price {
+          color: $gray-dark;
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 1.25;
+          display: flex;
+          gap: 5px;
+        }
       }
     }
   }
