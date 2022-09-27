@@ -7,8 +7,8 @@ import { getProductsByQuery } from '@/services/products';
 export interface Product {
   id: string;
   title: string;
+  original_price: number;
   price: number;
-  sale_price: number;
   thumbnail: string;
   seller: {
     eshop: {
@@ -40,18 +40,7 @@ const SearchResults = () => {
     setProductList(res);
   };
 
-  console.log(productList[1]);
-
-  // free_shipping: true
-  // logistic_type: "fulfillment"
-  // mode: "me2"
-  // store_pick_up: false
-
-  // free_shipping: false
-  // logistic_type: "xd_drop_off"
-  // mode: "me2"
-  // store_pick_up: false
-
+  // console.log(productList[2]);
   return (
     <div
       style={{

@@ -1,11 +1,14 @@
 import './PurchaseDiscount.scss';
 
 interface Prop {
-  discount: number;
+  originalPrice: number;
+  actualPrice: number;
 }
 
-const PurchaseDiscount = ({ discount }: Prop) => {
-  return <span className='purchase_discount'>{discount * 100}% OFF</span>;
+const PurchaseDiscount = ({ originalPrice, actualPrice }: Prop) => {
+  const discount = Math.round(100 - (actualPrice * 100) / originalPrice);
+
+  return <span className='purchase_discount'>{discount}% OFF</span>;
 };
 
 export default PurchaseDiscount;

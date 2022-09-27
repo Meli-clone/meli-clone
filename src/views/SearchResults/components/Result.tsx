@@ -9,13 +9,24 @@ interface Prop {
 }
 
 const Result = ({ product }: Prop) => {
-  const { title, price, sale_price, thumbnail, seller, prices, shipping } =
+  const { title, original_price, price, thumbnail, seller, prices, shipping } =
     product;
+
+  const transformPrice = (price: number) => {
+    const formattedNumber = price
+      .toString()
+      .split('')
+      .reverse()
+      .map((e, i) => (i % 3 === 0 && i !== 0 ? `${e}.` : e))
+      .reverse()
+      .join('');
+
+    return formattedNumber;
+  };
 
   return (
     <li className='result_container'>
       <picture>
-        {/* <img src='https://cdn.forbes.co/2021/05/El-sen%CC%83or-de-los-anillos-Golum-Foto-Cortesia-1024x576.jpg' /> */}
         <img src={thumbnail} />
       </picture>
       <div className='item_info'>
@@ -26,21 +37,28 @@ const Result = ({ product }: Prop) => {
           )}
         </div>
         <div className='item_price'>
-          {sale_price && <span className='price_off'>${sale_price}</span>}
-          <div className='price_container'>
-            <span className='price'>
-              <span>$</span>
-              <span>{price}</span>
-            </span>
-            {prices.purchase_discounts[0] && (
-              <span>
-                {
-                  <PurchaseDiscount
-                    discount={prices.purchase_discounts[0].discount_percentage}
-                  />
-                }
+          <div className='price_discount_container'>
+            {original_price && (
+              <span className='price_off'>
+                ${transformPrice(original_price)}
               </span>
             )}
+            <div className='price_container'>
+              <span className='price'>
+                <span>$</span>
+                <span>{transformPrice(price)}</span>
+              </span>
+              {original_price && (
+                <span>
+                  {
+                    <PurchaseDiscount
+                      actualPrice={price}
+                      originalPrice={original_price}
+                    />
+                  }
+                </span>
+              )}
+            </div>
           </div>
           <div className='item_groud--shipping'>
             {shipping.free_shipping && <FreeShipping />}
