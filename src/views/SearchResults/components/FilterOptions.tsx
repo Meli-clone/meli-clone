@@ -78,7 +78,6 @@ const FilterOptions = () => {
 
   return (
     <aside className='filter_options_container'>
-      <span>100 resultados</span>
       <section className='filter_list'>
         {filterOptions.map(e => (
           <Filter key={e.title} title={e.title} data={e.data} />

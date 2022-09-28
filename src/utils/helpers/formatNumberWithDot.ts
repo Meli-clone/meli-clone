@@ -1,4 +1,4 @@
-export function formatPrice(price: number): string {
+export default function formatNumberWithDot(price: number): string {
   const roundedPrice = Math.round(price);
 
   const formattedNumber = roundedPrice

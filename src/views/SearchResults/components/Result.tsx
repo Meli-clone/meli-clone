@@ -3,7 +3,7 @@ import { Product } from '../SearchResults';
 import PurchaseDiscount from './PurchaseDiscount';
 import FreeShipping from './FreeShipping';
 import Fulfillment from './Fulfillment';
-import { formatPrice } from '@/utils/helpers/formatPrice';
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 import formatSellerName from '@/utils/helpers/formatSellerName';
 
 interface Prop {
@@ -42,12 +42,14 @@ const Result = ({ product }: Prop) => {
         <div className='item_price'>
           <div className='price_discount_container'>
             {original_price - price > 0 && (
-              <span className='price_off'>${formatPrice(original_price)}</span>
+              <span className='price_off'>
+                ${formatNumberWithDot(original_price)}
+              </span>
             )}
             <div className='price_container'>
               <span className='price'>
                 <span>$</span>
-                <span>{formatPrice(price)}</span>
+                <span>{formatNumberWithDot(price)}</span>
               </span>
               {original_price - price > 0 && (
                 <span>

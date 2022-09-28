@@ -4,6 +4,7 @@ import FilterOptions from './components/FilterOptions';
 import Result from './components/Result';
 import { getProductsByQuery } from '@/services/products';
 import './SearchResults.scss';
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 
 export interface Product {
   id: string;
@@ -30,6 +31,7 @@ export interface Product {
 
 const SearchResults = () => {
   const [productList, setProductList] = useState<Array<Product>>([]);
+  const [totalResults, setTotalResults] = useState<number>(0);
   const { search } = useParams();
 
   useEffect(() => {
@@ -39,14 +41,16 @@ const SearchResults = () => {
   const handleGetProducts = async () => {
     const res = await getProductsByQuery(search);
 
-    setProductList(res);
+    setProductList(res.results);
+    setTotalResults(res.paging.total);
   };
 
-  console.log(productList[0]);
+  // console.log(productList[0]);
   return (
     <div className='search_results_container'>
       <header className='search_results_header'>
         <h1>El señor de los anillos</h1>
+        <span>{formatNumberWithDot(totalResults)} resultados</span>
       </header>
       <div className='search_results_grid'>
         <FilterOptions />
