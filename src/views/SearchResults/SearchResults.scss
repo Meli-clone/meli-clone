@@ -11,9 +11,19 @@
     width: 100%;
     max-width: 1200px;
     padding-top: 10px;
+    padding-bottom: 20px;
 
     h1 {
+      color: $gray-dark;
+      font-size: 26px;
+      font-weight: 600;
       text-align: left;
+    }
+
+    .total_results {
+      color: $gray-dark;
+      font-size: 14px;
+      font-weight: 300;
     }
   }
 
@@ -22,5 +32,11 @@
     max-width: 1200px;
     display: grid;
     grid-template-columns: 300px auto;
+
+    .list_container {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
   }
 }

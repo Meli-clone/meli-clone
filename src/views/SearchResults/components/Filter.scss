@@ -14,15 +14,15 @@
   & > ul {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 12px;
 
     & > li {
       list-style: none;
 
       & > a {
         display: flex;
-        gap: 5px;
         font-size: 14px;
+        gap: 5px;
         text-decoration: none;
 
         span.label {
@@ -35,6 +35,12 @@
           font-weight: 300;
         }
       }
+    }
+
+    .view_more {
+      color: $blue;
+      font-size: 14px;
+      font-weight: 300;
     }
   }
 }

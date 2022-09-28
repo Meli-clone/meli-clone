@@ -1,86 +1,16 @@
-import { useState, useEffect } from 'react';
+import { FilterOption } from '../SearchResults';
 import Filter from './Filter';
 import './FilterOptions.scss';
-
-const FILTER_DATA = [
-  {
-    title: 'Tiendas oficiales',
-    data: [
-      {
-        href: '',
-        label: 'Solo tiendas oficiales',
-        quantity: 34,
-      },
-    ],
-  },
-  {
-    title: 'Categorías',
-    data: [
-      {
-        href: '',
-        label: 'Joyas y Bijouterie',
-        quantity: 16,
-      },
-      {
-        href: '',
-        label: 'Libros Físicos',
-        quantity: 12,
-      },
-      {
-        href: '',
-        label: 'Hogar, Muebles y Jardín',
-        quantity: 22,
-      },
-      {
-        href: '',
-        label: 'Antigüedades y Colecciones',
-        quantity: 11,
-      },
-      {
-        href: '',
-        label: 'Deporte y Fitness',
-        quantity: 7,
-      },
-      {
-        href: '',
-        label: 'Música, Películas y Series',
-        quantity: 13,
-      },
-    ],
-  },
-  {
-    title: 'Costo de envío',
-    data: [
-      {
-        href: '',
-        label: 'Gratis',
-        quantity: 13,
-      },
-    ],
-  },
-];
-
-interface FilterData {
-  title: string;
-  data: Array<{
-    href: string;
-    label: string;
-    quantity: number;
-  }>;
+interface Prop {
+  filters: Array<FilterOption>;
 }
 
-const FilterOptions = () => {
-  const [filterOptions, setFilterOptions] = useState<Array<FilterData>>([]);
-
-  useEffect(() => {
-    setFilterOptions(FILTER_DATA);
-  }, []);
-
+const FilterOptions = ({ filters }: Prop) => {
   return (
     <aside className='filter_options_container'>
       <section className='filter_list'>
-        {filterOptions.map(e => (
-          <Filter key={e.title} title={e.title} data={e.data} />
+        {filters.map(e => (
+          <Filter key={e.id} title={e.name} data={e.values} />
         ))}
       </section>
     </aside>
