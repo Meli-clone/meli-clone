@@ -1,0 +1,26 @@
+@import '@/utils/sass/theme.scss';
+
+.search_results_container {
+  background-color: $background;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  .search_results_header {
+    width: 100%;
+    max-width: 1200px;
+    padding-top: 10px;
+
+    h1 {
+      text-align: left;
+    }
+  }
+
+  .search_results_grid {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 300px auto;
+  }
+}

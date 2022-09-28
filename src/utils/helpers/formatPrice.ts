@@ -1,5 +1,5 @@
-export const formattedPrice = (price: number) => {
-  const roundedPrice = Math.round(price)
+export function formatPrice(price: number): string {
+  const roundedPrice = Math.round(price);
 
   const formattedNumber = roundedPrice
     .toString()
@@ -10,4 +10,4 @@ export const formattedPrice = (price: number) => {
     .join('');
 
   return formattedNumber;
-};
+}

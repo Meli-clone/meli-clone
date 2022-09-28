@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import FilterOptions from './components/FilterOptions';
 import Result from './components/Result';
 import { getProductsByQuery } from '@/services/products';
+import './SearchResults.scss';
 
 export interface Product {
   id: string;
@@ -43,27 +44,23 @@ const SearchResults = () => {
 
   console.log(productList[0]);
   return (
-    <div
-      style={{
-        height: '2000px',
-        backgroundColor: 'lightGray',
-        display: 'grid',
-        // gridTemplateColumns: '300px auto',
-      }}
-    >
-      {/* <h1>El señor de los anillos</h1> */}
-      {/* <FilterOptions /> */}
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '10px',
-          // width: '100vw',
-        }}
-      >
-        {productList.map(product => (
-          <Result key={product.id} product={product} />
-        ))}
+    <div className='search_results_container'>
+      <header className='search_results_header'>
+        <h1>El señor de los anillos</h1>
+      </header>
+      <div className='search_results_grid'>
+        <FilterOptions />
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1px',
+          }}
+        >
+          {productList.map(product => (
+            <Result key={product.id} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,8 @@ import { Product } from '../SearchResults';
 import PurchaseDiscount from './PurchaseDiscount';
 import FreeShipping from './FreeShipping';
 import Fulfillment from './Fulfillment';
-import { formattedPrice } from '@/utils/helpers/formattedPrice';
+import { formatPrice } from '@/utils/helpers/formatPrice';
+import formatSellerName from '@/utils/helpers/formatSellerName';
 
 interface Prop {
   product: Product;
@@ -33,20 +34,20 @@ const Result = ({ product }: Prop) => {
         <div className='item-title'>
           <span className='label'>{title}</span>
           {seller?.eshop?.nick_name && (
-            <span className='seller'>Vendido por {seller.eshop.nick_name}</span>
+            <span className='seller'>
+              Vendido por {formatSellerName(seller.eshop.nick_name)}
+            </span>
           )}
         </div>
         <div className='item_price'>
           <div className='price_discount_container'>
             {original_price - price > 0 && (
-              <span className='price_off'>
-                ${formattedPrice(original_price)}
-              </span>
+              <span className='price_off'>${formatPrice(original_price)}</span>
             )}
             <div className='price_container'>
               <span className='price'>
                 <span>$</span>
-                <span>{formattedPrice(price)}</span>
+                <span>{formatPrice(price)}</span>
               </span>
               {original_price - price > 0 && (
                 <span>
