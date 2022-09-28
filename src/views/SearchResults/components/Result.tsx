@@ -3,26 +3,23 @@ import { Product } from '../SearchResults';
 import PurchaseDiscount from './PurchaseDiscount';
 import FreeShipping from './FreeShipping';
 import Fulfillment from './Fulfillment';
+import { formattedPrice } from '@/utils/helpers/formattedPrice';
 
 interface Prop {
   product: Product;
 }
 
 const Result = ({ product }: Prop) => {
-  const { title, original_price, price, thumbnail, seller, prices, shipping } =
-    product;
-
-  const transformPrice = (price: number) => {
-    const formattedNumber = price
-      .toString()
-      .split('')
-      .reverse()
-      .map((e, i) => (i % 3 === 0 && i !== 0 ? `${e}.` : e))
-      .reverse()
-      .join('');
-
-    return formattedNumber;
-  };
+  const {
+    title,
+    original_price,
+    price,
+    thumbnail,
+    seller,
+    prices,
+    shipping,
+    tags,
+  } = product;
 
   return (
     <li className='result_container'>
@@ -30,6 +27,9 @@ const Result = ({ product }: Prop) => {
         <img src={thumbnail} />
       </picture>
       <div className='item_info'>
+        {tags.includes('best_seller_candidate') && (
+          <div className='best_seller'>MÁS VENDIDO</div>
+        )}
         <div className='item-title'>
           <span className='label'>{title}</span>
           {seller?.eshop?.nick_name && (
@@ -38,17 +38,17 @@ const Result = ({ product }: Prop) => {
         </div>
         <div className='item_price'>
           <div className='price_discount_container'>
-            {original_price && (
+            {original_price - price > 0 && (
               <span className='price_off'>
-                ${transformPrice(original_price)}
+                ${formattedPrice(original_price)}
               </span>
             )}
             <div className='price_container'>
               <span className='price'>
                 <span>$</span>
-                <span>{transformPrice(price)}</span>
+                <span>{formattedPrice(price)}</span>
               </span>
-              {original_price && (
+              {original_price - price > 0 && (
                 <span>
                   {
                     <PurchaseDiscount

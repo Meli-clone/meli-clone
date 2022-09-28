@@ -24,6 +24,7 @@ export interface Product {
     free_shipping: boolean;
     logistic_type: 'fulfillment' | 'xd_drop_off';
   };
+  tags: Array<string>;
 }
 
 const SearchResults = () => {
@@ -40,7 +41,7 @@ const SearchResults = () => {
     setProductList(res);
   };
 
-  // console.log(productList[2]);
+  console.log(productList[0]);
   return (
     <div
       style={{
