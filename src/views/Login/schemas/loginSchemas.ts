@@ -11,7 +11,7 @@ export const loginSchema = yup.object({
     .required('Campo requerido'),
   password: yup
     .string()
-    .min(5)
+    .min(5, 'La contraseña debe tener minimo 5 caracteres')
     // .matches(passwordRules, { message: 'Please create a stronger password' })
     .required('Campo requerido'),
 });

@@ -33,7 +33,7 @@ const Login = () => {
     formikBag: FormikHelpers<FormValues>,
   ) => {
     console.log({ values, formikBag });
-    if (values.username !== 'john' || values.password !== '12345') {
+    if (values.username !== 'jhon' || values.password !== '12345') {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -42,9 +42,9 @@ const Login = () => {
       });
     } else {
       localStorage.setItem('username', values.username);
-      formikBag.setSubmitting(false);
       navigate('/');
     }
+    formikBag.setSubmitting(false);
   };
 
   return (
@@ -75,7 +75,7 @@ const Login = () => {
                 <CustomInput
                   label='Contraseña'
                   name='password'
-                  type='text'
+                  type='password'
                   placeholder=''
                 />
 
@@ -88,6 +88,7 @@ const Login = () => {
           <div className='main_container__main_card__registration_link'>
             <Link to='#'>Crear cuenta</Link>
           </div>
+          <div className='divider'></div>
           <div className='main_container__main_card__help_link'>
             <Link to='#'>Necesito ayuda para ingresar</Link>
           </div>
