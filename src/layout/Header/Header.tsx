@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 //COMPONENTS
 import HamburgerMenu from './HamburgerMenu';
 
@@ -10,7 +12,6 @@ import disneyPromoImg from '@/assets/images/header-disney-promo.png';
 import { BsCart2 } from 'react-icons/bs';
 import { IoLocationOutline } from 'react-icons/io5';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
   const screenWidth = window.innerWidth;
@@ -60,7 +61,7 @@ const Header = () => {
         <div className='header__user_options'>
           <div className='header__user_options__user'>
             <a href='#'>Crea tu cuenta</a>
-            <a href='#'>Ingresa</a>
+            <Link to='/login'>Ingresa</Link>
             <a href='#'>Mis compras</a>
           </div>
 
