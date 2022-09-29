@@ -1,0 +1,36 @@
+@import '@/utils/sass/theme.scss';
+
+table {
+  background-color: $white;
+  width: 100%;
+  margin: 20px;
+  border-spacing: 0;
+}
+
+table,
+td {
+  border: 1px solid $background;
+}
+
+tr {
+  td {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 20px;
+    color: $black;
+    padding: 15px 24px 15px 16px;
+    width: 50%;
+  }
+}
+
+tr:nth-child(odd) td:nth-child(1) {
+  background-color: $table-dark;
+}
+
+tr:nth-child(even) td:nth-child(1) {
+  background-color: $table-light;
+}
+
+tr:nth-child(odd) td:nth-child(2) {
+  background-color: $table-light;
+}
