@@ -11,18 +11,23 @@
     height: 50px;
     padding: 5px 10px;
     @include flex(row, start, center);
+    &__container {
+      &__logo {
+        color: $blue;
+        height: 40px;
+        display: flex;
+        align-items: center;
 
-    &__logo {
-      color: $blue;
-      height: 40px;
-      display: flex;
-      align-items: center;
+        img {
+          height: 32px;
+          width: 50px;
+          object-fit: cover;
+          object-position: left;
+        }
+      }
 
-      img {
-        height: 32px;
-        width: 50px;
-        object-fit: cover;
-        object-position: left;
+      &__help {
+        display: none;
       }
     }
   }
@@ -228,6 +233,30 @@
       padding: 0;
       a {
         font-size: 14px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $laptop) {
+  .login {
+    .login_header {
+      justify-content: center;
+      &__container {
+        @include flex(row, space-between, center);
+        width: 100%;
+        max-width: 1020px;
+        &__logo {
+          img {
+            width: auto;
+          }
+        }
+        &__help {
+          display: inline;
+        }
+        .help_icon {
+          color: $gray-dark;
+        }
       }
     }
   }

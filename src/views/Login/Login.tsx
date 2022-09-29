@@ -1,5 +1,5 @@
 import { Formik, Form, FormikHelpers } from 'formik';
-import { Link, redirect, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 //COMPONENTS AND FUNCTIONS
@@ -14,6 +14,7 @@ import './Login.scss';
 import { GiSmartphone } from 'react-icons/gi';
 import { RiUser3Line } from 'react-icons/ri';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+import { TbHelp } from 'react-icons/tb';
 
 interface FormValues {
   username: string;
@@ -50,9 +51,14 @@ const Login = () => {
   return (
     <div className='login'>
       <header className='login_header'>
-        <Link to='/' className='login_header__logo'>
-          <img src={meliLogo2}></img>
-        </Link>
+        <div className='login_header__container'>
+          <Link to='/' className='login_header__container__logo'>
+            <img src={meliLogo2}></img>
+          </Link>
+          <Link to='#' className='login_header__container__help'>
+            <TbHelp className='help_icon' />
+          </Link>
+        </div>
       </header>
       <div className='main_container'>
         <div className='main_container__main_card'>
@@ -88,7 +94,6 @@ const Login = () => {
           <div className='main_container__main_card__registration_link'>
             <Link to='#'>Crear cuenta</Link>
           </div>
-          <div className='divider'></div>
           <div className='main_container__main_card__help_link'>
             <Link to='#'>Necesito ayuda para ingresar</Link>
           </div>
