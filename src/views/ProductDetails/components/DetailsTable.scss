@@ -3,8 +3,8 @@
 table {
   background-color: $white;
   width: 100%;
-  margin: 20px;
   border-spacing: 0;
+  margin: 20px 0;
 }
 
 table,
@@ -18,7 +18,7 @@ tr {
     font-size: 15px;
     line-height: 20px;
     color: $black;
-    padding: 15px 24px 15px 16px;
+    padding: 10px;
     width: 50%;
   }
 }
@@ -33,4 +33,17 @@ tr:nth-child(even) td:nth-child(1) {
 
 tr:nth-child(odd) td:nth-child(2) {
   background-color: $table-light;
+}
+
+@media only screen and (min-width: $tablet) {
+  tr {
+    td {
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 20px;
+      color: $black;
+      padding: 15px 24px 15px 16px;
+      width: 50%;
+    }
+  }
 }

@@ -5,22 +5,13 @@ import { TbArrowBack } from "react-icons/tb"
 import { AiOutlineTrophy } from "react-icons/Ai";
 import { BiCheckShield } from "react-icons/bi";
 import DetailsTable from "./DetailsTable";
+import { Product } from "../ProductDetails";
 
-interface Product {
-    product: {
-        sold_quantity: number,
-        condition: string,
-        title: string,
-        price: number,
-        buying_mode: string,
-        available_quantity: number,
-        pictures: string,
-        descriptions: string,
-        attributes: object,
-    }
+interface Prop {
+    product: Product
 }
 
-const Details = ({product}: Product) => {
+const Details = ({product}: Prop) => {
     const [titleStock, setTitleStock] = useState<string>("")
 
     useEffect(() => {
