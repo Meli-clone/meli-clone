@@ -15,6 +15,7 @@ import { GiSmartphone } from 'react-icons/gi';
 import { RiUser3Line } from 'react-icons/ri';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { TbHelp } from 'react-icons/tb';
+import MinimalHeader from '../components/MinimalHeader';
 
 interface FormValues {
   username: string;
@@ -50,16 +51,7 @@ const Login = () => {
 
   return (
     <div className='login'>
-      <header className='login_header'>
-        <div className='login_header__container'>
-          <Link to='/' className='login_header__container__logo'>
-            <img src={meliLogo2}></img>
-          </Link>
-          <Link to='#' className='login_header__container__help'>
-            <TbHelp className='help_icon' />
-          </Link>
-        </div>
-      </header>
+      <MinimalHeader />
       <div className='main_container'>
         <div className='main_container__main_card'>
           <h1>¡Hola! Ingresa tu teléfono, e-mail o usuario</h1>
@@ -92,7 +84,7 @@ const Login = () => {
             )}
           </Formik>
           <div className='main_container__main_card__registration_link'>
-            <Link to='#'>Crear cuenta</Link>
+            <Link to='/register'>Crear cuenta</Link>
           </div>
           <div className='main_container__main_card__help_link'>
             <Link to='#'>Necesito ayuda para ingresar</Link>
