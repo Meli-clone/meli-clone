@@ -7,6 +7,7 @@ import Regret from './components/Regret';
 import ShoppingInfo from './components/ShoppingInfo';
 import Slider from './components/Slider/Slider';
 import PopularCategories from './components/PopularCategories';
+import Cart from '../Cart';
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <PopularCategories />
       <ShoppingInfo />
       <Regret />
+      <Cart />
     </div>
   );
 };

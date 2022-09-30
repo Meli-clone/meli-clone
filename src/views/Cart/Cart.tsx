@@ -1,5 +1,11 @@
+import ItemCart from './components/ItemCart';
+
 const Cart = () => {
-  return <div>Cart</div>;
+  return (
+    <>
+      <ItemCart />
+    </>
+  );
 };
 
 export default Cart;
