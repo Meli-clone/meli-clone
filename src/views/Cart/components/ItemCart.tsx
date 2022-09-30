@@ -1,4 +1,5 @@
 import InfoFooterMobile from './InfoFooterMobile/InfoFooterMobile';
+import './ItemCart.scss';
 
 const ItemCart = () => {
   return (
