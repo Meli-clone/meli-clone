@@ -4,6 +4,7 @@ import { getProductDetail } from '@/services/product';
 import Details from './components/Details';
 
 export interface Product {
+  id: string;
   sold_quantity: number;
   condition: string;
   title: string;
@@ -30,8 +31,6 @@ const ProductDetails = () => {
     getProductDetail('MLA1122296562') /*  MLA1123824844*/
       .then(res => setProduct(res));
   }, []);
-
-  console.log(product);
 
   return <>{product ? <Details product={product} /> : <h1>Cargando...</h1>}</>;
 };

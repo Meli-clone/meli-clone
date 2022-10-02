@@ -6,7 +6,6 @@ interface Prop {
 }
 
 const DetailsTable = ({ atr }: Prop) => {
-  console.log(atr);
   return (
     <table>
       <tbody>
