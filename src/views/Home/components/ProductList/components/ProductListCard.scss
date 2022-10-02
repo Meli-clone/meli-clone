@@ -1,0 +1,65 @@
+@import '@/utils/sass/theme.scss';
+
+.productListCard {
+  background-color: $white;
+  height: 314px;
+  width: 224px;
+  /* margin: 0 8px 16px; */
+  transition: box-shadow 0.3s;
+  transition: height 0.3s;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+  &:hover {
+    box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
+    -webkit-box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
+    -moz-box-shadow: 0px 2px 13px 2px rgba(162, 162, 162, 0.5);
+    height: 340px;
+  }
+  .productListCard_button {
+    opacity: 0;
+    transition: opacity 0.3s;
+    position: relative;
+    top: 12px;
+    left: 190px;
+    background-color: transparent;
+    border: 0;
+    .productListCard_icon {
+      color: $blue;
+      font-size: 20px;
+      &:hover {
+        color: $blue-dark;
+      }
+    }
+  }
+  .productListCard_imageContainer {
+    border-bottom: 1px solid $background;
+    height: 224px;
+    width: 224px;
+    .productListCard_image {
+      height: 223px;
+      width: 224px;
+      object-fit: contain;
+    }
+  }
+  .productListCard_infoContainer {
+    padding: 20px 16px;
+    .productListCard_price {
+      color: $gray-dark;
+      font-weight: 400;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .productListCard_title {
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: '';
+      max-height: 30px;
+      color: $gray-light;
+      font-weight: 200;
+      transition: opacity 0.4s;
+      opacity: 0;
+    }
+  }
+}
