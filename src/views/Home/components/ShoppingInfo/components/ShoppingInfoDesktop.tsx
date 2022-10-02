@@ -20,7 +20,7 @@ interface Props {
 
 const ShoppingInfoDesktop = ({ shoppingData }: Props) => {
   return (
-    <div className='shopping_info_desktop_container'>
+    <section className='shopping_info_desktop_container'>
       <div className='shopping_info_desktop'>
         {shoppingData
           .filter((e, i, array) => i !== 0 && i !== array.length - 1)
@@ -28,7 +28,7 @@ const ShoppingInfoDesktop = ({ shoppingData }: Props) => {
             <ShoppingCard key={e.id} data={e} width={100} />
           ))}
       </div>
-    </div>
+    </section>
   );
 };
 

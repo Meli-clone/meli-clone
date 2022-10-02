@@ -17,9 +17,7 @@ interface PropsCardShopping {
   width: number;
 }
 
-const ShoppingCard = ({ data, width }: PropsCardShopping) => {
-  // style={{ minWidth: `${width}` }} Revisando estos estilos ❌
-
+const ShoppingCard = ({ data }: PropsCardShopping) => {
   return (
     <div className='carousel_shopping_card'>
       <img src={data.img} alt={`Imagen de ${data.altimg}`} />
