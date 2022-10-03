@@ -3,12 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
 export interface CartState {
-  value: Array<{
-    id: string,
-    title: string,
-    price: number,
-    stock: number, 
-  }>;
+  value: Array<ProductsCart>;
 }
 
 const initialState: CartState = {
@@ -18,6 +13,8 @@ const initialState: CartState = {
       price: 55000,
       stock: 1,
       title: " Moto G6 Play 32 Gb Oro Fino 3 Gb Ram ",
+      image: "https://http2.mlstatic.com/D_608151-MLA31003463559_062019-O.jpg",
+      quantity: 2,
     }
   ],
 };
@@ -27,6 +24,8 @@ interface ProductsCart {
   title: string
   price: number
   stock: number
+  image: string
+  quantity: number
 }
 
 export const cartSlice = createSlice({

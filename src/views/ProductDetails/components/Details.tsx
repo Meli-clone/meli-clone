@@ -7,13 +7,14 @@ import { BiCheckShield } from 'react-icons/bi';
 import DetailsTable from './DetailsTable';
 import { Product } from '../ProductDetails';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import { addToCart } from '@/store/slices/cart';
+import { addToCart } from '@/store/cart/cart.slice';
 
 interface Prop {
   product: Product;
 }
 
 const Details = ({ product }: Prop) => {
+  console.log(product);
   const [titleStock, setTitleStock] = useState<string>('');
   const dispatch = useAppDispatch();
   const carrito = useAppSelector(state => state.cart.value);
@@ -23,6 +24,8 @@ const Details = ({ product }: Prop) => {
     title: product.title,
     price: product.price,
     stock: product.available_quantity,
+    image: product.pictures[0].secure_url,
+    quantity: 2,
   };
 
   const addCart = () => {
