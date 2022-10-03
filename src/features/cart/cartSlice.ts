@@ -1,14 +1,15 @@
 import { RootState } from '@/store/store';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-type ProductCart = {
+export interface ProductCart {
   id: string;
   price: number;
   stock: number;
   title: string;
+  description: string;
   quantity: number;
   img: string;
-};
+}
 
 export interface cartState {
   value: Array<ProductCart>;
@@ -21,6 +22,7 @@ const initialState = {
       price: 23.999,
       stock: 1,
       title: 'Taladro Atornillador Inalámb 10mm Kroner 14,4 V + Muñequera',
+      description: 'Color: Verde lima, Frecuencia: 50',
       quantity: 1,
       img: 'https://http2.mlstatic.com/taladro-atornillador-inalamb-10mm-kroner-144-v---munequera-D_Q_NP_932269-MLA47949358595_102021-R.webp',
     },
