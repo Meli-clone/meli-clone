@@ -2,6 +2,7 @@
 import './Details.scss';
 /* React */
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 /* Components */
 import DetailsTable from './DetailsTable';
 import DetailsSelector from './DetailsSelector';
@@ -26,6 +27,7 @@ const Details = ({ product }: Prop) => {
   const [clicked, setClicked] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleSelectClick = () => setClicked(!clicked);
 
@@ -39,6 +41,11 @@ const Details = ({ product }: Prop) => {
   };
 
   const addCart = () => dispatch(addToCart(productToCart));
+
+  const goToCart = () => {
+    addCart();
+    navigate('/cart');
+  };
 
   const handleQuantity = (value: number) => {
     setQuantity(value);
@@ -135,7 +142,9 @@ const Details = ({ product }: Prop) => {
                 ) : null}
 
                 {product.buying_mode === 'buy_it_now' && (
-                  <button className='details_buttonBuy'>Comprar ahora</button>
+                  <button className='details_buttonBuy' onClick={goToCart}>
+                    Comprar ahora
+                  </button>
                 )}
                 <button className='details_buttonCart' onClick={addCart}>
                   Agregar al carrito
