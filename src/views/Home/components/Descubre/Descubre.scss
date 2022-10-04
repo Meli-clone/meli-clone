@@ -50,6 +50,7 @@
           transition: color 0.3s;
           &:hover {
             color: $blue-dark;
+            cursor: pointer;
           }
         }
       }
