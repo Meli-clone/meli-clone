@@ -31,17 +31,17 @@ const PromotionsBanner = () => {
           </div>
           <div className='promotionsBanner_body-benefit'>
             <div className='body-benefit-logo'>
-              <img src={starPlus} alt='' />
+              <img src={starPlus} alt='Logo Star+' />
             </div>
             <span className='body-benefit-text'>Star+ sin cargo</span>
           </div>
           <div className='promotionsBanner_body-benefit'>
             <div className='body-benefit-logo'>
-              <img src={truck} alt='' />
+              <img src={truck} alt='Logo camión de Mercado Libre' />
             </div>
             <span className='body-benefit-text'>
-              Envíos gratis y rápidos desde $ 5.500 y 45% OFF en envíos de menos
-              de $ 5.500
+              Envíos gratis y rápidos desde $5.500 y 45% OFF en envíos de menos
+              de $5.500
             </span>
           </div>
         </div>
