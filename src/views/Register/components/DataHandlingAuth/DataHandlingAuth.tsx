@@ -12,7 +12,7 @@ interface Props {
 const DataHandlingAuth = ({ acceptedDHT, setAcceptedDHT }: Props) => {
   const [disabledBtn, setDisablebtn] = useState(false);
   return (
-    <div className='dataHandlingAuth'>
+    <div className='data_handling_auth'>
       <div>
         <img src={registerTablet} />
         <h1>Para crear tu cuenta necesitamos validar tus datos</h1>

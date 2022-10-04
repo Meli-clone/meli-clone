@@ -6,3 +6,15 @@
   padding-bottom: 29px;
   background-color: $white;
 }
+
+@media only screen and (min-width: $tablet) {
+  .minimal_header {
+    height: 50px;
+  }
+}
+
+@media only screen and (min-width: $laptop) {
+  .register {
+    background-color: #ededed;
+  }
+}

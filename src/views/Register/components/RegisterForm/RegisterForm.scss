@@ -3,7 +3,6 @@
 .register_form {
   padding: 25px 20px 0;
   list-style: none;
-
   &__main_card {
     h1 {
       font-size: 24px;
@@ -74,5 +73,11 @@
     button:active {
       background-color: $gradient-blue;
     }
+  }
+}
+
+@media only screen and (min-width: $laptop) {
+  .register_form {
+    background-color: $blue;
   }
 }
