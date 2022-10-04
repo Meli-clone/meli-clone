@@ -1,4 +1,4 @@
-import { ProductCart } from '@/features/cart/cartSlice';
+import { ProductCart } from '@/store/cart/cartSlice';
 import { CgMathPlus } from 'react-icons/cg';
 import { GrFormSubtract } from 'react-icons/gr';
 import './InfoFooterMobile.scss';

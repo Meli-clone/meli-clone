@@ -7,7 +7,7 @@ import { BiCheckShield } from 'react-icons/bi';
 import DetailsTable from './DetailsTable';
 import { Product } from '../ProductDetails';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import { addToCart } from '@/store/cart/cart.slice';
+import { addToCart } from '@/store/cart/cartSlice';
 
 interface Prop {
   product: Product;

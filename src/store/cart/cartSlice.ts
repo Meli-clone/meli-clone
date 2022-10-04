@@ -6,9 +6,8 @@ export interface ProductCart {
   price: number;
   stock: number;
   title: string;
-  description: string;
   quantity: number;
-  img: string;
+  image: string;
 }
 
 export interface cartState {
@@ -22,9 +21,9 @@ const initialState = {
       price: 23.999,
       stock: 1,
       title: 'Taladro Atornillador Inalámb 10mm Kroner 14,4 V + Muñequera',
-      description: 'Color: Verde lima, Frecuencia: 50',
       quantity: 4,
-      img: 'https://http2.mlstatic.com/taladro-atornillador-inalamb-10mm-kroner-144-v---munequera-D_Q_NP_932269-MLA47949358595_102021-R.webp',
+      image:
+        'https://http2.mlstatic.com/taladro-atornillador-inalamb-10mm-kroner-144-v---munequera-D_Q_NP_932269-MLA47949358595_102021-R.webp',
     },
   ],
 };
@@ -47,5 +46,6 @@ export const cartSlice = createSlice({
 });
 
 export const { addToCart } = cartSlice.actions;
+export const { deleteItem } = cartSlice.actions;
 export const selectCart = (state: RootState) => state.cart.value;
 export default cartSlice.reducer;

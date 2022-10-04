@@ -2,10 +2,10 @@
 
 .item {
     background-color: $white;
-    padding: 15px;
     .item__container {
         display: flex;
-        gap: 20px;
+        gap: 20px;   
+        padding: 15px;
         .item__container--information {
             width: 100%;
             .information__description {
@@ -27,6 +27,31 @@
                     font-weight: 300;
                 }
             }
+        }
+        .item__container--image {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
         }   
+    }
+    .item-action {
+        border-top: 1px solid rgba(0, 0, 0, .07);
+        padding: 16px;
+        line-height: 1.25;
+        width: calc(100% + 15px);
+        .item-action-single {
+            display: flex;
+            li {
+                list-style: none;
+                padding-left: 15px;
+                button {
+                    border: 0;
+                    background-color: $white;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+            }
+        }
+        
     }
 }

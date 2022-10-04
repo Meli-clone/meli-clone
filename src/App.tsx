@@ -18,14 +18,7 @@ const App = () => {
         <Route element={<MainLayout />}>
           <Route path='/' element={<Home />} />
           <Route path='/search_results/:search' element={<SearchResults />} />
-<<<<<<< HEAD
-          <Route
-            path='/product_details/:product'
-            element={<ProductDetails />}
-          />
-=======
           <Route path='/product_details' element={<ProductDetails />} />
->>>>>>> develop
           <Route path='/cart' element={<Cart />} />
         </Route>
       </Routes>
