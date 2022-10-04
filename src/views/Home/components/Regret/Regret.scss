@@ -2,7 +2,7 @@
 
 .regret {
   background-color: $white;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 
 .regret_container {
@@ -39,6 +39,9 @@
 }
 
 @media screen and (min-width: $tablet) {
+  .regret {
+    margin-bottom: -30px;
+  }
   .regret_container {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
