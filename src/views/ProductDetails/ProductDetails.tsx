@@ -28,7 +28,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState<Product>();
 
   useEffect(() => {
-    getProductDetail('MLA1122296562') /*  MLA1123824844*/
+    getProductDetail('MLA1131686227') /*  MLA1123824844 MLA1122296562*/
       .then(res => setProduct(res));
   }, []);
 

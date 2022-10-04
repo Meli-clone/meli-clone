@@ -1,23 +1,33 @@
+/* Styles */
 import './Details.scss';
+/* React */
 import { useState, useEffect } from 'react';
+/* Components */
+import DetailsTable from './DetailsTable';
+import DetailsSelector from './DetailsSelector';
+/* TS */
+import { Product } from '../ProductDetails';
+/* Redux */
+import { useAppDispatch } from '@/store/hooks';
+import { addToCart } from '@/store/cart/cart.slice';
+/* Icons */
 import { BsTruck } from 'react-icons/bs';
 import { TbArrowBack } from 'react-icons/tb';
 import { AiOutlineTrophy } from 'react-icons/Ai';
 import { BiCheckShield } from 'react-icons/bi';
-import DetailsTable from './DetailsTable';
-import { Product } from '../ProductDetails';
-import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import { addToCart } from '@/store/cart/cart.slice';
 
 interface Prop {
   product: Product;
 }
 
 const Details = ({ product }: Prop) => {
-  console.log(product);
   const [titleStock, setTitleStock] = useState<string>('');
+  const [quantity, setQuantity] = useState<number>(1);
+  const [clicked, setClicked] = useState<boolean>(false);
+
   const dispatch = useAppDispatch();
-  const carrito = useAppSelector(state => state.cart.value);
+
+  const handleSelectClick = () => setClicked(!clicked);
 
   const productToCart = {
     id: product.id,
@@ -25,12 +35,14 @@ const Details = ({ product }: Prop) => {
     price: product.price,
     stock: product.available_quantity,
     image: product.pictures[0].secure_url,
-    quantity: 2,
+    quantity: quantity,
   };
 
-  const addCart = () => {
-    dispatch(addToCart(productToCart));
-    console.log(carrito);
+  const addCart = () => dispatch(addToCart(productToCart));
+
+  const handleQuantity = (value: number) => {
+    setQuantity(value);
+    setClicked(false);
   };
 
   useEffect(() => {
@@ -95,16 +107,33 @@ const Details = ({ product }: Prop) => {
               </div>
               <div className='details_buy_buttonsContainer'>
                 <h4 className='details_stock'>{titleStock}</h4>
-                {product.available_quantity >= 1 ? (
-                  <p className='details_available'>
-                    Puedes comprar hasta {product.available_quantity}{' '}
-                    {product.available_quantity === 1 ? (
-                      <span>unidad</span>
-                    ) : (
-                      <span>unidades</span>
-                    )}
-                  </p>
+                {product.available_quantity > 1 && (
+                  <DetailsSelector
+                    product={product}
+                    quantity={quantity}
+                    handleQuantity={handleQuantity}
+                    clicked={clicked}
+                    handleSelectClick={handleSelectClick}
+                  />
+                )}
+
+                {product.available_quantity > 1 ? (
+                  product.available_quantity < 5 ? (
+                    <p className='details_available'>
+                      Puedes comprar {product.available_quantity}{' '}
+                      {product.available_quantity === 1 ? (
+                        <p className='details_available'>unidad</p>
+                      ) : (
+                        <p className='details_available'>unidades</p>
+                      )}
+                    </p>
+                  ) : (
+                    <p className='details_available'>
+                      Puedes comprar 5 unidades
+                    </p>
+                  )
                 ) : null}
+
                 {product.buying_mode === 'buy_it_now' && (
                   <button className='details_buttonBuy'>Comprar ahora</button>
                 )}
