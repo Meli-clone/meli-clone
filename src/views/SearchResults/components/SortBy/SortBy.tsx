@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
+import { useParams, useSearchParams } from 'react-router-dom';
 import './SortBy.scss';
 
 interface SortOption {
@@ -14,9 +15,17 @@ interface Prop {
 
 const SortBy = ({ actualSort, availableSorts }: Prop) => {
   const [modalSortByIsOpen, setModalSortByIsOpen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleModalShotBy = () => {
     setModalSortByIsOpen(prevState => !prevState);
+  };
+
+  const onClickSort = (sort: SortOption) => {
+    handleModalShotBy();
+    searchParams.set('sort', sort.id);
+
+    setSearchParams(searchParams);
   };
 
   return (
@@ -32,8 +41,10 @@ const SortBy = ({ actualSort, availableSorts }: Prop) => {
         <div className='modal_sort_by'>
           <ul>
             <li>{actualSort?.name}</li>
-            {availableSorts?.map(e => (
-              <li key={e.id}>{e.name}</li>
+            {availableSorts?.map(sort => (
+              <li key={sort.id}>
+                <button onClick={() => onClickSort(sort)}>{sort.name}</button>
+              </li>
             ))}
           </ul>
         </div>

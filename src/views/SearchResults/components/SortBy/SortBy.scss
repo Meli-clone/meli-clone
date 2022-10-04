@@ -15,6 +15,7 @@
   }
 
   & > button {
+    cursor: pointer;
     background-color: transparent;
     border: none;
     display: flex;
@@ -51,6 +52,11 @@
           border-bottom: none;
           border-bottom-left-radius: 5px;
           border-bottom-right-radius: 5px;
+        }
+
+        & > button {
+          background-color: red;
+          border: none;
         }
       }
     }

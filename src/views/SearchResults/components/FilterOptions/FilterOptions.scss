@@ -1,0 +1,36 @@
+@import '@/utils/sass/theme.scss';
+
+.filter_options_container {
+  .selected_filter_list {
+    padding-bottom: 25px;
+    & > ul {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      flex-wrap: wrap;
+
+      & > li {
+        list-style: none;
+
+        & > button {
+          background-color: $white;
+          border: none;
+          padding: 5px 8px;
+          display: flex;
+          gap: 5px;
+          cursor: pointer;
+
+          & > span:last-child {
+            color: $gray-light;
+          }
+        }
+      }
+    }
+  }
+
+  .filter_list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}

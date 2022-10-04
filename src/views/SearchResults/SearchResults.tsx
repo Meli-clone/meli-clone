@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import FilterOptions from './components/FilterOptions';
 import Result from './components/Result';
 import { getProductsByQuery } from '@/services/products';
@@ -49,29 +49,30 @@ interface ProductsData {
     id: string;
     name: string;
   }>;
+  results: Array<Product>;
+  paging: {
+    total: number;
+  };
+  filters: Array<FilterOption>;
 }
 
 const SearchResults = () => {
-  const [productList, setProductList] = useState<Array<Product>>([]);
-  const [totalResults, setTotalResults] = useState<number>(0);
-  const [filters, setFilters] = useState<Array<FilterOption>>([]);
-  const { search } = useParams();
   const [productsData, setProductsData] = useState<ProductsData>();
+  const [filters, setFilters] = useState<Array<FilterOption>>([]);
+  const location = useLocation();
 
   useEffect(() => {
-    handleGetProducts();
-  }, []);
+    handleGetProducts(location.search);
+  }, [location.search]);
 
-  const handleGetProducts = async () => {
+  const handleGetProducts = async (search: string) => {
     const res = await getProductsByQuery(search);
-    console.log(res);
-
     setProductsData(res);
 
     setFilters(res.available_filters);
-    setProductList(res.results);
-    setTotalResults(res.paging.total);
   };
+
+  if (!productsData) return <p>Loading...</p>;
 
   return (
     <div className='search_results_container'>
@@ -80,17 +81,20 @@ const SearchResults = () => {
           <header className='search_results_header'>
             <h1>El señor de los anillos</h1>
             <span className='total_results'>
-              {formatNumberWithDot(totalResults)} resultados
+              {formatNumberWithDot(productsData.paging.total)} resultados
             </span>
           </header>
-          <FilterOptions filters={filters} />
+          <FilterOptions
+            actualFilters={productsData.filters}
+            availableFilters={filters}
+          />
         </div>
         <div className='list_container'>
           <SortBy
-            actualSort={productsData?.sort}
-            availableSorts={productsData?.available_sorts}
+            actualSort={productsData.sort}
+            availableSorts={productsData.available_sorts}
           />
-          {productList.map(product => (
+          {productsData.results.map(product => (
             <Result key={product.id} product={product} />
           ))}
         </div>

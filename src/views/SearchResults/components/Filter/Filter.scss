@@ -19,11 +19,15 @@
     & > li {
       list-style: none;
 
-      & > a {
+      & > button {
         display: flex;
         font-size: 14px;
         gap: 5px;
         text-decoration: none;
+        width: fit-content;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
 
         span.label {
           color: $gray;

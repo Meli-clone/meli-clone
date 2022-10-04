@@ -1,26 +1,18 @@
 import './Result.scss';
-import { Product } from '../SearchResults';
-import PurchaseDiscount from './PurchaseDiscount';
-import FreeShipping from './FreeShipping';
-import Fulfillment from './Fulfillment';
 import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 import formatSellerName from '@/utils/helpers/formatSellerName';
+import { Product } from '../../SearchResults';
+import PurchaseDiscount from '../PurchaseDiscount';
+import FreeShipping from '../FreeShipping';
+import Fulfillment from '../Fulfillment';
 
 interface Prop {
   product: Product;
 }
 
 const Result = ({ product }: Prop) => {
-  const {
-    title,
-    original_price,
-    price,
-    thumbnail,
-    seller,
-    prices,
-    shipping,
-    tags,
-  } = product;
+  const { title, original_price, price, thumbnail, seller, shipping, tags } =
+    product;
 
   return (
     <li className='result_container'>
