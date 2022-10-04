@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form, FormikHelpers } from 'formik';
+import Swal from 'sweetalert2';
 
 //COMPONENTS AND FUNCTIONS
 import { registerFormSchema } from './schemas/registerFormSchema';
@@ -36,7 +37,16 @@ const RegisterForm = () => {
     formikBag: FormikHelpers<FormValues>,
   ) => {
     console.log({ values, formikBag });
-    navigate('/');
+    Swal.fire({
+      icon: 'success',
+      title: 'Usuario creado',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+
+    setTimeout(() => {
+      navigate('/');
+    }, 1600);
     formikBag.setSubmitting(false);
   };
 

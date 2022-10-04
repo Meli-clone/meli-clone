@@ -52,6 +52,11 @@
     }
   }
 }
+@media only screen and (min-width: $tablet) {
+  .data_handling_auth {
+    background-color: $white;
+  }
+}
 
 @media only screen and (min-width: $laptop) {
   .data_handling_auth {
