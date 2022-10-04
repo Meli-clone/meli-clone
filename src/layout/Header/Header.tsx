@@ -60,7 +60,7 @@ const Header = () => {
         </nav>
         <div className='header__user_options'>
           <div className='header__user_options__user'>
-            <a href='#'>Crea tu cuenta</a>
+            <Link to='/register'>Crea tu cuenta</Link>
             <Link to='/login'>Ingresa</Link>
             <a href='#'>Mis compras</a>
           </div>

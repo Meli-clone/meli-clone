@@ -1,0 +1,8 @@
+@import '@/utils/sass/theme.scss';
+
+.register {
+  height: 100vh;
+  @include flex(column, start, center);
+  padding-bottom: 29px;
+  background-color: $white;
+}

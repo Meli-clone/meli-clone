@@ -7,14 +7,12 @@ import CustomInput from './components/CustomInput';
 import { loginSchema } from './schemas/loginSchemas';
 
 //STYLES AND IMAGES
-import meliLogo2 from '@/assets/images/meli-logo2.svg';
 import './Login.scss';
 
 //ICONS
 import { GiSmartphone } from 'react-icons/gi';
 import { RiUser3Line } from 'react-icons/ri';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import { TbHelp } from 'react-icons/tb';
 import MinimalHeader from '../components/MinimalHeader';
 
 interface FormValues {
@@ -34,7 +32,6 @@ const Login = () => {
     values: FormValues,
     formikBag: FormikHelpers<FormValues>,
   ) => {
-    console.log({ values, formikBag });
     if (values.username !== 'jhon' || values.password !== '12345') {
       Swal.fire({
         icon: 'error',

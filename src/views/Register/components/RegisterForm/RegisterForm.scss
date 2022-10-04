@@ -1,0 +1,78 @@
+@import '@/utils/sass/theme.scss';
+
+.register_form {
+  padding: 25px 20px 0;
+  list-style: none;
+
+  &__main_card {
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      margin: 16px 0 24px;
+      line-height: 23px;
+    }
+
+    li {
+      list-style: none;
+      margin: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+
+      svg {
+        color: $blue;
+        font-size: 21px;
+        stroke-width: 0.1px;
+        margin-right: 10px;
+        font-size: 25px;
+      }
+    }
+    label {
+      width: 50%;
+      align-self: center;
+    }
+
+    input {
+      margin-top: 10px;
+      height: 40px;
+      width: 100%;
+      border-radius: 5px;
+      border-style: solid;
+      border-color: $gray-ultra-light;
+      padding-left: 15px;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: solid 2px $blue;
+      border-width: 0;
+    }
+
+    .error {
+      color: $red;
+      margin-top: 5px;
+      font-size: 13px;
+    }
+
+    button {
+      border-style: none;
+      background-color: $blue;
+      color: $white;
+      height: 49px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: $blue-dark;
+    }
+
+    button:active {
+      background-color: $gradient-blue;
+    }
+  }
+}
