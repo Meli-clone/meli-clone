@@ -1,8 +1,13 @@
+import { ProductCart } from '@/features/cart/cartSlice';
 import { CgMathPlus } from 'react-icons/cg';
 import { GrFormSubtract } from 'react-icons/gr';
 import './InfoFooterMobile.scss';
 
-const InfoFooterMobile = () => {
+interface Prop {
+  producto: ProductCart;
+}
+
+const InfoFooterMobile = ({ producto }: Prop) => {
   return (
     <div className='info-footer'>
       <div className='selector__container'>
@@ -17,11 +22,7 @@ const InfoFooterMobile = () => {
         </div>
       </div>
       <div className='item__price'>
-        <div className='item__original-price'>
-          <span className='item__discount'>-20%</span>
-          <span className='item__price-tag'>$23.999</span>
-        </div>
-        <span className='price-tag'>$18.999</span>
+        <span className='price-tag'>${producto.price}</span>
       </div>
     </div>
   );

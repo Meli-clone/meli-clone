@@ -20,7 +20,6 @@ const Home = () => {
       <PopularCategories />
       <ShoppingInfo />
       <Regret />
-      <Cart />
     </div>
   );
 };
