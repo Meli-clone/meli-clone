@@ -1,11 +1,11 @@
+import './SearchResults.scss';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { getProductsByQuery } from '@/services/products';
 import FilterOptions from './components/FilterOptions';
 import Result from './components/Result';
-import { getProductsByQuery } from '@/services/products';
-import './SearchResults.scss';
-import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 import SortBy from './components/SortBy';
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 
 export interface Product {
   id: string;

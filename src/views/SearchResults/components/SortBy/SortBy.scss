@@ -38,7 +38,6 @@
       & > li {
         background-color: $white;
         list-style: none;
-        padding: 13px 16px;
         font-size: 14px;
         color: $gray-dark;
         border-bottom: 1px solid $background;
@@ -55,8 +54,34 @@
         }
 
         & > button {
-          background-color: red;
+          padding: 13px 16px;
+          width: 100%;
+          background-color: transparent;
           border: none;
+          cursor: pointer;
+          text-align: left;
+          color: $gray;
+
+          &:hover:not(.selected_sort) {
+            background-color: #f6f6f6ab;
+          }
+        }
+
+        .selected_sort {
+          color: $blue;
+          font-weight: 600;
+          position: relative;
+          cursor: default;
+
+          &::before {
+            content: '';
+            border-left: 5px solid $blue;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            z-index: 0;
+          }
         }
       }
     }

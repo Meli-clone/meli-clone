@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import './SortBy.scss';
 
 interface SortOption {
@@ -9,20 +9,40 @@ interface SortOption {
 }
 
 interface Prop {
-  actualSort: SortOption | undefined;
-  availableSorts: Array<SortOption> | undefined;
+  actualSort: SortOption;
+  availableSorts: Array<SortOption>;
 }
 
 const SortBy = ({ actualSort, availableSorts }: Prop) => {
-  const [modalSortByIsOpen, setModalSortByIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [sortList, setSortList] = useState<Array<SortOption>>([]);
 
-  const handleModalShotBy = () => {
-    setModalSortByIsOpen(prevState => !prevState);
+  const btnRef = useRef(null);
+
+  useEffect(() => {
+    const closeDropdown = (e: any) => {
+      if (e.path[1] !== btnRef.current) {
+        setIsOpen(false);
+      }
+    };
+
+    document.body.addEventListener('click', closeDropdown);
+
+    return () => document.body.removeEventListener('click', closeDropdown);
+  }, []);
+
+  useEffect(() => {
+    const sort = [...availableSorts, actualSort];
+    setSortList(sort);
+  }, []);
+
+  const toggleModalSortBy = () => {
+    setIsOpen(prevState => !prevState);
   };
 
   const onClickSort = (sort: SortOption) => {
-    handleModalShotBy();
+    toggleModalSortBy();
     searchParams.set('sort', sort.id);
 
     setSearchParams(searchParams);
@@ -31,24 +51,33 @@ const SortBy = ({ actualSort, availableSorts }: Prop) => {
   return (
     <div className='sort_by_container'>
       <span className='label'>Ordenar por</span>
-      <button onClick={handleModalShotBy}>
+      <button ref={btnRef} onClick={toggleModalSortBy}>
         <span>{actualSort?.name}</span>
         <span>
           <IoIosArrowDown />
         </span>
       </button>
-      {modalSortByIsOpen && (
-        <div className='modal_sort_by'>
+      <div className='modal_sort_by'>
+        {isOpen && (
           <ul>
-            <li>{actualSort?.name}</li>
-            {availableSorts?.map(sort => (
-              <li key={sort.id}>
-                <button onClick={() => onClickSort(sort)}>{sort.name}</button>
-              </li>
-            ))}
+            {sortList.map(sort => {
+              if (sort.id === actualSort.id) {
+                return (
+                  <li aria-selected={true} key={sort.id}>
+                    <button className='selected_sort'>{sort.name}</button>
+                  </li>
+                );
+              }
+
+              return (
+                <li key={sort.id}>
+                  <button onClick={() => onClickSort(sort)}>{sort.name}</button>
+                </li>
+              );
+            })}
           </ul>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
