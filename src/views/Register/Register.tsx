@@ -16,14 +16,16 @@ const Register = () => {
   return (
     <div className='register'>
       <MinimalHeader />
-      {!acceptedDHT ? (
-        <DataHandlingAuth
-          acceptedDHT={acceptedDHT}
-          setAcceptedDHT={setAcceptedDHT}
-        />
-      ) : (
-        <RegisterForm />
-      )}
+      <div className='register__main_container'>
+        {!acceptedDHT ? (
+          <DataHandlingAuth
+            acceptedDHT={acceptedDHT}
+            setAcceptedDHT={setAcceptedDHT}
+          />
+        ) : (
+          <RegisterForm />
+        )}
+      </div>
     </div>
   );
 };

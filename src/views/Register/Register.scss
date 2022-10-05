@@ -3,7 +3,6 @@
 .register {
   height: 100vh;
   @include flex(column, start, center);
-  padding-bottom: 29px;
   background-color: $white;
 }
 
@@ -14,5 +13,11 @@
 
   .register {
     background-color: #ededed;
+
+    &__main_container {
+      width: 100%;
+      height: 100%;
+      @include flex(column, center, center);
+    }
   }
 }

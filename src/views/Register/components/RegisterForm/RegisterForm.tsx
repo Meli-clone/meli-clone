@@ -1,4 +1,5 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, FormikHelpers } from 'formik';
 import Swal from 'sweetalert2';
 
@@ -10,9 +11,9 @@ import CustomInput from '@/views/components/CustomInput';
 import './RegisterForm.scss';
 
 //ICONS
-import { MdMailOutline } from 'react-icons/md';
 import { BsPersonBadge, BsTelephone } from 'react-icons/bs';
-import { AiOutlineLock } from 'react-icons/ai';
+import { TbHelp, TbMail } from 'react-icons/tb';
+import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
 
 interface FormValues {
   email: string;
@@ -24,6 +25,10 @@ interface FormValues {
 
 const RegisterForm = () => {
   const navigate = useNavigate();
+
+  const [showPassHelpDes, setShowPassHelpDes] = useState(false);
+
+  console.log(showPassHelpDes);
 
   const initialValues: FormValues = {
     email: '',
@@ -39,7 +44,7 @@ const RegisterForm = () => {
     console.log({ values, formikBag });
     Swal.fire({
       icon: 'success',
-      title: 'Usuario creado',
+      title: 'Usuario creado exitosamente',
       showConfirmButton: false,
       timer: 1500,
     });
@@ -48,6 +53,10 @@ const RegisterForm = () => {
       navigate('/');
     }, 1600);
     formikBag.setSubmitting(false);
+  };
+
+  const showPassHelp = () => {
+    setShowPassHelpDes(!showPassHelpDes);
   };
 
   return (
@@ -67,7 +76,7 @@ const RegisterForm = () => {
             <Form>
               <ul>
                 <li>
-                  <MdMailOutline />
+                  <AiOutlineMail />
                   <CustomInput
                     label='Email'
                     name='email'
@@ -95,6 +104,28 @@ const RegisterForm = () => {
                 </li>
                 <li>
                   <AiOutlineLock />
+                  <button
+                    type='button'
+                    onClick={() => showPassHelp()}
+                    className='pass_help'
+                  >
+                    <TbHelp className='pass_help__help_icon' />
+                    <div
+                      className={`pass_help__description ${
+                        showPassHelpDes && 'show_des'
+                      }`}
+                    >
+                      <p>La contraseña debe contener:</p>
+                      <ul>
+                        <li>- Mínimo 8 caracteres</li>
+                        <li>- Mínimo un número</li>
+                        <li>- Mínimo una letra minúscula</li>
+                        <li>- Mínimo una letra mayúscula</li>
+                        <li>{'- Mínimo un simbolo (!,",#,$,%,)'}</li>
+                      </ul>
+                    </div>
+                  </button>
+
                   <CustomInput
                     label='Contraseña'
                     name='password'
@@ -103,7 +134,8 @@ const RegisterForm = () => {
                   />
                 </li>
                 <li>
-                  {/* <GiPadlock /> */}
+                  <AiOutlineLock />
+
                   <CustomInput
                     label='Confirmar contraseña'
                     name='confirmPassword'
@@ -113,10 +145,15 @@ const RegisterForm = () => {
                 </li>
               </ul>
 
-              <button type='submit'>Continuar</button>
+              <button type='submit' className='form_submit'>
+                Continuar
+              </button>
             </Form>
           )}
         </Formik>
+        <p className='login-link'>
+          ¿Ya tienes una cuenta? <Link to='/login'>Inicia sesión</Link>{' '}
+        </p>
       </div>
     </div>
   );
