@@ -1,0 +1,218 @@
+@import '@/utils/sass/theme.scss';
+
+.details_container {
+  @include flex(column, center, flex-start);
+  background-color: $white;
+  border-radius: 6px;
+  margin: 0 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+}
+
+.details_dataContainer {
+  width: 100%;
+  .details_column1 {
+    display: none;
+  }
+  .details_column2 {
+    @include flex(column, center, flex-start);
+    width: 100%;
+    .details_column1_mobile {
+      display: flex;
+      align-self: center;
+      img {
+        width: 160px;
+        margin: 20px;
+      }
+    }
+    .details_conditionContainer {
+      display: flex;
+      p {
+        margin-right: 10px;
+        color: $gray-light;
+        font-weight: 200;
+      }
+    }
+    .details_title {
+      color: $gray-dark;
+      font-size: 20px;
+      font-weight: 400;
+      margin: 10px 0;
+    }
+    .details_price {
+      font-size: 32px;
+      color: $black;
+      font-weight: 600;
+    }
+    .details_cuotas {
+      font-size: 16px;
+      color: $gray-dark;
+      font-weight: 300;
+      margin: 4px 0;
+    }
+    .details_link {
+      color: $blue;
+      font-size: 16px;
+      &:hover {
+        color: $blue-dark;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.details_buyContainer {
+  @include flex(column, center, flex-start);
+  width: 100%;
+  .details_buy_infoContainer {
+    @include flex(row, center, flex-start);
+    margin: 10px 0;
+    .details_icons {
+      color: $green;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    .details_greenTitle {
+      color: $green;
+      font-size: 16px;
+    }
+    .details_info {
+      font-size: 15px;
+      color: $gray-light;
+      font-weight: 300;
+      margin: 5px 0;
+    }
+    .details_stock {
+      font-size: 18px;
+      color: $gray-dark;
+    }
+    .details_iconsGray {
+      color: $gray;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    .details_blueTitle {
+      color: $blue;
+      font-size: 14px;
+      &:hover {
+        color: $blue-dark;
+        cursor: pointer;
+      }
+    }
+    .details_infoGray {
+      font-size: 14px;
+      color: $gray-light;
+    }
+  }
+  .details_buy_buttonsContainer {
+    margin: 20px 0;
+    .details_available {
+      font-size: 16px;
+      color: $gray-dark;
+      margin: 4px 0;
+      display: inline-block;
+      p {
+        display: inline-block;
+      }
+    }
+    .details_buttonBuy {
+      width: 100%;
+      border: none;
+      background-color: $blue;
+      color: $white;
+      border-radius: 6px;
+      margin: 5px 0;
+      height: 48px;
+      font-size: 16px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .details_buttonCart {
+      width: 100%;
+      border: none;
+      background-color: $blue-light;
+      color: $blue;
+      border-radius: 6px;
+      margin: 5px 0;
+      height: 48px;
+      font-size: 16px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .details {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .details_container {
+    .details_dataContainer {
+      @include flex(row, center, flex-start);
+      .details_tablePhone {
+        display: none;
+      }
+      .details_column1 {
+        @include flex(column, center, center);
+        width: 50%;
+        margin: 0 30px;
+        .details_imgContainer {
+          @include flex(column, center, center);
+          height: 500px;
+          border-bottom: 1px solid $background;
+          margin-bottom: 20px;
+          img {
+            width: 200px;
+            margin: 20px;
+          }
+        }
+      }
+      .details_column2 {
+        width: 50%;
+        border: 1px solid $background;
+        @include flex(column, space-around, flex-start);
+        border-radius: 6px;
+        padding: 20px 10px;
+        .details_column1_mobile {
+          display: none;
+        }
+        .details_title {
+          margin: 15px 0;
+        }
+        .details_cuotas {
+          margin: 9px 0;
+        }
+      }
+    }
+    .details_buyContainer {
+      margin-top: 30px;
+      .details_available {
+        margin: 9px 0;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $laptop) {
+  .details_container {
+    .details_dataContainer {
+      .details_column1 {
+        width: 60%;
+        img {
+          width: 220px;
+          margin: 20px;
+        }
+      }
+      .details_column2 {
+        padding: 30px 20px;
+        width: 40%;
+      }
+    }
+  }
+}
