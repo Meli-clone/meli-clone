@@ -12,8 +12,10 @@ import './RegisterForm.scss';
 
 //ICONS
 import { BsPersonBadge, BsTelephone } from 'react-icons/bs';
-import { TbHelp, TbMail } from 'react-icons/tb';
-import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
+import { TbHelp } from 'react-icons/tb';
+import { AiOutlineLock, AiOutlineMail } from 'react-icons/Ai';
+import { useAppDispatch } from '@/store/hooks';
+import { setUserInfo } from '@/store/user/user.slice';
 
 interface FormValues {
   email: string;
@@ -25,10 +27,9 @@ interface FormValues {
 
 const RegisterForm = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const [showPassHelpDes, setShowPassHelpDes] = useState(false);
-
-  console.log(showPassHelpDes);
 
   const initialValues: FormValues = {
     email: '',
@@ -41,7 +42,14 @@ const RegisterForm = () => {
     values: FormValues,
     formikBag: FormikHelpers<FormValues>,
   ) => {
-    console.log({ values, formikBag });
+    const userInfo = {
+      username: values.username,
+      email: values.email,
+      phone: values.phone,
+    };
+
+    dispatch(setUserInfo(userInfo));
+
     Swal.fire({
       icon: 'success',
       title: 'Usuario creado exitosamente',
