@@ -1,10 +1,12 @@
 import { Formik, Form, FormikHelpers } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useAppDispatch } from '@/store/hooks';
 
 //COMPONENTS AND FUNCTIONS
 import CustomInput from './components/CustomInput';
 import { loginSchema } from './schemas/loginSchemas';
+import { setUserInfo } from '@/store/user/user.slice';
 
 //STYLES AND IMAGES
 import './Login.scss';
@@ -20,6 +22,13 @@ interface FormValues {
   password: string;
 }
 
+const jhonInfo = {
+  userLoggedIn: true,
+  username: 'Jhon',
+  phone: '3000000000',
+  email: 'jhon@gmail.com',
+};
+
 const Login = () => {
   const initialValues: FormValues = {
     username: '',
@@ -27,6 +36,7 @@ const Login = () => {
   };
 
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const onSubmit = (
     values: FormValues,
@@ -41,6 +51,8 @@ const Login = () => {
       });
     } else {
       localStorage.setItem('username', values.username);
+      dispatch(setUserInfo(jhonInfo));
+
       navigate('/');
     }
     formikBag.setSubmitting(false);

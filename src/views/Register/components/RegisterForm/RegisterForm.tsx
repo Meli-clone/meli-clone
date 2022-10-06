@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, FormikHelpers } from 'formik';
 import Swal from 'sweetalert2';
+import { useAppDispatch } from '@/store/hooks';
 
 //COMPONENTS AND FUNCTIONS
 import { registerFormSchema } from './schemas/registerFormSchema';
 import CustomInput from '@/views/components/CustomInput';
+import { setUserInfo } from '@/store/user/user.slice';
 
 //STYLES AND
 import './RegisterForm.scss';
@@ -14,8 +16,6 @@ import './RegisterForm.scss';
 import { BsPersonBadge, BsTelephone } from 'react-icons/bs';
 import { TbHelp } from 'react-icons/tb';
 import { AiOutlineLock, AiOutlineMail } from 'react-icons/Ai';
-import { useAppDispatch } from '@/store/hooks';
-import { setUserInfo } from '@/store/user/user.slice';
 
 interface FormValues {
   email: string;
@@ -46,6 +46,7 @@ const RegisterForm = () => {
       username: values.username,
       email: values.email,
       phone: values.phone,
+      userLoggedIn: true,
     };
 
     dispatch(setUserInfo(userInfo));
