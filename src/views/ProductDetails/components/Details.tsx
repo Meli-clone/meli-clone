@@ -40,10 +40,17 @@ const Details = ({ product }: Prop) => {
     quantity: quantity,
   };
 
-  const addCart = () => dispatch(addToCart(productToCart));
+  const handleAddCart = () => {
+    dispatch(addToCart(productToCart));
+    navigate('/', {
+      state: {
+        product: [productToCart],
+      },
+    });
+  };
 
   const goToCart = () => {
-    addCart();
+    dispatch(addToCart(productToCart));
     navigate('/cart');
   };
 
@@ -89,7 +96,7 @@ const Details = ({ product }: Prop) => {
               <a className='details_link'>Ver los medios de pago</a>
             </div>
             <div className='details_column1_mobile'>
-              <img src={product.pictures[0].secure_url} alt='hola' />
+              <img src={product.pictures[0].secure_url} alt={product.title} />
             </div>
             <div className='details_buyContainer'>
               <div className='details_buy_infoContainer'>
@@ -146,7 +153,7 @@ const Details = ({ product }: Prop) => {
                     Comprar ahora
                   </button>
                 )}
-                <button className='details_buttonCart' onClick={addCart}>
+                <button className='details_buttonCart' onClick={handleAddCart}>
                   Agregar al carrito
                 </button>
               </div>
