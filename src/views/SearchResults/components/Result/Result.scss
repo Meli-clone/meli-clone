@@ -82,3 +82,25 @@
     }
   }
 }
+
+@media screen and (max-width: $tablet) {
+  .result_container {
+    .item_info {
+      padding-right: 10px;
+
+      .item-title {
+        .label {
+          font-size: 14px;
+        }
+      }
+
+      .item_price {
+        .price_container {
+          .price {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

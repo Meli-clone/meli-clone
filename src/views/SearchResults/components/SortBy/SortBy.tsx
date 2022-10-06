@@ -15,8 +15,9 @@ interface Prop {
 
 const SortBy = ({ actualSort, availableSorts }: Prop) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
   const [sortList, setSortList] = useState<Array<SortOption>>([]);
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const btnRef = useRef(null);
 
