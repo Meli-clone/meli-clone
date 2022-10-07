@@ -1,0 +1,23 @@
+@import '@/utils/sass/theme.scss';
+
+.register {
+  height: 100vh;
+  @include flex(column, start, center);
+  background-color: $white;
+}
+
+@media only screen and (min-width: $tablet) {
+  .minimal_header {
+    height: 50px;
+  }
+
+  .register {
+    background-color: #ededed;
+
+    &__main_container {
+      width: 100%;
+      height: 100%;
+      @include flex(column, center, center);
+    }
+  }
+}
