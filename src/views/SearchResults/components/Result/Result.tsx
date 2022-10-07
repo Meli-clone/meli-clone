@@ -2,9 +2,9 @@ import './Result.scss';
 import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 import formatSellerName from '@/utils/helpers/formatSellerName';
 import { Product } from '../../SearchResults';
-import PurchaseDiscount from '../PurchaseDiscount';
 import FreeShipping from '../FreeShipping';
-import Fulfillment from '../Fulfillment';
+import Fulfillment from '@/components/Fulfillment';
+import PurchaseDiscount from '@/components/PurchaseDiscount';
 
 interface Prop {
   product: Product;

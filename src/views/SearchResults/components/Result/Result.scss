@@ -85,6 +85,16 @@
 
 @media screen and (max-width: $tablet) {
   .result_container {
+    & > picture {
+      padding: 0 10px;
+
+      & > img {
+        width: 140px;
+        height: 140px;
+        object-fit: contain;
+      }
+    }
+
     .item_info {
       padding-right: 10px;
 
