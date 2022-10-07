@@ -1,67 +1,19 @@
 import './SearchResults.scss';
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { getProductsByQuery } from '@/services/products';
 import { FiArrowLeft } from 'react-icons/fi';
+import { getProductsByQuery } from '@/services/products';
 import FilterOptions from './components/FilterOptions';
 import Result from './components/Result';
 import SortBy from './components/SortBy';
-import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 import DropdownFilter from './components/DropdownFilters/DropdownFilters';
 import FilterOptionsSelected from './components/FilterOptionsSelected';
-
-export interface Product {
-  id: string;
-  title: string;
-  original_price: number;
-  price: number;
-  thumbnail: string;
-  seller: {
-    eshop: {
-      nick_name: string;
-    };
-  };
-  prices: {
-    purchase_discounts: Array<{
-      discount_percentage: number;
-    }>;
-  };
-  shipping: {
-    free_shipping: boolean;
-    logistic_type: 'fulfillment' | 'xd_drop_off';
-  };
-  tags: Array<string>;
-}
-
-export interface FilterOption {
-  id: string;
-  name: string;
-  values: Array<{
-    id: string;
-    name: string;
-    results: number;
-  }>;
-}
-
-interface ProductsData {
-  sort: {
-    id: string;
-    name: string;
-  };
-  available_sorts: Array<{
-    id: string;
-    name: string;
-  }>;
-  results: Array<Product>;
-  paging: {
-    total: number;
-  };
-  filters: Array<FilterOption>;
-}
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
+import { SearchedProducts } from '@/types';
 
 const SearchResults = () => {
-  const [productsData, setProductsData] = useState<ProductsData>();
-  const [filters, setFilters] = useState<Array<FilterOption>>([]);
+  const [productsData, setProductsData] = useState<SearchedProducts>();
+  const [filters, setFilters] = useState<SearchedProducts['filters']>([]);
   const [sortIsOpen, setSortIsOpen] = useState(false);
   const [filterIsOpen, setFilterIsOpen] = useState(false);
 
@@ -89,7 +41,7 @@ const SearchResults = () => {
     setFilterIsOpen(prev => !prev);
   };
 
-  if (!productsData) return <p>Loading...</p>;
+  if (!productsData) return <p>Cargando...</p>;
 
   return (
     <div className='search_results_container'>

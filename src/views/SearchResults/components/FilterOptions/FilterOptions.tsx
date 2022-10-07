@@ -1,9 +1,7 @@
 import './FilterOptions.scss';
-import { useSearchParams } from 'react-router-dom';
-import { FilterOption } from '../../SearchResults';
 import Filter from '../Filter';
-import { RiDeleteBin6Line } from 'react-icons/ri';
-import FilterOptionsSelected from '../FilterOptionsSelected/FilterOptionsSelected';
+import FilterOptionsSelected from '../FilterOptionsSelected';
+import { FilterOption } from '@/types';
 
 interface Prop {
   actualFilters: Array<FilterOption>;
@@ -11,14 +9,6 @@ interface Prop {
 }
 
 const FilterOptions = ({ actualFilters, availableFilters }: Prop) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const handleDeleteSelectedFilter = (key: string) => {
-    searchParams.delete(key);
-
-    setSearchParams(searchParams);
-  };
-
   return (
     <aside className='filter_options_container'>
       <FilterOptionsSelected actualFilters={actualFilters} />

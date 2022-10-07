@@ -1,7 +1,7 @@
 import './FilterOptionsSelected.scss';
-import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useSearchParams } from 'react-router-dom';
-import { FilterOption } from '../../SearchResults';
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { FilterOption } from '@/types';
 
 interface Prop {
   actualFilters: Array<FilterOption>;

@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import { IoIosArrowDown } from 'react-icons/io';
-import { useSearchParams } from 'react-router-dom';
 import './SortBy.scss';
+import { useEffect, useRef, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { IoIosArrowDown } from 'react-icons/io';
 
 interface SortOption {
   id: string;

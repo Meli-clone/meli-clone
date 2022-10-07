@@ -1,7 +1,7 @@
-import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
-import { useSearchParams } from 'react-router-dom';
-import { FilterOption } from '../../SearchResults';
 import './Filter.scss';
+import { useSearchParams } from 'react-router-dom';
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
+import { FilterOption } from '@/types';
 
 interface Prop {
   filter: FilterOption;

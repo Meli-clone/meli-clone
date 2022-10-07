@@ -1,10 +1,10 @@
 import './Result.scss';
 import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
-import formatSellerName from '@/utils/helpers/formatSellerName';
-import { Product } from '../../SearchResults';
-import FreeShipping from '../FreeShipping';
+import formatPascalCase from '@/utils/helpers/formatPascalCase';
 import Fulfillment from '@/components/Fulfillment';
 import PurchaseDiscount from '@/components/PurchaseDiscount';
+import FreeShipping from '@/components/FreeShipping';
+import { Product } from '@/types';
 
 interface Prop {
   product: Product;
@@ -27,7 +27,7 @@ const Result = ({ product }: Prop) => {
           <span className='label'>{title}</span>
           {seller?.eshop?.nick_name && (
             <span className='seller'>
-              Vendido por {formatSellerName(seller.eshop.nick_name)}
+              Vendido por {formatPascalCase(seller.eshop.nick_name)}
             </span>
           )}
         </div>

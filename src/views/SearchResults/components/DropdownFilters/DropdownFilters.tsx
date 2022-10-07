@@ -1,7 +1,7 @@
-import { FiArrowLeft } from 'react-icons/fi';
-import { FilterOption } from '../../SearchResults';
-import DropdownFilterOptions from '../DropdownFilterOptions/DropdownFilterOptions';
 import '../../SearchResults.scss';
+import { FiArrowLeft } from 'react-icons/fi';
+import DropdownFilterOptions from '../DropdownFilterOptions';
+import { FilterOption } from '@/types';
 
 interface Prop {
   filters: Array<FilterOption>;

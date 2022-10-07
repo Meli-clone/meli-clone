@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
-import { useSearchParams } from 'react-router-dom';
-import { FilterOption } from '../../SearchResults';
 import './DropdownFilterOptions.scss';
+import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
+import { FilterOption } from '@/types';
 
 interface Prop {
   filter: FilterOption;
