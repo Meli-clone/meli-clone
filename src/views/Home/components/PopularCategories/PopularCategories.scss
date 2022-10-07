@@ -1,0 +1,50 @@
+@import '@/utils/sass/theme.scss';
+
+.popular_categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $background;
+}
+
+.popular_categories_container {
+  max-width: $max-width;
+  padding: 10px;
+  width: 100%;
+  position: relative;
+
+  & > h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: $gray;
+    padding-bottom: 16px;
+  }
+
+  & > a {
+    display: grid;
+    place-content: center;
+    background-color: $white;
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: $blue;
+    font-weight: 600;
+    box-shadow: 0 1px 1px 0 #00000010;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .popular_categories_container {
+    padding: 20px 0;
+
+    .category_list {
+      gap: 1px;
+    }
+
+    & > a {
+      display: none;
+    }
+  }
+}

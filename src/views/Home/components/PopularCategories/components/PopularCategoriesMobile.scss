@@ -1,0 +1,6 @@
+.category_list_mobile {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(170px, 1fr));
+  gap: 10px;
+  width: 100%;
+}
