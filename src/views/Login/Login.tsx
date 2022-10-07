@@ -50,7 +50,8 @@ const Login = () => {
         footer: '<a href="">Has olvidado la contraseña?</a>',
       });
     } else {
-      localStorage.setItem('username', values.username);
+      localStorage.setItem('userInfo', JSON.stringify(jhonInfo));
+      // localStorage.setItem('userLoggedIn', JSON.stringify(true));
       dispatch(setUserInfo(jhonInfo));
 
       navigate('/');

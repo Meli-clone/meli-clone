@@ -49,6 +49,7 @@ const RegisterForm = () => {
       userLoggedIn: true,
     };
 
+    localStorage.setItem('userInfo', JSON.stringify(userInfo));
     dispatch(setUserInfo(userInfo));
 
     Swal.fire({

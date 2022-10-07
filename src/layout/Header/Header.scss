@@ -98,7 +98,7 @@
     &__container {
       height: 100%;
       display: grid;
-      grid-template-columns: 140px 1fr 320px;
+      grid-template-columns: 140px 1fr 350px;
       grid-template-rows: 56px 1fr;
       grid-column-gap: 0px;
       grid-row-gap: 0px;
@@ -161,103 +161,6 @@
         color: $gray-dark;
       }
     }
-
-    &__user_options {
-      @include flex(row, left, center);
-      font-size: 16px;
-      grid-area: 2 / 3 / 3 / 4;
-      justify-content: flex-end;
-
-      &__user {
-        @include flex(row, left, center);
-      }
-
-      a {
-        color: $gray-dark;
-        text-decoration: none;
-        padding: 0 8px;
-      }
-
-      .option {
-        @include flex(row, end, center);
-        margin-right: 15px;
-        padding: 0;
-        position: relative;
-
-        &__notification_icon {
-          position: absolute;
-          right: -10px;
-          top: -14px;
-          stroke-width: 1.3px;
-        }
-        svg {
-          font-size: 20px;
-        }
-
-        &__user_menu {
-          .user_profile_picture {
-            font-size: 25px;
-            stroke-width: 0.8px;
-            margin-right: 5px;
-            position: absolute;
-            left: -30px;
-            bottom: 0px;
-          }
-          .user_nav {
-            display: none;
-          }
-          .user_nav:hover {
-            @include flex(column, start, start);
-          }
-        }
-
-        &__user_menu:hover {
-          .user_nav {
-            @include flex(column, start, start);
-            position: absolute;
-            background-color: $white;
-            z-index: 1;
-            width: 300px;
-            top: 25px;
-            right: -100px;
-
-            ul {
-              border-style: solid;
-              border-color: $gray-ultra-light;
-              width: 100%;
-              border-width: 2px 0;
-              margin: 20px 0;
-            }
-
-            li,
-            p {
-              list-style: none;
-              padding: 10px 20px;
-              // margin: 0 20px;
-            }
-
-            li:hover,
-            p:hover {
-              background-color: $gray-ultra-light;
-            }
-
-            button {
-              background: none;
-              border-style: none;
-              background: $blue;
-              color: $white;
-              width: 100%;
-              height: 40px;
-              font-size: 20px;
-            }
-
-            button:hover {
-              background-color: $blue-dark;
-            }
-          }
-        }
-      }
-    }
   }
 }
 
@@ -286,6 +189,7 @@
       display: block;
       grid-area: 2 / 2 / 3 / 3;
       color: $gray;
+      font-size: 14px;
 
       ul {
         @include flex(row, left, center);
