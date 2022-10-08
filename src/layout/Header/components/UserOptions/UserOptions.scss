@@ -1,113 +1,116 @@
 @import '@/utils/sass/theme.scss';
 
-.user_options {
-  @include flex(row, end, center);
-  font-size: 14px;
-  grid-area: 2 / 3 / 3 / 4;
+@media only screen and (min-width: $laptop) {
+  .user_options {
+    @include flex(row, end, center);
+    font-size: 14px;
+    grid-area: 2 / 3 / 3 / 4;
 
-  ul {
-    @include flex(row, center, center);
-
-    .option {
-      list-style: none;
-      margin-left: 13px;
+    ul {
       @include flex(row, center, center);
 
-      .arrow_icon {
-        font-size: 18px;
-        color: $gray-light;
-        align-self: center;
-      }
+      .option {
+        list-style: none;
+        margin-left: 13px;
+        @include flex(row, center, center);
 
-      &__user_menu {
-        @include flex(row, center, end);
-        position: relative;
-        .profile_picture {
-          font-size: 30px;
-          stroke-width: 1px;
-          margin-right: 8px;
+        .arrow_icon {
+          font-size: 18px;
+          color: $gray-light;
+          align-self: center;
         }
-      }
 
-      a {
-        text-decoration: none;
-        color: $black;
-      }
+        &__user_menu {
+          @include flex(row, center, end);
+          position: relative;
+          .profile_picture {
+            font-size: 30px;
+            stroke-width: 1px;
+            margin-right: 8px;
+          }
+        }
 
-      p {
-        align-self: center;
-      }
+        a {
+          text-decoration: none;
+          color: $black;
+        }
 
-      &__notification_icon {
-        font-size: 20px;
-        stroke-width: 1px;
-      }
+        p {
+          align-self: center;
+        }
 
-      .user_nav {
-        display: none;
-      }
+        &__notification_icon {
+          font-size: 20px;
+          stroke-width: 1px;
+        }
 
-      &__user_menu:hover {
         .user_nav {
-          @include flex(column, start, start);
-          position: absolute;
-          background-color: $white;
-          z-index: 1;
-          width: 300px;
-          top: 32px;
-          right: -100px;
-          box-shadow: 0 15px 20px 0 rgb(0 0 0 / 8%), 0 1px 4px 0 rgb(0 0 0 / 8%);
+          display: none;
+        }
 
-          div {
-            width: 100%;
-            padding: 10px 0;
-            border-style: solid;
-            border-color: $gray-ultra-light;
-            width: 100%;
-            border-width: 1px 0;
-            color: $black;
-            cursor: pointer;
-            ul {
-              flex-direction: column;
-            }
+        &__user_menu:hover {
+          .user_nav {
+            @include flex(column, start, start);
+            position: absolute;
+            background-color: $white;
+            z-index: 1;
+            width: 300px;
+            top: 32px;
+            right: -100px;
+            box-shadow: 0 15px 20px 0 rgb(0 0 0 / 8%),
+              0 1px 4px 0 rgb(0 0 0 / 8%);
 
-            li,
-            p {
-              list-style: none;
-              padding: 12px 20px;
-              align-self: flex-start;
+            div {
               width: 100%;
+              padding: 10px 0;
+              border-style: solid;
+              border-color: $gray-ultra-light;
+              width: 100%;
+              border-width: 1px 0;
+              color: $black;
+              cursor: pointer;
+              ul {
+                flex-direction: column;
+              }
+
+              li,
+              p {
+                list-style: none;
+                padding: 12px 20px;
+                align-self: flex-start;
+                width: 100%;
+              }
+
+              li:hover,
+              p:hover {
+                background-color: $gray-ultra-light;
+              }
+            }
+            button {
+              background: none;
+              border-style: none;
+              background: $blue;
+              color: $white;
+              width: 100%;
+              height: 40px;
+              font-size: 20px;
             }
 
-            li:hover,
-            p:hover {
-              background-color: $gray-ultra-light;
+            button:hover {
+              background-color: $blue-dark;
             }
-          }
-          button {
-            background: none;
-            border-style: none;
-            background: $blue;
-            color: $white;
-            width: 100%;
-            height: 40px;
-            font-size: 20px;
-          }
-
-          button:hover {
-            background-color: $blue-dark;
           }
         }
       }
     }
-  }
 
-  .cart_btn {
-    margin-left: 10px;
-    font-size: 21px;
-    a {
-      color: $black;
-      display: flex;
+    .cart_btn {
+      margin-left: 10px;
+      font-size: 21px;
+      a {
+        color: $black;
+        display: flex;
+      }
     }
   }
 }
