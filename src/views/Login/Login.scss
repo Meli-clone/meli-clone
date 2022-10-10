@@ -4,33 +4,7 @@
   height: 100vh;
   @include flex(column, start, center);
   padding-bottom: 29px;
-
-  .login_header {
-    width: 100%;
-    background: $yellow;
-    height: 50px;
-    padding: 5px 10px;
-    @include flex(row, start, center);
-    &__container {
-      &__logo {
-        color: $blue;
-        height: 40px;
-        display: flex;
-        align-items: center;
-
-        img {
-          height: 32px;
-          width: 50px;
-          object-fit: cover;
-          object-position: left;
-        }
-      }
-
-      &__help {
-        display: none;
-      }
-    }
-  }
+  background-color: $white;
 
   .main_container {
     @include flex(column, space-between, center);
@@ -189,12 +163,6 @@
     background-color: #ededed;
     padding-bottom: 0;
 
-    .login_header {
-      position: absolute;
-      height: 280px;
-      align-items: flex-start;
-    }
-
     .main_container {
       z-index: 1;
       margin-top: 80px;
@@ -233,30 +201,6 @@
       padding: 0;
       a {
         font-size: 14px;
-      }
-    }
-  }
-}
-
-@media only screen and (min-width: $laptop) {
-  .login {
-    .login_header {
-      justify-content: center;
-      &__container {
-        @include flex(row, space-between, center);
-        width: 100%;
-        max-width: 1020px;
-        &__logo {
-          img {
-            width: auto;
-          }
-        }
-        &__help {
-          display: inline;
-        }
-        .help_icon {
-          color: $gray-dark;
-        }
       }
     }
   }

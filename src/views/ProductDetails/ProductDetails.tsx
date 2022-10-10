@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { getProductDetail } from '@/services/product';
 import Details from './components/Details';
 import { useNavigate, useParams } from 'react-router-dom';
-import PageNotFound from '@/components/PageNotFound/PageNotFound';
 
 export interface Product {
   id: string;
