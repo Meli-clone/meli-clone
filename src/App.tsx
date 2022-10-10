@@ -6,6 +6,7 @@ import SearchResults from './views/SearchResults';
 import ProductDetails from './views/ProductDetails';
 import Cart from './views/Cart';
 import Register from './views/Register';
+import PageNotFound from './components/PageNotFound';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
 
@@ -18,8 +19,12 @@ const App = () => {
         <Route element={<MainLayout />}>
           <Route path='/' element={<Home />} />
           <Route path='/search_results/:search' element={<SearchResults />} />
-          <Route path='/product_details' element={<ProductDetails />} />
+          <Route
+            path='/product_details/:productID'
+            element={<ProductDetails />}
+          />
           <Route path='/cart' element={<Cart />} />
+          <Route path='*' element={<PageNotFound />} />
         </Route>
       </Routes>
     </Provider>

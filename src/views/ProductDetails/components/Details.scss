@@ -10,6 +10,7 @@
   box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
   -webkit-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
   -moz-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+  margin-top: 10px;
 }
 
 .details_dataContainer {
@@ -26,6 +27,8 @@
       img {
         width: 260px;
         margin: 20px;
+        object-fit: contain;
+        max-height: 280px;
       }
     }
     .details_conditionContainer {
@@ -173,6 +176,8 @@
           border-bottom: 1px solid $background;
           margin-bottom: 20px;
           img {
+            object-fit: contain;
+            max-height: 400px;
             width: 300px;
             margin: 20px;
           }
@@ -207,6 +212,8 @@
       .details_column1 {
         width: 60%;
         img {
+          object-fit: contain;
+          max-height: 400px;
           width: 220px;
           margin: 20px;
         }
