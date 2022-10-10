@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 
 //COMPONENTS
-import HamburgerMenu from './HamburgerMenu';
+import HamburgerMenu from './components/HamburgerMenu';
+import UserOptions from './components/UserOptions';
 
 //STYLES AND IMAGES
 import './Header.scss';
@@ -9,7 +10,6 @@ import meliLogo2 from '@/assets/images/meli-logo2.svg';
 import disneyPromoImg from '@/assets/images/header-disney-promo.png';
 
 //ICONS
-import { BsCart2 } from 'react-icons/bs';
 import { IoLocationOutline } from 'react-icons/io5';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
@@ -58,17 +58,7 @@ const Header = () => {
             <li>Ayuda/PQR</li>
           </ul>
         </nav>
-        <div className='header__user_options'>
-          <div className='header__user_options__user'>
-            <a href='#'>Crea tu cuenta</a>
-            <Link to='/login'>Ingresa</Link>
-            <a href='#'>Mis compras</a>
-          </div>
-
-          <Link to='/cart' className='user_options__car_btn'>
-            <BsCart2 />
-          </Link>
-        </div>
+        <UserOptions />
       </div>
     </div>
   );
