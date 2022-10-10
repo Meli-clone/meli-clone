@@ -1,0 +1,144 @@
+@import '@/utils/sass/theme.scss';
+
+.register_form {
+  padding: 25px 20px 0;
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    margin: 16px 0 24px;
+    line-height: 23px;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    grid-template-rows: 40px 1fr 15px;
+    grid-column-gap: 0px;
+    grid-row-gap: 5px;
+
+    svg {
+      grid-area: 1 / 1 / 2 / 2;
+      color: $blue;
+      font-size: 21px;
+      stroke-width: 0.1px;
+      margin-right: 10px;
+      font-size: 25px;
+      align-self: flex-end;
+    }
+    label {
+      grid-area: 1 / 2 / 2 / 3;
+      width: 50%;
+      align-self: flex-end;
+      flex-grow: 1;
+    }
+    input {
+      grid-area: 2 / 1 / 3 / 4;
+      order: 1;
+      height: 40px;
+      width: 100%;
+      border-radius: 5px;
+      border-style: solid;
+      border-color: $gray-ultra-light;
+      padding-left: 15px;
+      font-size: 16px;
+    }
+    input:focus {
+      outline: solid 2px $blue;
+      border-width: 0;
+    }
+    .error {
+      grid-area: 3 / 1 / 4 / 4;
+      order: 2;
+      color: $red;
+      font-size: 13px;
+    }
+
+    .pass_help {
+      grid-area: 1 / 3 / 2 / 4;
+      height: auto;
+      background: none;
+      margin-top: 0;
+      text-align: end;
+      align-self: flex-end;
+      position: relative;
+      &__help_icon {
+        font-size: 18px;
+        stroke-width: 1px;
+        margin-right: 0;
+      }
+
+      &__description {
+        display: none;
+        color: $black;
+        background-color: $gray-ultra-light;
+        position: absolute;
+        right: 0;
+        font-size: 12px;
+        width: 200px;
+        justify-content: end;
+        padding: 10px;
+
+        p {
+          margin: 0;
+          text-align: left;
+        }
+
+        ul {
+          @include flex(column, start, center);
+          li {
+            @include flex(column, start, center);
+            width: 100%;
+            text-align: end;
+            height: auto;
+            margin-bottom: 2px;
+            list-style-type: disc;
+            align-items: flex-start;
+          }
+        }
+      }
+
+      .show_des {
+        display: block;
+      }
+    }
+  }
+  button {
+    border-style: none;
+    background-color: $blue;
+    color: $white;
+    height: 49px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .form_submit:hover {
+    background-color: $blue-dark;
+  }
+
+  .form_submit:active {
+    background-color: $gradient-blue;
+  }
+
+  .login-link {
+    a {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .register_form {
+    background-color: $white;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 40px;
+    width: 536px;
+    border-radius: 15px;
+  }
+}
