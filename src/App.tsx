@@ -5,6 +5,7 @@ import Login from './views/Login';
 import SearchResults from './views/SearchResults';
 import ProductDetails from './views/ProductDetails';
 import Cart from './views/Cart';
+import Checkout from './views/Checkout';
 import Register from './views/Register';
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/search_results/:search' element={<SearchResults />} />
         <Route path='/product_details/:product' element={<ProductDetails />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/checkout' element={<Checkout />} />
       </Route>
     </Routes>
   );
