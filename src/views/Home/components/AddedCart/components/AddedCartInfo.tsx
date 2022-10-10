@@ -62,7 +62,7 @@ const AddedCartInfo = ({ product }: Props) => {
             </button>
             <button
               className='addedCart_buttonSecondary'
-              onClick={() => navigate('/cart')}
+              onClick={() => navigate('/checkout')}
             >
               Comprar Carrito
             </button>

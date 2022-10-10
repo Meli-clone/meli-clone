@@ -51,7 +51,7 @@ const Details = ({ product }: Prop) => {
 
   const goToCart = () => {
     dispatch(addToCart(productToCart));
-    navigate('/cart');
+    navigate('/checkout');
   };
 
   const handleQuantity = (value: number) => {
