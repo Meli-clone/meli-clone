@@ -4,7 +4,8 @@ import { useAppSelector } from '@/store/hooks';
 import { useAppDispatch } from '@/store/hooks';
 
 //COMPONENTS AND FUNCTIONS
-import { logout, setUserInfo } from '@/store/user/user.slice';
+import { setUserInfo } from '@/store/user/user.slice';
+import LogOutBtn from '@/layout/components/LogOutBtn/LogOutBtn';
 
 //STYLES AND IMAGES
 import './UserOptions.scss';
@@ -21,7 +22,6 @@ const UserOptions = () => {
   );
 
   const dispatch = useAppDispatch();
-  console.log(userLoggedIn);
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem('userInfo') ?? 'null');
@@ -30,11 +30,6 @@ const UserOptions = () => {
       dispatch(setUserInfo(userInfo));
     }
   }, []);
-
-  const logoutHandler = () => {
-    localStorage.clear();
-    dispatch(logout());
-  };
 
   return (
     <div className='user_options'>
@@ -82,7 +77,7 @@ const UserOptions = () => {
                 <div>
                   <p>Mi perfil</p>
                 </div>
-                <button onClick={() => logoutHandler()}>Salir</button>
+                <LogOutBtn />
               </div>
             </div>
           </li>

@@ -1,0 +1,89 @@
+@import '@/utils/sass/theme.scss';
+
+.sort_by_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 5px 0 20px;
+  gap: 10px;
+  position: relative;
+
+  & > .label {
+    color: $gray-dark;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  & > button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: flex-end;
+    font-size: 14px;
+    color: $gray-dark;
+    font-weight: 300;
+  }
+
+  .modal_sort_by {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    box-shadow: 0 2px 2px 0 #00000030;
+    border-radius: 5px;
+
+    & > ul {
+      background-color: $background;
+
+      & > li {
+        background-color: $white;
+        list-style: none;
+        font-size: 14px;
+        color: $gray-dark;
+        border-bottom: 1px solid $background;
+
+        &:first-child {
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+
+        &:last-child {
+          border-bottom: none;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+
+        & > button {
+          padding: 13px 16px;
+          width: 100%;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          text-align: left;
+          color: $gray;
+
+          &:hover:not(.selected_sort) {
+            background-color: #f6f6f6ab;
+          }
+        }
+
+        .selected_sort {
+          color: $blue;
+          font-weight: 600;
+          position: relative;
+          cursor: default;
+
+          &::before {
+            content: '';
+            border-left: 5px solid $blue;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            z-index: 0;
+          }
+        }
+      }
+    }
+  }
+}

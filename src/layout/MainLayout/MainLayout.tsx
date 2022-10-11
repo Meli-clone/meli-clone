@@ -14,11 +14,16 @@ import Home from '@/views/Home';
 import { Outlet } from 'react-router-dom';
 >>>>>>> 23822b204c9d157ee44c01b3dd0bb3587a6c5555
 import Footer from '../Footer';
+import HamburgerMenu from '../HamburgerMenu';
 import Header from '../Header';
+import { useState } from 'react';
 
 const MainLayout = () => {
+  const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
+
   return (
     <>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <HomePayment/>
@@ -33,6 +38,13 @@ const MainLayout = () => {
 >>>>>>> 2603e18e10290a099f4a36797664ccb4fdf41f6b
 =======
       <Header />
+=======
+      <Header
+        mobileMenuOpened={mobileMenuOpened}
+        setMobileMenuOpened={setMobileMenuOpened}
+      />
+      {mobileMenuOpened && <HamburgerMenu />}
+>>>>>>> 84c006e6f3cad30f2d26178e811d44a192be60f2
       <Outlet />
 >>>>>>> 23822b204c9d157ee44c01b3dd0bb3587a6c5555
       <Footer />
