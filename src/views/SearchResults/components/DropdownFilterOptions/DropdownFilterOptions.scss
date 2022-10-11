@@ -1,0 +1,72 @@
+@import '@/utils/sass/theme.scss';
+
+.filter_by_container {
+  width: 100%;
+
+  &.open {
+    .toggle_filter_options {
+      svg {
+        transition: transform 100ms linear;
+        transform: rotate(180deg);
+      }
+    }
+
+    .filter_option_list {
+      height: 100%;
+      border-top: 1px solid #00000010;
+    }
+  }
+
+  &.closed {
+    .toggle_filter_options {
+      svg {
+        transition: transform 100ms linear;
+        transform: rotate(0deg);
+      }
+    }
+
+    .filter_option_list {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  .filter_button {
+    width: 100%;
+
+    .toggle_filter_options {
+      font-size: 25px;
+      color: $blue;
+    }
+  }
+
+  ul.filter_option_list {
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    & > li {
+      border: none;
+      list-style-type: none;
+
+      &:first-child {
+        margin-top: 15px;
+      }
+
+      &:last-child {
+        margin-bottom: 15px;
+      }
+
+      & > button {
+        width: 100%;
+        border: none;
+        color: $blue;
+
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}

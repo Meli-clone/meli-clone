@@ -16,6 +16,9 @@ import { BsTruck } from 'react-icons/bs';
 import { TbArrowBack } from 'react-icons/tb';
 import { AiOutlineTrophy } from 'react-icons/Ai';
 import { BiCheckShield } from 'react-icons/bi';
+/* Utils */
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
+import formatPascalCase from '@/utils/helpers/formatPascalCase';
 
 interface Prop {
   product: Product;
@@ -75,23 +78,25 @@ const Details = ({ product }: Prop) => {
         <div className='details_dataContainer'>
           <div className='details_column1'>
             <div className='details_imgContainer'>
-              <img src={product.pictures[0].secure_url} alt='hola' />
+              <img src={product.pictures[0].secure_url} alt={product.title} />
             </div>
             <DetailsTable atr={product.attributes} />
           </div>
           <div className='details_column2'>
             <div>
               <div className='details_conditionContainer'>
-                <p>{product.condition}</p>
+                <p>{formatPascalCase(product.condition)}</p>
                 {product.sold_quantity === 0 ? null : <p>|</p>}
                 {product.sold_quantity === 0 ? null : (
-                  <p>{product.sold_quantity} vendidos</p>
+                  <p>{formatNumberWithDot(product.sold_quantity)} vendidos</p>
                 )}
               </div>
               <h2 className='details_title'>{product.title}</h2>
-              <h3 className='details_price'>$ {product.price}</h3>
+              <h3 className='details_price'>
+                $ {formatNumberWithDot(product.price)}
+              </h3>
               <p className='details_cuotas'>
-                en 12X $ {(product.price / 12).toFixed(2)}
+                en 12X $ {formatNumberWithDot(product.price / 12)}
               </p>
               <a className='details_link'>Ver los medios de pago</a>
             </div>

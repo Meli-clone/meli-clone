@@ -32,16 +32,14 @@ const ProductDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getProductDetail(productID)
-      /* MLA1131686227 MLA1123824844 MLA1122296562 */
-      .then(res => setProduct(res));
+    getProductDetail(productID).then(res => setProduct(res));
   }, [productID]);
 
   if (product?.error == 'resource not found') {
     navigate('*');
   }
 
-  return <>{product ? <Details product={product} /> : <h1>Cargando...</h1>}</>;
+  return <>{product ? <Details product={product} /> : null}</>;
 };
 
 export default ProductDetails;
