@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 //COMPONENTS
 import UserOptions from './components/UserOptions';
@@ -12,6 +12,7 @@ import disneyPromoImg from '@/assets/images/header-disney-promo.png';
 //ICONS
 import { IoLocationOutline } from 'react-icons/io5';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+import { useState } from 'react';
 
 interface Props {
   mobileMenuOpened: boolean;
@@ -20,17 +21,29 @@ interface Props {
 
 const Header = ({ mobileMenuOpened, setMobileMenuOpened }: Props) => {
   const screenWidth = window.innerWidth;
+  const [query, setQuery] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleSearcher = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    navigate(`/search?q=${query}`);
+  };
 
   return (
     <div className='header'>
       <div className='header__container'>
         <Link to='/' className='header__logo'>
-          <img src={meliLogo2}></img>
+          <img src={meliLogo2} />
         </Link>
-        <input
-          className='header__search-input'
-          placeholder='Buscar productos, marcas y más...'
-        ></input>
+        <form onSubmit={handleSearcher}>
+          <input
+            className='header__search-input'
+            placeholder='Buscar productos, marcas y más...'
+            type='search'
+            onChange={e => setQuery(e.target.value)}
+          />
+        </form>
         <div className='header__hamburguer-btn'>
           <Hamburger
             size={25}
