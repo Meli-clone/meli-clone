@@ -97,7 +97,7 @@
     &__container {
       height: 100%;
       display: grid;
-      grid-template-columns: 140px 1fr 320px;
+      grid-template-columns: 140px 1fr 350px;
       grid-template-rows: 56px 1fr;
       grid-column-gap: 0px;
       grid-row-gap: 0px;
@@ -205,6 +205,7 @@
       display: block;
       grid-area: 2 / 2 / 3 / 3;
       color: $gray;
+      font-size: 14px;
 
       ul {
         @include flex(row, left, center);
