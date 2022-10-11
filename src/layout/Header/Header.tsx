@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
 //COMPONENTS
-import HamburgerMenu from './components/HamburgerMenu';
 import UserOptions from './components/UserOptions';
+import { Divide as Hamburger } from 'hamburger-react';
 
 //STYLES AND IMAGES
 import './Header.scss';
@@ -13,7 +13,12 @@ import disneyPromoImg from '@/assets/images/header-disney-promo.png';
 import { IoLocationOutline } from 'react-icons/io5';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
-const Header = () => {
+interface Props {
+  mobileMenuOpened: boolean;
+  setMobileMenuOpened: (value: boolean) => void;
+}
+
+const Header = ({ mobileMenuOpened, setMobileMenuOpened }: Props) => {
   const screenWidth = window.innerWidth;
 
   return (
@@ -27,7 +32,11 @@ const Header = () => {
           placeholder='Buscar productos, marcas y más...'
         ></input>
         <div className='header__hamburguer-btn'>
-          <HamburgerMenu />
+          <Hamburger
+            size={25}
+            color='#333'
+            onToggle={() => setMobileMenuOpened(!mobileMenuOpened)}
+          />
         </div>
         <div className='header__disney_promo'>
           <img src={disneyPromoImg} alt='logo de mercado libre'></img>
