@@ -21,8 +21,8 @@ const App = () => {
           <Route path='/search_results/:search' element={<SearchResults />} />
           <Route path='/product_details' element={<ProductDetails />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/checkout' element={<Checkout />} />
         </Route>
-        <Route path='/checkout' element={<Checkout />} />
       </Routes>
     </Provider>
   );
