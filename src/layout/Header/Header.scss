@@ -9,8 +9,9 @@
   &__container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 10px;
     width: 100%;
     max-width: $max-width;
 
@@ -33,15 +34,19 @@
     }
   }
 
+  form {
+    flex-grow: 1;
+  }
+
   &__search-input {
     height: 32px;
     flex-grow: 1;
-    margin: 10px 10px;
     border-style: none;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
     padding: 0 15px;
     font-size: 16px;
     outline: none;
+    width: 100%;
 
     &::placeholder {
       color: $gray-light;
