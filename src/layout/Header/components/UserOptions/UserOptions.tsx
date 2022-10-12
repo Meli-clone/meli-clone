@@ -17,7 +17,7 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 import { FiBell } from 'react-icons/fi';
 
 const UserOptions = () => {
-  const { userLoggedIn, username } = useAppSelector(
+  const { userLoggedIn, username, userImage } = useAppSelector(
     state => state.user.userInfo,
   );
 
@@ -49,8 +49,12 @@ const UserOptions = () => {
         <ul className='user_options logged_in'>
           <li className='option'>
             <div className='option__user_menu'>
-              <TbUserCircle className='profile_picture' />
-              <p>{username}</p>
+              {userImage ? (
+                <img src={userImage} className='profile_picture' />
+              ) : (
+                <TbUserCircle className='profile_icon' />
+              )}
+              <p>{username.split(' ')[0]}</p>
               <MdKeyboardArrowDown className='arrow_icon' />
               <div className='user_nav'>
                 <div>

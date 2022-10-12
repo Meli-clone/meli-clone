@@ -7,6 +7,7 @@ import { useAppDispatch } from '@/store/hooks';
 import CustomInput from './components/CustomInput';
 import { loginSchema } from './schemas/loginSchemas';
 import { setUserInfo } from '@/store/user/user.slice';
+import { signInWithGoogle } from '@/services/firebase';
 
 //STYLES AND IMAGES
 import './Login.scss';
@@ -51,12 +52,32 @@ const Login = () => {
       });
     } else {
       localStorage.setItem('userInfo', JSON.stringify(jhonInfo));
-      // localStorage.setItem('userLoggedIn', JSON.stringify(true));
       dispatch(setUserInfo(jhonInfo));
-
       navigate('/');
     }
     formikBag.setSubmitting(false);
+  };
+
+  const singInWithGoogleHandler = async () => {
+    try {
+      const { displayName, email, phoneNumber, photoURL } =
+        await signInWithGoogle();
+
+      const userInfo = {
+        userLoggedIn: true,
+        username: displayName ?? '',
+        phone: phoneNumber ?? '',
+        email: email ?? '',
+        userImage: photoURL ?? '',
+      };
+
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      dispatch(setUserInfo(userInfo));
+
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -94,7 +115,14 @@ const Login = () => {
             )}
           </Formik>
           <div className='main_container__main_card__registration_link'>
-            <Link to='/register'>Crear cuenta</Link>
+            <Link to='/register'>Crear una cuenta</Link>
+          </div>
+          <div className='main_container__main_card__login-with-google-btn'>
+            <p>o</p>
+            <br></br>
+            <button onClick={singInWithGoogleHandler}>
+              Ingresa con Google
+            </button>
           </div>
           <div className='main_container__main_card__help_link'>
             <Link to='#'>Necesito ayuda para ingresar</Link>
