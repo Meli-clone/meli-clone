@@ -1,0 +1,70 @@
+@import '@/utils/sass/theme.scss';
+
+.detailsSelector {
+  .detailsSelector_selectContainer {
+    @include flex(row, flex-start, center);
+    margin: 17px 0;
+    &:hover {
+      cursor: pointer;
+    }
+    .detailsSelector_title {
+      color: $gray-dark;
+      margin-right: 5px;
+    }
+    .detailsSelector_value {
+      color: $gray-dark;
+      font-weight: bold;
+    }
+    .select_icon {
+      color: $blue;
+      font-size: 20px;
+      margin: 0 5px;
+    }
+    .detailsSelector_available {
+      color: $gray-light;
+      font-size: 14px;
+    }
+  }
+  .detailsSelector_dropdown {
+    display: none;
+    width: 200px;
+    box-shadow: 0px 1px 8px 2px rgba(162, 162, 162, 0.5);
+    -webkit-box-shadow: 0px 1px 8px 2px rgba(162, 162, 162, 0.5);
+    -moz-box-shadow: 0px 1px 8px 2px rgba(162, 162, 162, 0.5);
+    position: absolute;
+    .detailsSelector_dropdownContainer {
+      @include flex(row, flex-start, center);
+      background-color: $white;
+      &:hover {
+        cursor: pointer;
+        background-color: $gray-ultra-light;
+      }
+      .detailsSelector_blueSelect_active {
+        background-color: $blue;
+        width: 2px;
+        height: 40px;
+        margin-right: 10px;
+      }
+      .detailsSelector_blueSelect {
+        background-color: $white;
+        width: 2px;
+        height: 40px;
+        margin-right: 10px;
+      }
+      .detailsSelector_value_active {
+        color: $blue;
+      }
+    }
+  }
+  .dropdown_active {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .detailsSelector {
+    .detailsSelector_selectContainer {
+      margin: 22px 0;
+    }
+  }
+}

@@ -3,6 +3,9 @@
 .carousel_shopping_container {
   overflow: hidden;
   position: relative;
+  background-color: $white;
+  margin-bottom: -83px;
+  padding-bottom: 30px;
 
   ul {
     display: flex;
