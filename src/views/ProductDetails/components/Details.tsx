@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 /* Components */
 import DetailsTable from './DetailsTable';
 import DetailsSelector from './DetailsSelector';
-/* TS */
 import { Product } from '../ProductDetails';
 /* Redux */
 import { useAppDispatch } from '@/store/hooks';

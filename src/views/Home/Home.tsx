@@ -1,4 +1,3 @@
-import react from 'react';
 import './Home.scss';
 import Descubre from './components/Descubre';
 import HomePayment from './components/HomePayment';

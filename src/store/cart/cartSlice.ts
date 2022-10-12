@@ -33,7 +33,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<ProductCart>) => {
-      initialState.value.map((value, index) => {
+      initialState.value.map(value => {
         if (value.id === action.payload.id) {
           value.quantity += action.payload.quantity;
         } else {
