@@ -10,6 +10,7 @@
   box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
   -webkit-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
   -moz-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+  margin-top: 10px;
 }
 
 .details_dataContainer {
@@ -24,8 +25,10 @@
       display: flex;
       align-self: center;
       img {
-        width: 160px;
+        width: 260px;
         margin: 20px;
+        object-fit: contain;
+        max-height: 280px;
       }
     }
     .details_conditionContainer {
@@ -109,10 +112,15 @@
   }
   .details_buy_buttonsContainer {
     margin: 20px 0;
+    width: 100%;
+    .details_stock {
+      font-size: 18px;
+      margin: 20px 0;
+    }
     .details_available {
       font-size: 16px;
-      color: $gray-dark;
-      margin: 4px 0;
+      color: $gray;
+      margin-bottom: 20px;
       display: inline-block;
       p {
         display: inline-block;
@@ -168,7 +176,9 @@
           border-bottom: 1px solid $background;
           margin-bottom: 20px;
           img {
-            width: 200px;
+            object-fit: contain;
+            max-height: 400px;
+            width: 300px;
             margin: 20px;
           }
         }
@@ -192,9 +202,6 @@
     }
     .details_buyContainer {
       margin-top: 30px;
-      .details_available {
-        margin: 9px 0;
-      }
     }
   }
 }
@@ -205,6 +212,8 @@
       .details_column1 {
         width: 60%;
         img {
+          object-fit: contain;
+          max-height: 400px;
           width: 220px;
           margin: 20px;
         }

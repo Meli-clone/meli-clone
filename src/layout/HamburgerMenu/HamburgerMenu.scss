@@ -1,0 +1,48 @@
+@import '@/utils/sass/theme.scss';
+
+.hamburger_menu {
+  background-color: $white;
+  font-size: 14px;
+  color: $gray-dark;
+  position: absolute;
+  top: 52px;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+
+  div {
+    ul {
+      padding: 16px 0;
+      li {
+        list-style: none;
+        padding: 4px 0;
+
+        a {
+          @include flex(row, start, center);
+          padding: 8px 25px;
+          span {
+            padding-top: calc((23px - 14px) / 2);
+          }
+
+          svg {
+            margin-right: 18px;
+            display: flex;
+            font-size: 23px;
+            align-self: baseline;
+          }
+        }
+      }
+    }
+  }
+  .triangle {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    transform: rotate(45deg);
+    top: -5px;
+    right: 27px;
+    border: solid $gray-light;
+    border-width: 1px 0px 0px 1px;
+    background-color: $yellow;
+  }
+}

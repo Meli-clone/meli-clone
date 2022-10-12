@@ -2,6 +2,7 @@ import './ProductDetails.scss';
 import { useState, useEffect } from 'react';
 import { getProductDetail } from '@/services/product';
 import Details from './components/Details';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export interface Product {
   id: string;
@@ -16,6 +17,7 @@ export interface Product {
   }>;
   descriptions: string;
   attributes: Attributes;
+  error: string;
 }
 
 export type Attributes = Array<{
@@ -26,13 +28,18 @@ export type Attributes = Array<{
 
 const ProductDetails = () => {
   const [product, setProduct] = useState<Product>();
+  const { productID } = useParams<string>();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getProductDetail('MLA1122296562') /*  MLA1123824844*/
-      .then(res => setProduct(res));
-  }, []);
+    getProductDetail(productID).then(res => setProduct(res));
+  }, [productID]);
 
-  return <>{product ? <Details product={product} /> : <h1>Cargando...</h1>}</>;
+  if (product?.error == 'resource not found') {
+    navigate('*');
+  }
+
+  return <>{product ? <Details product={product} /> : null}</>;
 };
 
 export default ProductDetails;

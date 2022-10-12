@@ -1,0 +1,13 @@
+@import '@/utils/sass/theme.scss';
+
+.fulfillment {
+  display: flex;
+  align-items: center;
+  color: $green;
+
+  span.full {
+    font-size: 12px;
+    font-weight: 900;
+    font-style: italic;
+  }
+}

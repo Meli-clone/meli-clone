@@ -1,0 +1,1 @@
+export { getProductsByQuery } from './products.service'

@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 //COMPONENTS
-import HamburgerMenu from './components/HamburgerMenu';
 import UserOptions from './components/UserOptions';
+import { Divide as Hamburger } from 'hamburger-react';
 
 //STYLES AND IMAGES
 import './Header.scss';
@@ -12,22 +12,44 @@ import disneyPromoImg from '@/assets/images/header-disney-promo.png';
 //ICONS
 import { IoLocationOutline } from 'react-icons/io5';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+import { useState } from 'react';
 
-const Header = () => {
+interface Props {
+  mobileMenuOpened: boolean;
+  setMobileMenuOpened: (value: boolean) => void;
+}
+
+const Header = ({ mobileMenuOpened, setMobileMenuOpened }: Props) => {
   const screenWidth = window.innerWidth;
+  const [query, setQuery] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleSearcher = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    navigate(`/search?q=${query}`);
+  };
 
   return (
     <div className='header'>
       <div className='header__container'>
         <Link to='/' className='header__logo'>
-          <img src={meliLogo2}></img>
+          <img src={meliLogo2} />
         </Link>
-        <input
-          className='header__search-input'
-          placeholder='Buscar productos, marcas y más...'
-        ></input>
+        <form onSubmit={handleSearcher}>
+          <input
+            className='header__search-input'
+            placeholder='Buscar productos, marcas y más...'
+            type='search'
+            onChange={e => setQuery(e.target.value)}
+          />
+        </form>
         <div className='header__hamburguer-btn'>
-          <HamburgerMenu />
+          <Hamburger
+            size={25}
+            color='#333'
+            onToggle={() => setMobileMenuOpened(!mobileMenuOpened)}
+          />
         </div>
         <div className='header__disney_promo'>
           <img src={disneyPromoImg} alt='logo de mercado libre'></img>

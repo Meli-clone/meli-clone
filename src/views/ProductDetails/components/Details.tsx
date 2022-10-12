@@ -1,23 +1,38 @@
+/* Styles */
 import './Details.scss';
+/* React */
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+/* Components */
+import DetailsTable from './DetailsTable';
+import DetailsSelector from './DetailsSelector';
+/* TS */
+import { Product } from '../ProductDetails';
+/* Redux */
+import { useAppDispatch } from '@/store/hooks';
+import { addToCart } from '@/store/cart/cart.slice';
+/* Icons */
 import { BsTruck } from 'react-icons/bs';
 import { TbArrowBack } from 'react-icons/tb';
 import { AiOutlineTrophy } from 'react-icons/Ai';
 import { BiCheckShield } from 'react-icons/bi';
-import DetailsTable from './DetailsTable';
-import { Product } from '../ProductDetails';
-import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import { addToCart } from '@/store/cart/cart.slice';
+/* Utils */
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
+import formatPascalCase from '@/utils/helpers/formatPascalCase';
 
 interface Prop {
   product: Product;
 }
 
 const Details = ({ product }: Prop) => {
-  console.log(product);
   const [titleStock, setTitleStock] = useState<string>('');
+  const [quantity, setQuantity] = useState<number>(1);
+  const [clicked, setClicked] = useState<boolean>(false);
+
   const dispatch = useAppDispatch();
-  const carrito = useAppSelector(state => state.cart.value);
+  const navigate = useNavigate();
+
+  const handleSelectClick = () => setClicked(!clicked);
 
   const productToCart = {
     id: product.id,
@@ -25,12 +40,26 @@ const Details = ({ product }: Prop) => {
     price: product.price,
     stock: product.available_quantity,
     image: product.pictures[0].secure_url,
-    quantity: 2,
+    quantity: quantity,
   };
 
-  const addCart = () => {
+  const handleAddCart = () => {
     dispatch(addToCart(productToCart));
-    console.log(carrito);
+    navigate('/', {
+      state: {
+        product: [productToCart],
+      },
+    });
+  };
+
+  const goToCart = () => {
+    dispatch(addToCart(productToCart));
+    navigate('/checkout');
+  };
+
+  const handleQuantity = (value: number) => {
+    setQuantity(value);
+    setClicked(false);
   };
 
   useEffect(() => {
@@ -49,28 +78,30 @@ const Details = ({ product }: Prop) => {
         <div className='details_dataContainer'>
           <div className='details_column1'>
             <div className='details_imgContainer'>
-              <img src={product.pictures[0].secure_url} alt='hola' />
+              <img src={product.pictures[0].secure_url} alt={product.title} />
             </div>
             <DetailsTable atr={product.attributes} />
           </div>
           <div className='details_column2'>
             <div>
               <div className='details_conditionContainer'>
-                <p>{product.condition}</p>
+                <p>{formatPascalCase(product.condition)}</p>
                 {product.sold_quantity === 0 ? null : <p>|</p>}
                 {product.sold_quantity === 0 ? null : (
-                  <p>{product.sold_quantity} vendidos</p>
+                  <p>{formatNumberWithDot(product.sold_quantity)} vendidos</p>
                 )}
               </div>
               <h2 className='details_title'>{product.title}</h2>
-              <h3 className='details_price'>$ {product.price}</h3>
+              <h3 className='details_price'>
+                $ {formatNumberWithDot(product.price)}
+              </h3>
               <p className='details_cuotas'>
-                en 12X $ {(product.price / 12).toFixed(2)}
+                en 12X $ {formatNumberWithDot(product.price / 12)}
               </p>
               <a className='details_link'>Ver los medios de pago</a>
             </div>
             <div className='details_column1_mobile'>
-              <img src={product.pictures[0].secure_url} alt='hola' />
+              <img src={product.pictures[0].secure_url} alt={product.title} />
             </div>
             <div className='details_buyContainer'>
               <div className='details_buy_infoContainer'>
@@ -95,20 +126,39 @@ const Details = ({ product }: Prop) => {
               </div>
               <div className='details_buy_buttonsContainer'>
                 <h4 className='details_stock'>{titleStock}</h4>
-                {product.available_quantity >= 1 ? (
-                  <p className='details_available'>
-                    Puedes comprar hasta {product.available_quantity}{' '}
-                    {product.available_quantity === 1 ? (
-                      <span>unidad</span>
-                    ) : (
-                      <span>unidades</span>
-                    )}
-                  </p>
-                ) : null}
-                {product.buying_mode === 'buy_it_now' && (
-                  <button className='details_buttonBuy'>Comprar ahora</button>
+                {product.available_quantity > 1 && (
+                  <DetailsSelector
+                    product={product}
+                    quantity={quantity}
+                    handleQuantity={handleQuantity}
+                    clicked={clicked}
+                    handleSelectClick={handleSelectClick}
+                  />
                 )}
-                <button className='details_buttonCart' onClick={addCart}>
+
+                {product.available_quantity > 1 ? (
+                  product.available_quantity < 5 ? (
+                    <p className='details_available'>
+                      Puedes comprar {product.available_quantity}{' '}
+                      {product.available_quantity === 1 ? (
+                        <p className='details_available'>unidad</p>
+                      ) : (
+                        <p className='details_available'>unidades</p>
+                      )}
+                    </p>
+                  ) : (
+                    <p className='details_available'>
+                      Puedes comprar 5 unidades
+                    </p>
+                  )
+                ) : null}
+
+                {product.buying_mode === 'buy_it_now' && (
+                  <button className='details_buttonBuy' onClick={goToCart}>
+                    Comprar ahora
+                  </button>
+                )}
+                <button className='details_buttonCart' onClick={handleAddCart}>
                   Agregar al carrito
                 </button>
               </div>

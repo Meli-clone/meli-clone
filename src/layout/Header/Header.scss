@@ -5,7 +5,6 @@
   background: $yellow;
   height: 87px;
   padding: 0px 8px;
-  margin-bottom: 20px;
 
   &__container {
     display: flex;
@@ -14,6 +13,10 @@
     justify-content: center;
     width: 100%;
     max-width: $max-width;
+
+    .user_options {
+      display: none;
+    }
   }
 
   &__logo {
@@ -36,9 +39,11 @@
     margin: 10px 10px;
     border-style: none;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none;
 
     &::placeholder {
-      padding: 0px 20px 15px 15px;
       color: $gray-light;
     }
   }
@@ -78,16 +83,6 @@
       font-size: 16px;
     }
   }
-
-  &__user_options {
-    font-size: 20px;
-    color: $gray-dark;
-    font-weight: lighter;
-
-    &__user {
-      display: none;
-    }
-  }
 }
 
 @media only screen and (min-width: $laptop) {
@@ -98,10 +93,14 @@
     &__container {
       height: 100%;
       display: grid;
-      grid-template-columns: 140px 1fr 350px;
+      grid-template-columns: 140px 1fr 320px;
       grid-template-rows: 56px 1fr;
       grid-column-gap: 0px;
       grid-row-gap: 0px;
+
+      .user_options {
+        display: flex;
+      }
     }
 
     &__logo {
@@ -152,13 +151,34 @@
 
       p {
         text-align: left;
-        font-size: 16px;
+        font-size: 14px;
       }
 
       span {
         flex-grow: 0;
         margin-left: 5px;
         color: $gray-dark;
+      }
+    }
+
+    &__nav_bar {
+      font-size: 14px;
+    }
+
+    &__user_options {
+      @include flex(row, left, center);
+      font-size: 14px;
+      grid-area: 2 / 3 / 3 / 4;
+      justify-content: flex-end;
+
+      &__user {
+        @include flex(row, left, center);
+      }
+
+      a {
+        color: $gray-dark;
+        text-decoration: none;
+        padding: 0 8px;
       }
     }
   }
