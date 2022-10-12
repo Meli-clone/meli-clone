@@ -1,23 +1,30 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface Summary {
-  sum: number;
+  price: number;
+  quantity: number;
 }
 
 const initialState = {
-  sum: 23999,
+  price: 95996,
 };
 
 export const summarySlice = createSlice({
   name: 'summary',
   initialState,
   reducers: {
-    addSummary: (state, action: PayloadAction<number>) => {
-      state.sum += action.payload;
-      console.log(state.sum);
+    addSummary: (state, action: PayloadAction<Summary>) => {
+      state.price += action.payload.price * action.payload.quantity;
+    },
+    sumSummary: (state, action: PayloadAction<number>) => {
+      state.price += action.payload;
+    },
+    substractSummary: (state, action: PayloadAction<number>) => {
+      state.price -= action.payload;
     },
   },
 });
 
-export const { addSummary } = summarySlice.actions;
+export const { addSummary, sumSummary, substractSummary } =
+  summarySlice.actions;
 export default summarySlice.reducer;

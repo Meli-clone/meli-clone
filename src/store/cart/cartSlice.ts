@@ -18,8 +18,8 @@ const initialState = {
   value: [
     {
       id: 'MLA1122296563',
-      price: 23.999,
-      stock: 1,
+      price: 23999,
+      stock: 10,
       title: 'Taladro Atornillador Inalámb 10mm Kroner 14,4 V + Muñequera',
       quantity: 4,
       image:
@@ -33,7 +33,13 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<ProductCart>) => {
-      state.value.push(action.payload);
+      initialState.value.map((value, index) => {
+        if (value.id === action.payload.id) {
+          value.quantity += action.payload.quantity;
+        } else {
+          state.value.push(action.payload);
+        }
+      });
     },
     deleteItem: (state, action: PayloadAction<string>) => {
       const itemFound = state.value.find(item => item.id === action.payload);

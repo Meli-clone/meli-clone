@@ -29,9 +29,14 @@ const Details = ({ product }: Prop) => {
     quantity: 2,
   };
 
+  const productToSummary = {
+    price: product.price,
+    quantity: 2,
+  };
+
   const addCart = () => {
     dispatch(addToCart(productToCart));
-    dispatch(addSummary(productToCart.price));
+    dispatch(addSummary(productToSummary));
     console.log(carrito);
   };
 
