@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const getProductDetail = (itemId: string) => {
-    const res = axios.get(`https://api.mercadolibre.com/items?ids=${itemId}`)
+export const getProductDetail = (productID: string | undefined) => {
+    const res = axios.get(`https://api.mercadolibre.com/items?ids=${productID}`)
     .then((response) => {
-      return response.data[0].body;
+      return response?.data[0].body;
     })
     .catch((error) => {
       return error;

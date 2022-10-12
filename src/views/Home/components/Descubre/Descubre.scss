@@ -50,6 +50,7 @@
           transition: color 0.3s;
           &:hover {
             color: $blue-dark;
+            cursor: pointer;
           }
         }
       }
@@ -64,7 +65,11 @@
 
 @media only screen and (min-width: $tablet) {
   .descubre {
+    width: 100%;
+    padding: 0 10px;
+    margin: 0 auto;
     .descubre_container {
+      width: 100%;
       .descubre_innerContainer {
         @include flex(row, space-around, center);
         width: 700px;
@@ -77,11 +82,10 @@
 @media only screen and (min-width: $laptop) {
   .descubre {
     max-width: $max-width;
-    padding: 0;
+    padding: 0 10px;
     margin: 0 auto;
     .descubre_container {
       @include flex(row, space-between, center);
-      width: $max-width;
       .descubre_innerContainer {
         @include flex(row, space-around, center);
         width: 100%;
