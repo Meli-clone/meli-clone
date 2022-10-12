@@ -39,6 +39,10 @@
   .popular_categories_container {
     padding: 20px 0;
 
+    & > h2 {
+      font-size: 26px;
+    }
+
     .category_list {
       gap: 1px;
     }

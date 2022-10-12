@@ -29,7 +29,9 @@
 }
 
 .nav_icon_downloadapp {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50px;
   min-width: 50px;
   height: 50px;
@@ -37,10 +39,12 @@
   box-shadow: 0 2px 5px 0 #00000030;
   margin-right: 16px;
 
-  /* Solo está para centrar la palabra 'LOGO' */
-  /* En un futuro tal vez se elimine */
-  display: grid;
-  place-content: center;
+  img {
+    width: 39px;
+    height: 27px;
+    object-fit: cover;
+    object-position: left;
+  }
 }
 
 .nav_footer_mobile_links_bounds {
