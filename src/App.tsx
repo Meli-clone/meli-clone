@@ -25,9 +25,9 @@ const App = () => {
             element={<ProductDetails />}
           />
           <Route path='/cart' element={<Cart />} />
-          <Route path='/checkout' element={<Checkout />} />
           <Route path='*' element={<PageNotFound />} />
         </Route>
+        <Route path='/checkout' element={<Checkout />} />
       </Routes>
     </Provider>
   );
