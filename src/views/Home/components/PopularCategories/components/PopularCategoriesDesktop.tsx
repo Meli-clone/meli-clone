@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
+import { CategoryData } from '../PopularCategories';
 import CardPopularCategories from './CardPopularCategories';
 import './PopularCategoriesDesktop.scss';
-
-interface CategoryData {
-  icon: string;
-  title: string;
-}
 
 interface Props {
   categoryList: Array<CategoryData>;
@@ -20,7 +16,7 @@ const PopularCategoriesDesktop = ({ categoryList, width }: Props) => {
 
   const getColumnSize = () => {
     const minWidth = 170;
-    const widthDisplay = width >= 1200 ? 1200 : width;
+    const widthDisplay = width > 1200 ? 1200 : width;
 
     const numberOfColumns = Math.trunc(widthDisplay / minWidth);
     // 0.9375 -> value of quantity gap divide columns (15/16)
@@ -97,7 +93,7 @@ const PopularCategoriesDesktop = ({ categoryList, width }: Props) => {
             {categoryList.map((card, index, array) => {
               if (index % 2 === 0) {
                 return (
-                  <div key={card.title} className='column' style={columnStyle}>
+                  <div key={card.id} className='column' style={columnStyle}>
                     <CardPopularCategories {...card} />
                     <CardPopularCategories {...array[index + 1]} />
                   </div>
