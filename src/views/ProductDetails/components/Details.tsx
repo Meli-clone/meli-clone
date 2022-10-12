@@ -10,7 +10,8 @@ import DetailsSelector from './DetailsSelector';
 import { Product } from '../ProductDetails';
 /* Redux */
 import { useAppDispatch } from '@/store/hooks';
-import { addToCart } from '@/store/cart/cart.slice';
+import { addToCart } from '@/store/cart/cartSlice';
+import { addSummary } from '@/store/summary/summarySlice';
 /* Icons */
 import { BsTruck } from 'react-icons/bs';
 import { TbArrowBack } from 'react-icons/tb';
@@ -43,8 +44,14 @@ const Details = ({ product }: Prop) => {
     quantity: quantity,
   };
 
+  const productSummary = {
+    price: product.price,
+    quantity: quantity,
+  };
+
   const handleAddCart = () => {
     dispatch(addToCart(productToCart));
+    dispatch(addSummary(productSummary));
     navigate('/', {
       state: {
         product: [productToCart],
