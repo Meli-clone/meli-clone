@@ -3,24 +3,31 @@
 .popular_categories_card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  gap: 15px;
+
   width: 100%;
   height: 170px;
   background-color: $white;
   border-radius: 5px;
   box-shadow: 0 1px 1px 0 #00000010;
-  padding: 12px;
+  padding: 30px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $blue;
+  }
+
+  &:hover .icon,
+  &:hover .description {
+    color: $white;
+  }
 
   .icon {
+    display: flex;
     color: $blue;
     font-size: 65px;
-    display: flex;
-
-    path {
-      stroke: #fff;
-      stroke-width: 1px;
-    }
   }
 
   .description {

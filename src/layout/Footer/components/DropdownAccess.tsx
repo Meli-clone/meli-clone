@@ -1,5 +1,6 @@
 import './DropdownAccess.scss';
 import { useState } from 'react';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 
 const ACCESS_LIST = [
   {
@@ -152,7 +153,9 @@ const DropdownAccess = () => {
         onClick={handleSwitch}
       >
         Más información
-        <div>↑</div>
+        <div className='icon'>
+          <MdKeyboardArrowDown />
+        </div>
       </button>
       <div className='dropdown_content'>
         <nav className='nav_dropdown_content'>

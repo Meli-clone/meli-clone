@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import DropdownAccess from './components/DropdownAccess';
 import './Footer.scss';
+import meliLogo2 from '@/assets/images/meli-logo2.svg';
 
 interface Link {
   children: string;
@@ -89,7 +90,9 @@ const Footer = () => {
       <DropdownAccess />
       <div className='nav_footer_donwloadapp_banner'>
         <a href='#' className='nav_footer_downloadapp'>
-          <div className='nav_icon_downloadapp'>LOGO</div>
+          <div className='nav_icon_downloadapp'>
+            <img src={meliLogo2} alt='' />
+          </div>
           <span>¡Compra y vende con la app!</span>
         </a>
       </div>
