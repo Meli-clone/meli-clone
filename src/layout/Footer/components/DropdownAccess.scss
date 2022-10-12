@@ -11,8 +11,10 @@
   .dropdown_switch {
     background-color: $select-navbar;
 
-    div {
+    & > .icon {
       transform: rotate(180deg);
+      display: flex;
+      font-size: 15px;
     }
   }
 

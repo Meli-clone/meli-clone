@@ -28,6 +28,7 @@
       transition: color 0.3s;
       &:hover {
         color: $blue-dark;
+        cursor: pointer;
       }
     }
   }
@@ -54,6 +55,9 @@
       button {
         border: none;
         background-color: transparent;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }

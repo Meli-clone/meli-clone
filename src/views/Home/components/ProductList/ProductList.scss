@@ -42,10 +42,16 @@
   .button_right {
     left: 0;
     z-index: 50;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .button_left {
     right: 0;
     z-index: 50;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .productList_viewmore {
     display: inline-block;
@@ -54,6 +60,7 @@
     color: $blue;
     &:hover {
       color: $blue-dark;
+      cursor: pointer;
     }
   }
   .productList_slider {

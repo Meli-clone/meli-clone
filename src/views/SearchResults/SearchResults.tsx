@@ -41,7 +41,7 @@ const SearchResults = () => {
     setFilterIsOpen(prev => !prev);
   };
 
-  if (!productsData) return <p>Cargando...</p>;
+  if (!productsData) return;
 
   return (
     <div className='search_results_container'>

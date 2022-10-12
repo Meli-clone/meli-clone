@@ -1,0 +1,59 @@
+@import '@/utils/sass/theme.scss';
+
+.notFound {
+  @include flex(column, center, center);
+  width: 100%;
+  height: auto;
+  img {
+    width: 150px;
+  }
+  margin: 50px 0;
+  .notFound_text {
+    color: $black;
+    font-size: 18px;
+    margin-top: 15px;
+  }
+  .notFound_link {
+    color: $white;
+    background-color: $blue;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 20px 0;
+    font-size: 16px;
+    &:hover {
+      background-color: $blue-dark;
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .notFound {
+    img {
+      width: 200px;
+    }
+    .notFound_text {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    .notFound_link {
+      margin: 20px 0;
+    }
+  }
+}
+
+@media only screen and (min-width: $laptop) {
+  .notFound {
+    img {
+      width: 250px;
+    }
+    .notFound_text {
+      font-size: 20px;
+    }
+    .notFound_link {
+      margin: 40px 0;
+    }
+  }
+}

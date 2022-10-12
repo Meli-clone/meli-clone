@@ -60,15 +60,17 @@ const Regret = () => {
   }, []);
 
   return (
-    <section className='regret_container'>
-      {regret.map(e => (
-        <RegretBox
-          key={e.description}
-          description={e.description}
-          links={e.links}
-        />
-      ))}
-    </section>
+    <div className='regret'>
+      <section className='regret_container'>
+        {regret.map(e => (
+          <RegretBox
+            key={e.description}
+            description={e.description}
+            links={e.links}
+          />
+        ))}
+      </section>
+    </div>
   );
 };
 
