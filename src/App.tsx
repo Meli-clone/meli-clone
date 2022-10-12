@@ -10,13 +10,18 @@ import Register from './views/Register';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
+import LoggedInValidation from './components/ProtectedRoutes/LoggedInValidation';
 
 const App = () => {
+  console.log(import.meta.env.REACT_APP_FB_PROJECT_ID);
+
   return (
     <Provider store={store}>
       <Routes>
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route element={<LoggedInValidation />}>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Route>
         <Route element={<MainLayout />}>
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<SearchResults />} />
