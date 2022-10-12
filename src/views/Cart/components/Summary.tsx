@@ -1,4 +1,5 @@
 import { useAppSelector } from '@/store/hooks';
+import { Link } from 'react-router-dom';
 import './Summary.scss';
 const Summary = () => {
   const sum = useAppSelector(state => state.summary);
@@ -9,9 +10,9 @@ const Summary = () => {
         <span className='summary__info--price'>${sum.price.toFixed(3)}</span>
       </div>
       <div className='summary__actions'>
-        <a className='summary__actions--button' href='#'>
+        <Link to={'/checkout'} className='summary__actions--button'>
           Continuar compra
-        </a>
+        </Link>
       </div>
     </div>
   );
