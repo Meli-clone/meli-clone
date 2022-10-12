@@ -1,0 +1,42 @@
+@import '@/utils/sass/theme.scss';
+
+.selected_filter_list {
+  padding-bottom: 25px;
+  & > ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    & > li {
+      list-style: none;
+
+      & > button {
+        background-color: $white;
+        border: none;
+        padding: 5px 8px;
+        display: flex;
+        gap: 5px;
+        cursor: pointer;
+
+        & > span:last-child {
+          color: $gray-light;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .selected_filter_list {
+    padding: 0;
+
+    & > ul {
+      & > li {
+        & > button {
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+}
