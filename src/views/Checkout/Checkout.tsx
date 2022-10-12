@@ -12,7 +12,12 @@ const Checkout = () => {
   };
 
   if (page === 2) {
-    return <CheckoutForm handleContinuar={handleContinuar} />;
+    return (
+      <div>
+        <MinimalHeader />
+        <CheckoutForm handleContinuar={handleContinuar} />
+      </div>
+    );
   } else if (page === 3) {
     return <h1>Método de pago</h1>;
   } else if (page === 4) {

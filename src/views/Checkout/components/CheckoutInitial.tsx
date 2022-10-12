@@ -41,10 +41,18 @@ const CheckoutInitial = ({ handleContinuar }: Prop) => {
           <div className='checkout_line'></div>
           {carrito.map(item => {
             return (
-              <div key={item.id} className='checkout_div'>
-                <p className='checkout_cartTitle'>{item.title}</p>
-                <p>$ {item.price}</p>
-              </div>
+              <>
+                <div key={item.id} className='checkout_div'>
+                  <img
+                    className='checkout_cartImage'
+                    src={item.image}
+                    alt={item.title}
+                  />
+                  <p className='checkout_cartTitle'>{item.title}</p>
+                  <p>$ {item.price}</p>
+                </div>
+                <div className='checkout_line'></div>
+              </>
             );
           })}
           <div className='checkout_div'>
