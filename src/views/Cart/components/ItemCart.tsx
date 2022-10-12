@@ -1,4 +1,4 @@
-import InfoFooterMobile from './InfoFooterMobile/InfoFooterMobile';
+import InfoFooterMobile from './InfoFooterMobile';
 import './ItemCart.scss';
 import { ProductCart } from '@/store/cart/cartSlice';
 import { useAppDispatch } from '@/store/hooks';
@@ -37,11 +37,17 @@ const ItemCart = ({ producto }: Prop) => {
         <div className='item-action'>
           <ul className='item-action-single'>
             <li>
-              <button onClick={deleteProduct}>Eliminar</button>
+              <span onClick={deleteProduct}>Eliminar</span>
             </li>
-            <li>Más productos del vendedor</li>
-            <li>Comprar ahora</li>
-            <li>Guardar para después</li>
+            <li>
+              <a href='#'>Más productos del vendedor</a>
+            </li>
+            <li>
+              <a href='#'>Comprar ahora</a>
+            </li>
+            <li>
+              <a href='#'>Guardar para después</a>
+            </li>
           </ul>
         </div>
       </article>

@@ -8,6 +8,7 @@ import DetailsTable from './DetailsTable';
 import { Product } from '../ProductDetails';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
 import { addToCart } from '@/store/cart/cartSlice';
+import { addSummary } from '@/store/summary/summarySlice';
 
 interface Prop {
   product: Product;
@@ -30,6 +31,7 @@ const Details = ({ product }: Prop) => {
 
   const addCart = () => {
     dispatch(addToCart(productToCart));
+    dispatch(addSummary(productToCart.price));
     console.log(carrito);
   };
 

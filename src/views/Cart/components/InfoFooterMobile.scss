@@ -18,6 +18,10 @@
             align-items: center;
             .icon {
                 color: #3483fa;
+                user-select: none;
+            }
+            .icon:hover {
+                cursor: pointer;
             }
         }
     }

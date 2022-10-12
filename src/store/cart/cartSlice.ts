@@ -34,7 +34,6 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<ProductCart>) => {
       state.value.push(action.payload);
-      console.log(state.value);
     },
     deleteItem: (state, action: PayloadAction<string>) => {
       const itemFound = state.value.find(item => item.id === action.payload);

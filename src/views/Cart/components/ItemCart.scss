@@ -2,6 +2,7 @@
 
 .item {
     background-color: $white;
+    margin-bottom: 4px;
     .item__container {
         display: flex;
         gap: 20px;   
@@ -23,6 +24,7 @@
                 }
     
                 span {
+                    font-size: 14px;
                     color: #39b54a;
                     font-weight: 300;
                 }
@@ -40,15 +42,27 @@
         line-height: 1.25;
         width: calc(100% + 15px);
         .item-action-single {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             li {
                 list-style: none;
-                padding-left: 15px;
-                button {
+                margin-right: 22px;
+                margin-bottom: 8px;
+                span {
                     border: 0;
                     background-color: $white;
-                    font-size: 16px;
+                }
+                span:hover {
+                    cursor: pointer;
+                }
+                span, a {
+                    font-size: 14px;
                     font-weight: 400;
+                    color: $blue;
+                    line-height: 1.25;
+                }
+                a {
+                    text-decoration: none;
                 }
             }
         }
