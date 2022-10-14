@@ -3,6 +3,7 @@ import './ItemCart.scss';
 import { ProductCart } from '@/store/cart/cartSlice';
 import { useAppDispatch } from '@/store/hooks';
 import { deleteItem } from '@/store/cart/cartSlice';
+import { deleteSummary } from '@/store/summary/summarySlice';
 
 interface Prop {
   producto: ProductCart;
@@ -13,6 +14,7 @@ const ItemCart = ({ producto }: Prop) => {
 
   const deleteProduct = () => {
     dispatch(deleteItem(producto.id));
+    dispatch(deleteSummary(producto.price * producto.quantity));
   };
 
   return (

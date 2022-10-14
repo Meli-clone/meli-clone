@@ -33,13 +33,16 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<ProductCart>) => {
-      initialState.value.map((value, index) => {
+      let flag = 0;
+      state.value.map(value => {
         if (value.id === action.payload.id) {
           value.quantity += action.payload.quantity;
-        } else {
-          state.value.push(action.payload);
+          flag = 1;
         }
       });
+      if (flag !== 1) {
+        state.value.push(action.payload);
+      }
     },
     deleteItem: (state, action: PayloadAction<string>) => {
       const itemFound = state.value.find(item => item.id === action.payload);
