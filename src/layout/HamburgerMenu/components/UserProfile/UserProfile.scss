@@ -12,14 +12,18 @@
   height: 127px;
   background-color: $yellow;
 
-  .profile_picture {
+  .profile_icon {
     height: 50px;
     width: 50px;
     background-color: $gray-ultra-light;
     border-radius: 50%;
     @include flex(row, center, center);
-    .aqui {
-      stroke-width: 4px;
+  }
+
+  .profile_picture {
+    img {
+      border-radius: 50%;
+      width: 50px;
     }
   }
 
