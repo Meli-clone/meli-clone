@@ -6,15 +6,15 @@ import { deleteItem } from '@/store/cart/cartSlice';
 import { deleteSummary } from '@/store/summary/summarySlice';
 
 interface Prop {
-  producto: ProductCart;
+  product: ProductCart;
 }
 
-const ItemCart = ({ producto }: Prop) => {
+const ItemCart = ({ product }: Prop) => {
   const dispatch = useAppDispatch();
 
   const deleteProduct = () => {
-    dispatch(deleteItem(producto.id));
-    dispatch(deleteSummary(producto.price * producto.quantity));
+    dispatch(deleteItem(product.id));
+    dispatch(deleteSummary(product.price * product.quantity));
   };
 
   return (
@@ -23,17 +23,17 @@ const ItemCart = ({ producto }: Prop) => {
         <div className='item__container'>
           <figure>
             <a>
-              <img className='item__container--image' src={producto.image} />
+              <img className='item__container--image' src={product.image} />
             </a>
           </figure>
           <div className='item__container--information'>
             <div className='information__description'>
-              <h2>{producto.title}</h2>
+              <h2>{product.title}</h2>
               <h3></h3>
               <span>Envío gratis</span>
             </div>
             {/*Aca se renderiza un componente infoFooter mobile o desktop*/}
-            <InfoFooterMobile producto={producto} />
+            <InfoFooterMobile product={product} />
           </div>
         </div>
         <div className='item-action'>

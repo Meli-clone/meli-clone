@@ -5,25 +5,25 @@ import { useState } from 'react';
 import './InfoFooterMobile.scss';
 
 interface Prop {
-  producto: ProductCart;
+  product: ProductCart;
 }
 
-const InfoFooterMobile = ({ producto }: Prop) => {
+const InfoFooterMobile = ({ product }: Prop) => {
   const dispatch = useAppDispatch();
-  const [quantity, setQuantity] = useState(producto.quantity);
+  const [quantity, setQuantity] = useState(product.quantity);
   const [isFull, setIsFull] = useState(false);
 
   const subtractQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
-      dispatch(substractSummary(producto.price));
+      dispatch(substractSummary(product.price));
     }
   };
 
   const addQuantity = () => {
-    if (quantity < producto.stock) {
+    if (quantity < product.stock) {
       setQuantity(quantity + 1);
-      dispatch(sumSummary(producto.price));
+      dispatch(sumSummary(product.price));
     } else {
       setIsFull(true);
     }
@@ -48,7 +48,7 @@ const InfoFooterMobile = ({ producto }: Prop) => {
       </div>
       <div className='item__price'>
         <span className='price-tag'>
-          ${(producto.price * quantity).toFixed(3)}
+          ${(product.price * quantity).toFixed(3)}
         </span>
       </div>
     </div>
