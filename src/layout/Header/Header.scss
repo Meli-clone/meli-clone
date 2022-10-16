@@ -98,7 +98,7 @@
     &__container {
       height: 100%;
       display: grid;
-      grid-template-columns: 140px 1fr 320px;
+      grid-template-columns: 140px 1fr 380px;
       grid-template-rows: 56px 1fr;
       grid-column-gap: 0px;
       grid-row-gap: 0px;
@@ -192,7 +192,7 @@
 @media only screen and (min-width: $desktop) {
   .header {
     &__container {
-      grid-template-columns: 200px 1fr 350px;
+      grid-template-columns: 200px 1fr 380px;
     }
 
     &__search-input {

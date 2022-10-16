@@ -23,10 +23,17 @@
         &__user_menu {
           @include flex(row, center, end);
           position: relative;
-          .profile_picture {
+          .profile_icon {
             font-size: 30px;
             stroke-width: 1px;
             margin-right: 8px;
+          }
+
+          .profile_picture {
+            border-radius: 50%;
+            height: 30px;
+            margin-right: 8px;
+            object-position: center;
           }
         }
 

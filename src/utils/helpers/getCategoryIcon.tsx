@@ -31,7 +31,7 @@ import {
   FaTools,
   FaGuitar,
 } from 'react-icons/fa';
-import { AiOutlineCamera, AiFillPicture } from 'react-icons/ai';
+import { AiOutlineCamera, AiFillPicture } from 'react-icons/Ai';
 import { FiSmartphone } from 'react-icons/fi';
 import { RiComputerLine, RiBearSmileLine } from 'react-icons/ri';
 import { BiCameraMovie, BiCategory } from 'react-icons/bi';

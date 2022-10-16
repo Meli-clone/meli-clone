@@ -4,10 +4,11 @@ import { RootState } from '../store';
 
 interface UserState {
   userInfo: {
-    userLoggedIn?: boolean;
-    username?: string | undefined;
-    phone?: string | undefined;
-    email?: string | undefined;
+    userLoggedIn: boolean;
+    username: string;
+    phone?: string;
+    email: string;
+    userImage?: string;
   };
 }
 
@@ -17,14 +18,16 @@ const initialState: UserState = {
     username: '',
     phone: '',
     email: '',
+    userImage: '',
   },
 };
 
 const userInfoClean = {
-  username: '',
-  email: '',
-  phone: '',
   userLoggedIn: false,
+  username: '',
+  phone: '',
+  email: '',
+  userImage: '',
 };
 
 export const userSlice = createSlice({
