@@ -4,8 +4,11 @@ import { IoLocationOutline } from 'react-icons/io5';
 import { BsTruck, BsCreditCard2Back } from 'react-icons/bs';
 import { RiBillLine } from 'react-icons/ri';
 import { useAppSelector } from '@/store/hooks';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const Summary = () => {
+  const navigate = useNavigate();
   const { fullname, street, streetNumber } = useAppSelector(
     state => state.checkout.value.user,
   );
@@ -14,7 +17,16 @@ const Summary = () => {
   );
 
   const handleSubmit = () => {
-    console.log('submited');
+    Swal.fire({
+      icon: 'success',
+      title: 'Tu pedido ha sido enviado',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+
+    setTimeout(() => {
+      navigate('/');
+    }, 2100);
   };
 
   return (
