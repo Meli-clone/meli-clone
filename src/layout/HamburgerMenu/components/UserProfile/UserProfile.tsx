@@ -11,7 +11,7 @@ import { HiOutlineUser } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
-  const { userLoggedIn, username } = useAppSelector(
+  const { userLoggedIn, username, userImage } = useAppSelector(
     state => state.user.userInfo,
   );
 
@@ -19,7 +19,7 @@ const UserProfile = () => {
     <div className='hamburger_menu__user_profile'>
       {!userLoggedIn ? (
         <>
-          <div className='profile_picture'>
+          <div className='profile_icon'>
             <HiOutlineUser />
           </div>
           <div>
@@ -37,9 +37,15 @@ const UserProfile = () => {
         </>
       ) : (
         <>
-          <div className='profile_picture'>
-            <HiOutlineUser />
-          </div>
+          {userImage ? (
+            <div className='profile_picture'>
+              <img src={userImage} />
+            </div>
+          ) : (
+            <div className='profile_icon'>
+              <HiOutlineUser />
+            </div>
+          )}
           <div>
             <h1 className='loggedIn'>{`Hola ${username}`}</h1>
             <p className='loggedIn'>Nivel 1 - Mercado Puntos</p>

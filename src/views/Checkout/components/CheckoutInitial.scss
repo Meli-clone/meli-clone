@@ -39,6 +39,15 @@ input[type='number'] {
         font-size: 14px;
         color: $gray-dark;
       }
+      .checkout_cartImage {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        object-fit: contain;
+        box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+        -webkit-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+        -moz-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+      }
       .checkout_cartTitle {
         width: 60%;
       }
