@@ -7,7 +7,7 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 //COMPONENTS AND FUNCTIONS
 import { registerFormSchema } from './schemas/registerFormSchema';
-import CustomInput from '@/views/components/CustomInput';
+import CustomInput from '@/components/CustomInput';
 import { setUserInfo } from '@/store/user/user.slice';
 import { auth } from '@/services/firebase';
 

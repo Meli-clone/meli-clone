@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import MainLayout from './layout/MainLayout';
+import MinimalLayout from '@/layout/MinimalLayout';
 import Home from './views/Home';
 import Login from './views/Login';
 import SearchResults from './views/SearchResults';
@@ -32,6 +33,8 @@ const App = () => {
             <Route path='/cart' element={<Cart />} />
           </Route>
           <Route path='*' element={<PageNotFound />} />
+        </Route>
+        <Route element={<MinimalLayout />}>
           <Route path='/checkout' element={<Checkout />} />
         </Route>
       </Routes>

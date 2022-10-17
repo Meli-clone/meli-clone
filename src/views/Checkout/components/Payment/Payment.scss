@@ -1,0 +1,130 @@
+@import '@/utils/sass/theme.scss';
+
+.checkoutPayment {
+  @include flex(column, center, center);
+  width: 100%;
+  padding: 0 15px;
+  .checkoutPayment_container {
+    @include flex(column, center, flex-start);
+    width: 100%;
+    margin: 10px 0;
+    .checkout_column2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 40px 15px;
+      width: 100%;
+      .checkout_title {
+        font-size: 20px;
+        color: $gray-dark;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .checkout_detailContainer {
+        @include flex(row, space-between, center);
+        height: 75px;
+        margin: 15px 0;
+        border-radius: 6px;
+        background-color: $white;
+        cursor: pointer;
+        .checkout_detailInnerContainer {
+          @include flex(row, flex-start, center);
+          .checkout_iconContainer {
+            @include flex(row, center, center);
+            width: 40px;
+            height: 40px;
+            background-color: $gray-ultra-light;
+            border-radius: 100%;
+            margin-right: 15px;
+            .checkout_icon {
+              color: $blue;
+              font-size: 25px;
+            }
+          }
+          .checkout_selectLine_disabled {
+            background-color: $background-light;
+          }
+          .checkout_selectCircle {
+            border-radius: 100%;
+            background-color: $blue;
+            border: 2px solid $blue;
+            height: 15px;
+            width: 15px;
+            margin: 15px;
+          }
+          .checkout_selectCircle_disabled {
+            background-color: $white;
+            border: 2px solid $background-light;
+          }
+          .checkout_selectTitle {
+            color: $gray-dark;
+            font-size: 15px;
+          }
+        }
+      }
+      .checkout_buttonContainer {
+        align-self: flex-end;
+        .checkout_button {
+          background-color: $blue;
+          font-size: 16px;
+          color: $white;
+          padding: 15px 30px;
+          border-radius: 6px;
+          border: none;
+          cursor: pointer;
+          &:hover {
+            background-color: $blue-dark;
+          }
+        }
+      }
+    }
+  }
+}
+
+.checkout_detailContainer_second {
+  margin-top: 0 !important;
+}
+
+@media only screen and (min-width: $laptop) {
+  .checkoutPayment {
+    @include flex(column, center, center);
+    width: 100%;
+    padding: 0;
+    .checkoutPayment_container {
+      @include flex(row-reverse, space-between, flex-start);
+      max-width: $max-width;
+      margin: 0;
+      .checkout_column2 {
+        width: 60%;
+        padding: 0;
+        .checkout_title {
+          font-size: 20px;
+        }
+        .checkout_detailContainer {
+          height: 90px;
+          margin: 15px 0;
+          .checkout_detailInnerContainer {
+            .checkout_iconContainer {
+              width: 50px;
+              height: 50px;
+              margin-right: 20px;
+              .checkout_icon {
+                font-size: 30px;
+              }
+            }
+            .checkout_selectTitle {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .checkout_buttonContainer {
+        .checkout_button {
+          font-size: 16px;
+          padding: 15px 30px;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}

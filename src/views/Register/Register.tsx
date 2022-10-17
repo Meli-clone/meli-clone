@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 //COMPONENTS AND FUNCTIONS
-import MinimalHeader from '../components/MinimalHeader';
+import MinimalHeader from '@/components/MinimalHeader';
 import DataHandlingAuth from './components/DataHandlingAuth';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 
