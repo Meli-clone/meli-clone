@@ -1,71 +1,32 @@
 import './CheckoutInitial.scss';
-import { useState, ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 import { IoLocationOutline } from 'react-icons/io5';
-import { useAppSelector } from '@/store/hooks';
+import CheckoutColumn from '../Column';
 
 interface Prop {
   handleContinuar: (value: number) => void;
+  handleShipping: (value: number) => void;
+  shippingCost: number;
+  handleAddress: () => void;
+  handleInput: (e: ChangeEvent<HTMLInputElement>) => void;
+  CP: {
+    clicked: boolean;
+    CP: string;
+  };
 }
 
-const CheckoutInitial = ({ handleContinuar }: Prop) => {
-  const carrito = useAppSelector(state => state.cart.value);
-  const [shippingCost, setShippingCost] = useState<number>(936);
-  const [CP, setCP] = useState({
-    clicked: false,
-    CP: '',
-  });
-
-  const handleAddress = () => {
-    setCP({
-      clicked: !CP.clicked,
-      CP: CP.CP,
-    });
-  };
-
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setCP({
-      clicked: CP.clicked,
-      CP: e.target.value,
-    });
-  };
-
-  const handleShipping = (value: number) => {
-    setShippingCost(value);
-  };
-
+const CheckoutInitial = ({
+  handleContinuar,
+  handleShipping,
+  shippingCost,
+  handleAddress,
+  handleInput,
+  CP,
+}: Prop) => {
   return (
     <section className='checkoutContainer'>
       <div className='checkout'>
-        <div className='checkout_column1'>
-          <p className='checkout_title'>Resumen de compra</p>
-          <div className='checkout_line'></div>
-          {carrito.map(item => {
-            return (
-              <>
-                <div key={item.id} className='checkout_div'>
-                  <img
-                    className='checkout_cartImage'
-                    src={item.image}
-                    alt={item.title}
-                  />
-                  <p className='checkout_cartTitle'>{item.title}</p>
-                  <p>$ {item.price}</p>
-                </div>
-                <div className='checkout_line'></div>
-              </>
-            );
-          })}
-          <div className='checkout_div'>
-            <p>Envío</p>
-            <p>$ {shippingCost}</p>
-          </div>
-          <div className='checkout_line'></div>
-          <div className='checkout_div'>
-            <p>Total</p>
-            <p>$ {shippingCost + 1253}</p>
-            {/* Modificar precio acá */}
-          </div>
-        </div>
+        <CheckoutColumn shippingCost={shippingCost} />
         <div className='checkout_column2'>
           <h1 className='checkout_title'>
             ¿Cómo querés recibir o retirar tu compra?

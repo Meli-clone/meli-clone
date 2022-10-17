@@ -8,6 +8,7 @@ import Cart from './views/Cart';
 import Checkout from './views/Checkout';
 import Register from './views/Register';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import MinimalLayout from './layout/MinimalLayout';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
 
@@ -27,7 +28,9 @@ const App = () => {
           <Route path='/cart' element={<Cart />} />
           <Route path='*' element={<PageNotFound />} />
         </Route>
-        <Route path='/checkout' element={<Checkout />} />
+        <Route element={<MinimalLayout />}>
+          <Route path='/checkout' element={<Checkout />} />
+        </Route>
       </Routes>
     </Provider>
   );

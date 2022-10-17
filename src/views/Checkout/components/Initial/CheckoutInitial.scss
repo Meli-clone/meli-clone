@@ -17,42 +17,6 @@ input[type='number'] {
   @include flex(column, center, flex-start);
   width: 100%;
   margin: 10px 0;
-  .checkout_column1 {
-    background-color: $background-light;
-    padding: 40px 15px;
-    width: 100%;
-    .checkout_title {
-      font-size: 20px;
-      color: $gray-dark;
-      font-weight: bold;
-    }
-    .checkout_line {
-      width: 100%;
-      height: 1px;
-      background-color: $background;
-      margin: 15px 0;
-    }
-    .checkout_div {
-      @include flex(row, space-between, flex-start);
-      margin: 10px 0;
-      p {
-        font-size: 14px;
-        color: $gray-dark;
-      }
-      .checkout_cartImage {
-        width: 30px;
-        height: 30px;
-        border-radius: 100%;
-        object-fit: contain;
-        box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
-        -webkit-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
-        -moz-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
-      }
-      .checkout_cartTitle {
-        width: 60%;
-      }
-    }
-  }
   .checkout_column2 {
     display: flex;
     flex-direction: column;
@@ -188,11 +152,6 @@ input[type='number'] {
     @include flex(row-reverse, center, flex-start);
     margin: 10px 0;
     height: 100%;
-    .checkout_column1 {
-      padding: 40px 15px;
-      height: 500px;
-      margin-right: 15px;
-    }
   }
 }
 
@@ -202,17 +161,6 @@ input[type='number'] {
     margin: 10px 0;
     height: 100%;
     max-width: $max-width;
-    .checkout_column1 {
-      padding: 40px 60px;
-      height: 500px;
-      margin-right: 0px;
-      width: 35%;
-      .checkout_div {
-        p {
-          font-size: 15px;
-        }
-      }
-    }
     .checkout_column2 {
       width: 60%;
       .checkout_title {
@@ -269,7 +217,4 @@ input[type='number'] {
       }
     }
   }
-}
-
-@media only screen and (min-width: $desktop) {
 }

@@ -9,7 +9,7 @@ import { TbHelp } from 'react-icons/tb';
 
 const MinimalHeader = () => {
   return (
-    <header className='minimal_header'>
+    <header className='minimal_header' id='minimalHeader'>
       <div className='minimal_header__container'>
         <Link to='/' className='minimal_header__container__logo'>
           <img src={meliLogo2}></img>

@@ -16,7 +16,6 @@ input[type='number'] {
 .checkout {
   @include flex(column, center, flex-start);
   width: 100%;
-  margin: 10px 0;
   .checkout_column1 {
     background-color: $background-light;
     padding: 40px 15px;
