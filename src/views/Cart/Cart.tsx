@@ -1,6 +1,6 @@
 import { useAppSelector } from '@/store/hooks';
-import ItemCart from './components/ItemCart';
 import Summary from './components/Summary';
+import ItemCart from './components/ItemCart';
 import './cart.scss';
 
 const Cart = () => {
