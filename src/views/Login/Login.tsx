@@ -18,7 +18,7 @@ import './Login.scss';
 import { GiSmartphone } from 'react-icons/gi';
 import { RiUser3Line } from 'react-icons/ri';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import MinimalHeader from '../components/MinimalHeader';
+import MinimalHeader from '@/components/MinimalHeader';
 
 interface FormValues {
   username: string;

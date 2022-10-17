@@ -1,0 +1,29 @@
+@import '@/utils/sass/theme.scss';
+
+footer {
+  width: 100%;
+  @include flex(column, center, center);
+  background-color: $white;
+  padding: 15px 0;
+  border-style: solid;
+  border-width: 1px 0 0;
+  border-color: $gray-ultra-light;
+  font-size: 12px;
+  color: $gray-light;
+  a {
+    color: $black;
+    margin-bottom: 5px;
+    text-decoration: none;
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  footer {
+    height: 73px;
+    font-size: 12px;
+    padding: 0;
+    a {
+      font-size: 14px;
+    }
+  }
+}
