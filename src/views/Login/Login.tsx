@@ -2,11 +2,13 @@ import { Formik, Form, FormikHelpers } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useAppDispatch } from '@/store/hooks';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 //COMPONENTS AND FUNCTIONS
 import CustomInput from './components/CustomInput';
 import { loginSchema } from './schemas/loginSchemas';
 import { setUserInfo } from '@/store/user/user.slice';
+import { auth } from '@/services/firebase';
 import { signInWithGoogle } from '@/services/firebase';
 
 //STYLES AND IMAGES
@@ -16,19 +18,12 @@ import './Login.scss';
 import { GiSmartphone } from 'react-icons/gi';
 import { RiUser3Line } from 'react-icons/ri';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import MinimalHeader from '../components/MinimalHeader';
+import MinimalHeader from '@/components/MinimalHeader';
 
 interface FormValues {
   username: string;
   password: string;
 }
-
-const jhonInfo = {
-  userLoggedIn: true,
-  username: 'Jhon',
-  phone: '3000000000',
-  email: 'jhon@gmail.com',
-};
 
 const Login = () => {
   const initialValues: FormValues = {
@@ -39,22 +34,37 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const onSubmit = (
+  const onSubmit = async (
     values: FormValues,
     formikBag: FormikHelpers<FormValues>,
   ) => {
-    if (values.username !== 'jhon' || values.password !== '12345') {
+    try {
+      const { user } = await signInWithEmailAndPassword(
+        auth,
+        values.username,
+        values.password,
+      );
+
+      const userInfo = {
+        userLoggedIn: true ?? false,
+        username: user.displayName ?? '',
+        phone: user.phoneNumber ?? '',
+        email: user.email ?? '',
+      };
+
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      dispatch(setUserInfo(userInfo));
+      navigate('/');
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Credenciales invalidas 🤔',
         footer: '<a href="">Has olvidado la contraseña?</a>',
       });
-    } else {
-      localStorage.setItem('userInfo', JSON.stringify(jhonInfo));
-      dispatch(setUserInfo(jhonInfo));
-      navigate('/');
+      console.log(error);
     }
+
     formikBag.setSubmitting(false);
   };
 

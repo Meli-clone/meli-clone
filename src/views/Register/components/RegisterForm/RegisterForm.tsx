@@ -3,11 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, FormikHelpers } from 'formik';
 import Swal from 'sweetalert2';
 import { useAppDispatch } from '@/store/hooks';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 //COMPONENTS AND FUNCTIONS
 import { registerFormSchema } from './schemas/registerFormSchema';
-import CustomInput from '@/views/components/CustomInput';
+import CustomInput from '@/components/CustomInput';
 import { setUserInfo } from '@/store/user/user.slice';
+import { auth } from '@/services/firebase';
 
 //STYLES AND
 import './RegisterForm.scss';
@@ -38,7 +40,7 @@ const RegisterForm = () => {
     password: '',
     confirmPassword: '',
   };
-  const onSubmit = (
+  const onSubmit = async (
     values: FormValues,
     formikBag: FormikHelpers<FormValues>,
   ) => {
@@ -48,6 +50,18 @@ const RegisterForm = () => {
       phone: values.phone,
       userLoggedIn: true,
     };
+
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        userInfo.email,
+        values.password,
+      ).then(userCred => {
+        updateProfile(userCred.user, { displayName: userInfo.username });
+      });
+    } catch (error) {
+      console.log(error);
+    }
 
     localStorage.setItem('userInfo', JSON.stringify(userInfo));
     dispatch(setUserInfo(userInfo));
