@@ -2,5 +2,11 @@
 
 .cart {
     margin: 0 auto;
-    width: $max-width;
+    width: 80%;
+}
+
+@media (min-width: $tablet) {
+    .cart {
+        max-width: $max-width;
+    }
 }

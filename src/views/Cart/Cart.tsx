@@ -5,8 +5,6 @@ import './cart.scss';
 
 const Cart = () => {
   const itemsCart = useAppSelector(state => state.cart.value);
-  console.log(itemsCart);
-
   return (
     <div className='cart'>
       {itemsCart.map((item, index) => {

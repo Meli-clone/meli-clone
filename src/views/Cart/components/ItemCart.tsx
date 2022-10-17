@@ -32,7 +32,6 @@ const ItemCart = ({ product }: Prop) => {
               <h3></h3>
               <span>Envío gratis</span>
             </div>
-            {/*Aca se renderiza un componente infoFooter mobile o desktop*/}
             <InfoFooterMobile product={product} />
           </div>
         </div>

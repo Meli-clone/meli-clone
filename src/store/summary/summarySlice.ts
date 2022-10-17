@@ -6,7 +6,7 @@ export interface Summary {
 }
 
 const initialState = {
-  price: 95996,
+  price: 0,
 };
 
 export const summarySlice = createSlice({

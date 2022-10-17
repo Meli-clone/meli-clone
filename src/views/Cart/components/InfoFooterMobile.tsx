@@ -2,6 +2,7 @@ import { ProductCart } from '@/store/cart/cartSlice';
 import { useAppDispatch } from '@/store/hooks';
 import { substractSummary, sumSummary } from '@/store/summary/summarySlice';
 import { useState } from 'react';
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 import './InfoFooterMobile.scss';
 
 interface Prop {
@@ -48,7 +49,7 @@ const InfoFooterMobile = ({ product }: Prop) => {
       </div>
       <div className='item__price'>
         <span className='price-tag'>
-          ${(product.price * quantity).toFixed(3)}
+          ${formatNumberWithDot(product.price * quantity)}
         </span>
       </div>
     </div>
