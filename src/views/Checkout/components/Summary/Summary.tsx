@@ -3,12 +3,16 @@ import CheckoutColumn from '../Column';
 import { IoLocationOutline } from 'react-icons/io5';
 import { BsTruck, BsCreditCard2Back } from 'react-icons/bs';
 import { RiBillLine } from 'react-icons/ri';
+import { useAppSelector } from '@/store/hooks';
 
-interface Prop {
-  shippingCost: number;
-}
+const Summary = () => {
+  const { fullname, street, streetNumber } = useAppSelector(
+    state => state.checkout.value.user,
+  );
+  const { paymentMethod, shippingType } = useAppSelector(
+    state => state.checkout.value,
+  );
 
-const Summary = ({ shippingCost }: Prop) => {
   const handleSubmit = () => {
     console.log('submited');
   };
@@ -16,27 +20,30 @@ const Summary = ({ shippingCost }: Prop) => {
   return (
     <section className='checkoutSummary'>
       <div className='checkoutSummary_container'>
-        <CheckoutColumn shippingCost={shippingCost} />
+        <CheckoutColumn />
         <div className='checkout_column2'>
           <h1 className='checkout_title'>Revisa y confirma tu compra</h1>
 
           <p>Detalles de la entrega</p>
-
-          <div className='checkout_addressContainer'>
-            <div className='checkout_detailInnerContainer'>
-              <div className='checkout_iconContainer'>
-                <IoLocationOutline className='checkout_icon' />
+          {shippingType == 'Envío a tu domicilio' && (
+            <div className='checkout_addressContainer checkout_detailContainer_seconds'>
+              <div className='checkout_detailInnerContainer'>
+                <div className='checkout_iconContainer'>
+                  <IoLocationOutline className='checkout_icon' />
+                </div>
+                <p className='checkout_info'>
+                  {street} {streetNumber}
+                </p>
               </div>
-              <p className='checkout_info'>Calle siempre vivas</p>
+              <a className='checkout_edit'>Editar o elegir otro</a>
             </div>
-            <a className='checkout_edit'>Editar o elegir otro</a>
-          </div>
+          )}
           <div className='checkout_addressContainer'>
             <div className='checkout_detailInnerContainer'>
               <div className='checkout_iconContainer'>
                 <BsTruck className='checkout_icon' />
               </div>
-              <p className='checkout_info'>Llega el Lunes</p>
+              <p className='checkout_info'>{shippingType}</p>
             </div>
             <a className='checkout_edit'>Modificar método de entrega</a>
           </div>
@@ -48,16 +55,19 @@ const Summary = ({ shippingCost }: Prop) => {
               <div className='checkout_iconContainer'>
                 <BsCreditCard2Back className='checkout_icon' />
               </div>
-              <p className='checkout_info'>Tarjeta de crédito</p>
+              <p className='checkout_info'>{paymentMethod}</p>
             </div>
             <a className='checkout_edit'>Modificar</a>
           </div>
-          <div className='checkout_addressContainer'>
+          <div className='checkout_addressContainer checkout_detailContainer_second'>
             <div className='checkout_detailInnerContainer'>
               <div className='checkout_iconContainer'>
                 <RiBillLine className='checkout_icon' />
               </div>
-              <p className='checkout_info'>Datos para tu factura</p>
+              <div className='checkout_infoDiv'>
+                <p className='checkout_info'>Datos para tu factura: </p>
+                <p className='checkout_info_gray'>{fullname}</p>
+              </div>
             </div>
             <a className='checkout_edit'>Modificar datos</a>
           </div>

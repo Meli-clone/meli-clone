@@ -3,16 +3,16 @@ import { Formik, Form } from 'formik';
 import { checkoutSchema } from './checkoutSchema';
 import CustomInput from '@/components/CustomInput';
 import CheckoutColumn from '../Column';
+import { useAppSelector, useAppDispatch } from '@/store/hooks';
+import { addUserInfo } from '@/store/checkout/checkoutSlice';
 
 interface Prop {
   handleContinuar: (value: number) => void;
-  shippingCost: number;
-  CP: string;
 }
 
 interface FormValues {
   fullname: string;
-  postcode: string;
+  postcode: number;
   province: string;
   city: string;
   street: string;
@@ -20,10 +20,13 @@ interface FormValues {
   dpto: string;
 }
 
-const CheckoutForm = ({ handleContinuar, shippingCost, CP }: Prop) => {
+const CheckoutForm = ({ handleContinuar }: Prop) => {
+  const cp = useAppSelector(state => state.checkout.value.user.CP);
+  const dispatch = useAppDispatch();
+
   const initialValues: FormValues = {
     fullname: '',
-    postcode: CP,
+    postcode: cp,
     province: '',
     city: '',
     street: '',
@@ -34,21 +37,21 @@ const CheckoutForm = ({ handleContinuar, shippingCost, CP }: Prop) => {
   const onSubmit = (values: FormValues) => {
     const userInfo = {
       fullname: values.fullname,
-      postcode: values.postcode,
+      CP: values.postcode,
       province: values.province,
       city: values.city,
       street: values.street,
       streetNumber: values.streetNumber,
       dpto: values.dpto,
     };
-    console.log(userInfo);
+    dispatch(addUserInfo(userInfo));
     handleContinuar(3);
   };
 
   return (
     <section className='checkoutForm'>
       <div className='checkoutForm_columns'>
-        <CheckoutColumn shippingCost={shippingCost} />
+        <CheckoutColumn />
         <div className='checkoutForm_Container'>
           <h1 className='checkoutForm_title'>Agrega un domicilio</h1>
           <div className='checkoutForm_formContainer'>

@@ -29,6 +29,18 @@
         cursor: pointer;
         .checkout_detailInnerContainer {
           @include flex(row, flex-start, center);
+          .checkout_iconContainer {
+            @include flex(row, center, center);
+            width: 40px;
+            height: 40px;
+            background-color: $gray-ultra-light;
+            border-radius: 100%;
+            margin-right: 15px;
+            .checkout_icon {
+              color: $blue;
+              font-size: 25px;
+            }
+          }
           .checkout_selectLine_disabled {
             background-color: $background-light;
           }
@@ -50,9 +62,6 @@
           }
         }
       }
-      .checkout_detailContainer_second {
-        margin-top: 0;
-      }
       .checkout_buttonContainer {
         align-self: flex-end;
         .checkout_button {
@@ -70,6 +79,10 @@
       }
     }
   }
+}
+
+.checkout_detailContainer_second {
+  margin-top: 0 !important;
 }
 
 @media only screen and (min-width: $laptop) {
@@ -91,6 +104,14 @@
           height: 90px;
           margin: 15px 0;
           .checkout_detailInnerContainer {
+            .checkout_iconContainer {
+              width: 50px;
+              height: 50px;
+              margin-right: 20px;
+              .checkout_icon {
+                font-size: 30px;
+              }
+            }
             .checkout_selectTitle {
               font-size: 16px;
             }

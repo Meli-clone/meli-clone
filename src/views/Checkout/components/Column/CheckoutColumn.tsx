@@ -1,10 +1,12 @@
 import './CheckoutColumn.scss';
-import { useAppSelector } from '@/store/hooks';
 import { useNavigate } from 'react-router-dom';
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
+import { useAppSelector } from '@/store/hooks';
 
-const CheckoutColumn = ({ shippingCost }: { shippingCost: number }) => {
+const CheckoutColumn = () => {
   const carrito = useAppSelector(state => state.cart.value);
   const navigate = useNavigate();
+  const shippingCost = useAppSelector(state => state.checkout.value.shipping);
 
   if (carrito.length === 0) {
     navigate('/');
@@ -24,7 +26,7 @@ const CheckoutColumn = ({ shippingCost }: { shippingCost: number }) => {
                 alt={item.title}
               />
               <p className='checkout_cartTitle'>{item.title}</p>
-              <p>$ {item.price}</p>
+              <p>$ {formatNumberWithDot(item.price)}</p>
             </div>
             <div className='checkout_line'></div>
           </div>
@@ -32,12 +34,12 @@ const CheckoutColumn = ({ shippingCost }: { shippingCost: number }) => {
       })}
       <div className='checkout_div'>
         <p>Envío</p>
-        <p>$ {shippingCost}</p>
+        <p>$ {formatNumberWithDot(shippingCost)}</p>
       </div>
       <div className='checkout_line'></div>
       <div className='checkout_div'>
         <p>Total</p>
-        <p>$ {shippingCost + 1253}</p>
+        <p>$ {formatNumberWithDot(shippingCost + 1253)}</p>
         {/* Modificar precio acá */}
       </div>
     </div>

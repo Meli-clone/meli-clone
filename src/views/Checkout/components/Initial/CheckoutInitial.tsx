@@ -1,32 +1,38 @@
 import './CheckoutInitial.scss';
+import { useState } from 'react';
 import { ChangeEvent } from 'react';
 import { IoLocationOutline } from 'react-icons/io5';
 import CheckoutColumn from '../Column';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import {
+  addCP,
+  addShippingCost,
+  addShippingType,
+} from '@/store/checkout/checkoutSlice';
 
 interface Prop {
   handleContinuar: (value: number) => void;
-  handleShipping: (value: number) => void;
-  shippingCost: number;
-  handleAddress: () => void;
-  handleInput: (e: ChangeEvent<HTMLInputElement>) => void;
-  CP: {
-    clicked: boolean;
-    CP: string;
-  };
 }
 
-const CheckoutInitial = ({
-  handleContinuar,
-  handleShipping,
-  shippingCost,
-  handleAddress,
-  handleInput,
-  CP,
-}: Prop) => {
+const CheckoutInitial = ({ handleContinuar }: Prop) => {
+  const [clicked, setClicked] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const cp = useAppSelector(state => state.checkout.value.user.CP);
+  const shippingCost = useAppSelector(state => state.checkout.value.shipping);
+
+  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(addCP(Number(e.target.value)));
+  };
+
+  const handleShipping = (value: number, type: string) => {
+    dispatch(addShippingCost(value));
+    dispatch(addShippingType(type));
+  };
+
   return (
     <section className='checkoutContainer'>
       <div className='checkout'>
-        <CheckoutColumn shippingCost={shippingCost} />
+        <CheckoutColumn />
         <div className='checkout_column2'>
           <h1 className='checkout_title'>
             ¿Cómo querés recibir o retirar tu compra?
@@ -38,32 +44,30 @@ const CheckoutInitial = ({
                 <IoLocationOutline className='checkout_icon' />
               </div>
               <div className='checkout_selectDiv'>
-                {CP.clicked ? (
+                {clicked ? (
                   <input
                     type='number'
                     className='checkout_selectInput'
                     placeholder='Tu Código Postal'
-                    value={CP.CP}
+                    value={cp}
                     min='4'
                     max='4'
                     onChange={handleInput}
                   />
                 ) : (
-                  <p className='checkout_selectTitle'>
-                    C.P. {CP.CP ? CP.CP : 1627}
-                  </p>
+                  <p className='checkout_selectTitle'>C.P. {cp}</p>
                 )}
               </div>
             </div>
-            <a className='checkout_edit' onClick={handleAddress}>
-              {CP.clicked ? 'Aceptar' : 'Editar'}
+            <a className='checkout_edit' onClick={() => setClicked(!clicked)}>
+              {clicked ? 'Aceptar' : 'Editar'}
             </a>
           </div>
 
           <p>Recibir compra</p>
           <div
             className='checkout_detailContainer'
-            onClick={() => handleShipping(1235)}
+            onClick={() => handleShipping(1235, 'Envío a tu domicilio')}
           >
             <div className='checkout_detailInnerContainer'>
               <div
@@ -81,7 +85,9 @@ const CheckoutInitial = ({
                 }
               ></div>
               <div className='checkout_selectDiv'>
-                <p className='checkout_selectTitle'>Llega el miércoles</p>
+                <p className='checkout_selectTitle'>
+                  Llega el miércoles a tu casa
+                </p>
               </div>
             </div>
             <p className='checkout_shippingTotal'>$ 1.235</p>
@@ -90,7 +96,9 @@ const CheckoutInitial = ({
 
           <div
             className='checkout_detailContainer'
-            onClick={() => handleShipping(936)}
+            onClick={() =>
+              handleShipping(936, 'Retiro en correo y otros puntos')
+            }
           >
             <div className='checkout_detailInnerContainer'>
               <div

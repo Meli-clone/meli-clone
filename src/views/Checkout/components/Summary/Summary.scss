@@ -34,6 +34,14 @@
           .checkout_info {
             font-size: 14px;
           }
+          .checkout_infoDiv {
+            @include flex(column, flex-start, flex-start);
+            .checkout_info_gray {
+              color: $gray;
+              font-size: 13px;
+              margin-top: 5px;
+            }
+          }
           .checkout_iconContainer {
             @include flex(row, center, center);
             width: 40px;
@@ -53,6 +61,7 @@
           color: $blue;
           cursor: pointer;
           width: 30%;
+          text-align: end;
         }
       }
 
@@ -73,6 +82,13 @@
       }
     }
   }
+}
+
+.checkout_detailContainer_seconds {
+  margin-bottom: 0 !important;
+}
+.checkout_detailContainer_second {
+  margin-top: 0;
 }
 
 @media only screen and (min-width: $laptop) {
