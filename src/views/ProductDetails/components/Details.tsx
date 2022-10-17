@@ -44,11 +44,19 @@ const Details = ({ product }: Prop) => {
 
   const handleAddCart = () => {
     dispatch(addToCart(productToCart));
-    navigate('/', {
-      state: {
-        product: [productToCart],
-      },
-    });
+
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') ?? 'null');
+
+    if (userInfo) {
+      navigate('/', {
+        state: {
+          product: [productToCart],
+        },
+      });
+    } else {
+      localStorage.setItem('productToCart', JSON.stringify(productToCart));
+      navigate('/login');
+    }
   };
 
   const goToCart = () => {

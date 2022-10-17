@@ -7,9 +7,24 @@ const AddedCart = () => {
   const location = useLocation();
   const [product, setProduct] = useState();
 
+  const userInfo = JSON.parse(localStorage.getItem('userInfo') ?? 'null');
+
+  const productToCart = JSON.parse(
+    localStorage.getItem('productToCart') ?? 'null',
+  );
+
   useEffect(() => {
-    if (location.state) {
-      setProduct(location.state.product[0]);
+    if (userInfo) {
+      if (location.state) {
+        setProduct(location.state.product[0]);
+      }
+
+      if (productToCart) {
+        setProduct(productToCart);
+        localStorage.removeItem('productToCart');
+      }
+    } else {
+      localStorage.removeItem('productToCart');
     }
   }, []);
 
