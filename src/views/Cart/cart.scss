@@ -1,0 +1,12 @@
+@import '@/utils/sass/theme.scss';
+
+.cart {
+    margin: 0 auto;
+    width: 80%;
+}
+
+@media (min-width: $tablet) {
+    .cart {
+        max-width: $max-width;
+    }
+}

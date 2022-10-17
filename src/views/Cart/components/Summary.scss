@@ -1,0 +1,67 @@
+@import '@/utils/sass/theme.scss';
+
+.summary {
+    padding: 15px;
+    background-color: $white;
+    min-height: 135px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 60px 0px;
+    box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.1);
+    .summary__info {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 16px;
+        span {
+            color: $gray-dark;
+            font-size: 20px;
+            font-weight: 300;
+        }
+    }
+    .summary__actions {
+        .summary__actions--button {
+            color: $white;
+            background-color: $blue;
+            padding: 13px 32px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            font-size: 18px;
+            font-weight: 300;
+            text-align: center;
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: $tablet) {
+    .summary {
+        .summary__info {
+            justify-content: flex-end;
+            gap: 95px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+            .summary__info--label {
+                margin-right: 100px;
+            }
+            span {
+                font-size: 26px;
+                font-weight: 500;
+            }
+        }
+        .summary__actions {
+            display: flex;
+            justify-content: flex-end;
+            .summary__actions--button {
+                display: inline-block;
+                width: 240px;
+                margin-top: 10px;
+                transition: background .1s ease-in,color .1s ease-in,border .1s ease-in
+            }
+        }
+        
+    }
+    
+}
