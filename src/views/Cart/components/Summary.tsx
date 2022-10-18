@@ -8,7 +8,7 @@ const Summary = () => {
   return (
     <div className='summary'>
       <div className='summary__info'>
-        <span className='summary__info--label'>Total con envío</span>
+        <span className='summary__info--label'>Total</span>
         <span className='summary__info--price'>
           ${formatNumberWithDot(sum.price)}
         </span>

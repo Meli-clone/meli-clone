@@ -30,7 +30,6 @@ const ItemCart = ({ product }: Prop) => {
             <div className='information__description'>
               <h2>{product.title}</h2>
               <h3></h3>
-              <span>Envío gratis</span>
             </div>
             <InfoFooterMobile product={product} />
           </div>

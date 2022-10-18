@@ -1,10 +1,25 @@
 import { useAppSelector } from '@/store/hooks';
 import Summary from './components/Summary';
 import ItemCart from './components/ItemCart';
-import './cart.scss';
+import './Cart.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const itemsCart = useAppSelector(state => state.cart.value);
+  const navigate = useNavigate();
+
+  if (itemsCart.length === 0) {
+    return (
+      <section className='emptyCart'>
+        <div className='emptyCart_div'>
+          <h1 className='emptyCart_title'> Tu carrito está vacío </h1>
+          <button onClick={() => navigate('/')} className='emptyCart_button'>
+            ¡Comprar!
+          </button>
+        </div>
+      </section>
+    );
+  }
   return (
     <div className='cart'>
       {itemsCart.map((item, index) => {

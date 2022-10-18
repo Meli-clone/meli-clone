@@ -1,70 +1,137 @@
 @import '@/utils/sass/theme.scss';
 
+.item-cart {
+  max-width: $max-width;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
 .item {
-    background-color: $white;
-    margin-bottom: 4px;
-    .item__container {
-        display: flex;
-        gap: 20px;   
-        padding: 15px;
-        .item__container--information {
-            width: 100%;
-            .information__description {
-                h2 {
-                    font-size: 14px;
-                    font-weight: 400;
-                    color: rgba(0, 0, 0, .8);
-                    margin-bottom: 14px;
-                }
-                h3 {
-                    font-size: 14px;
-                    font-weight: 400;
-                    margin-bottom: 16px;
-                    color: rgba(0,0,0,.45);
-                }
-    
-                span {
-                    font-size: 14px;
-                    color: #39b54a;
-                    font-weight: 300;
-                }
-            }
+  background-color: $white;
+  .item__container {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    .item__container--information {
+      width: 100%;
+      .information__description {
+        h2 {
+          font-size: 16px;
+          font-weight: 400;
+          color: $black;
+          margin-bottom: 14px;
         }
-        .item__container--image {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-        }   
+        h3 {
+          font-size: 14px;
+          font-weight: 400;
+          margin-bottom: 16px;
+          color: $black;
+        }
+      }
+    }
+    .item__container--image {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+  }
+  .item-action {
+    border-top: 1px solid $background;
+    border-bottom: 1px solid $background;
+    padding: 16px;
+    line-height: 1.25;
+    .item-action-single {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      li {
+        list-style: none;
+        margin-right: 22px;
+        margin-bottom: 8px;
+        span {
+          border: 0;
+          background-color: $white;
+        }
+        span:hover {
+          cursor: pointer;
+        }
+        span,
+        a {
+          font-size: 14px;
+          font-weight: 400;
+          color: $blue;
+          line-height: 1.25;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $laptop) {
+  .item-cart {
+    max-width: $max-width;
+    margin: 0 auto;
+    margin-bottom: 0;
+    box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(162, 162, 162, 0.5);
+  }
+
+  .item {
+    .item__container {
+      display: flex;
+      gap: 20px;
+      padding: 25px;
+      .item__container--information {
+        width: 100%;
+        .information__description {
+          h2 {
+            font-size: 20px;
+            margin-bottom: 14px;
+          }
+          h3 {
+            font-size: 16px;
+          }
+        }
+      }
+      .item__container--image {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+      }
     }
     .item-action {
-        border-top: 1px solid rgba(0, 0, 0, .07);
-        padding: 16px;
-        line-height: 1.25;
-        .item-action-single {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            li {
-                list-style: none;
-                margin-right: 22px;
-                margin-bottom: 8px;
-                span {
-                    border: 0;
-                    background-color: $white;
-                }
-                span:hover {
-                    cursor: pointer;
-                }
-                span, a {
-                    font-size: 14px;
-                    font-weight: 400;
-                    color: $blue;
-                    line-height: 1.25;
-                }
-                a {
-                    text-decoration: none;
-                }
-            }
+      border-top: none;
+      border-bottom: 1px solid $background;
+      padding: 10px 25px 16px 25px;
+      line-height: 1.25;
+      .item-action-single {
+        display: flex;
+        li {
+          list-style: none;
+          margin-right: 22px;
+          margin-bottom: 8px;
+          span {
+            border: 0;
+            background-color: $white;
+          }
+          span:hover {
+            cursor: pointer;
+          }
+          span,
+          a {
+            font-size: 14px;
+            font-weight: 400;
+            color: $blue;
+            line-height: 1.25;
+          }
+          a {
+            text-decoration: none;
+          }
         }
-        
+      }
     }
+  }
 }
