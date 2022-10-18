@@ -104,20 +104,22 @@ const Login = () => {
           >
             {({ isSubmitting }) => (
               <Form>
-                <CustomInput
-                  label='Teléfono, e-mail o usuario'
-                  name='username'
-                  type='text'
-                  placeholder=''
-                />
-
-                <CustomInput
-                  label='Contraseña'
-                  name='password'
-                  type='password'
-                  placeholder=''
-                />
-
+                <div className="login_inputContainer">
+                  <CustomInput
+                    label='Teléfono, e-mail o usuario'
+                    name='username'
+                    type='text'
+                    placeholder=''
+                  />
+                </div>
+                <div className="login_inputContainer">
+                  <CustomInput
+                    label='Contraseña'
+                    name='password'
+                    type='password'
+                    placeholder=''
+                  />
+                </div>
                 <button type='submit' disabled={isSubmitting}>
                   Continuar
                 </button>

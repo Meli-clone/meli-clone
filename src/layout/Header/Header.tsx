@@ -6,8 +6,8 @@ import { Divide as Hamburger } from 'hamburger-react';
 
 //STYLES AND IMAGES
 import './Header.scss';
-import meliLogo2 from '@/assets/images/meli-logo2.svg';
 import disneyPromoImg from '@/assets/images/header-disney-promo.png';
+import logo from '@/assets/images/planet-express.png';
 
 //ICONS
 import { IoLocationOutline } from 'react-icons/io5';
@@ -33,9 +33,11 @@ const Header = ({ mobileMenuOpened, setMobileMenuOpened }: Props) => {
   return (
     <div className='header'>
       <div className='header__container'>
-        <Link to='/' className='header__logo'>
-          <img src={meliLogo2} />
-        </Link>
+        <div className='header_logoContainer'>
+          <Link to='/' className='header__logo'>
+            <img src={logo} />
+          </Link>
+        </div>
         <form onSubmit={handleSearcher}>
           <input
             className='header__search-input'

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import DropdownAccess from './components/DropdownAccess';
 import './Footer.scss';
-import meliLogo2 from '@/assets/images/meli-logo2.svg';
+import logo from '@/assets/images/planet-express.png';
 
 interface Link {
   children: string;
@@ -91,7 +91,7 @@ const Footer = () => {
       <div className='nav_footer_donwloadapp_banner'>
         <a href='#' className='nav_footer_downloadapp'>
           <div className='nav_icon_downloadapp'>
-            <img src={meliLogo2} alt='' />
+            <img src={logo} alt='Logo Planet Express' />
           </div>
           <span>¡Compra y vende con la app!</span>
         </a>

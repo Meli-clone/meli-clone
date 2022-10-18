@@ -212,3 +212,15 @@
     }
   }
 }
+
+@media screen and (min-width: $tablet) {
+  .search_results_container {
+    margin: 20px;
+  }
+}
+
+@media screen and (min-width: $laptop) {
+  .search_results_container {
+    margin-top: 20px;
+  }
+}
