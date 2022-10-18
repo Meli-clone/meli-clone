@@ -60,6 +60,7 @@ const Details = ({ product }: Prop) => {
 
   const goToCart = () => {
     dispatch(addToCart(productToCart));
+    dispatch(addSummary(productSummary));
     navigate('/checkout');
   };
 
