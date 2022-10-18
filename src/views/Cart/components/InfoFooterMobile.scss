@@ -1,0 +1,47 @@
+@import '@/utils/sass/theme.scss';
+
+.info-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    .selector__container {
+        border: 1px solid #e6e6e6;
+        border-radius: 4px;
+        padding: 10px;
+        max-width: 100px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .icon {
+                color: #3483fa;
+                user-select: none;
+            }
+            .icon:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .item__price {
+        .item__original-price {
+            .item__discount {
+                color: #1bb04a;
+                font-size: 12px;
+                margin-right: 5px;
+            }
+            .item__price-tag {
+                color: silver;
+                font-size: 12px;
+                font-weight: 400;
+                text-decoration: line-through;
+            }
+        }
+        .price-tag {
+            color: #333;
+            font-size: 20px;
+        }
+    }
+}
