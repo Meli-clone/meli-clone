@@ -34,7 +34,10 @@ const InfoFooterMobile = ({ product }: Prop) => {
     <div className='info-footer'>
       <div className='selector__container'>
         <div>
-          <span onClick={subtractQuantity} className='icon'>
+          <span
+            onClick={subtractQuantity}
+            className={quantity > 1 ? 'icon' : 'icon iconDisabled'}
+          >
             -
           </span>
         </div>
@@ -42,7 +45,10 @@ const InfoFooterMobile = ({ product }: Prop) => {
           <span>{quantity}</span>
         </div>
         <div>
-          <span onClick={addQuantity} className='icon'>
+          <span
+            onClick={addQuantity}
+            className={quantity > 1 ? 'icon' : 'icon iconDisabled'}
+          >
             +
           </span>
         </div>

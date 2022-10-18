@@ -7,6 +7,8 @@ const CheckoutColumn = () => {
   const carrito = useAppSelector(state => state.cart.value);
   const navigate = useNavigate();
   const shippingCost = useAppSelector(state => state.checkout.value.shipping);
+  const total = useAppSelector(state => state.summary.price);
+  console.log(total);
 
   if (carrito.length === 0) {
     navigate('/');
@@ -26,7 +28,7 @@ const CheckoutColumn = () => {
                 alt={item.title}
               />
               <p className='checkout_cartTitle'>{item.title}</p>
-              <p>$ {formatNumberWithDot(item.price)}</p>
+              <p>$ {formatNumberWithDot(item.price * item.quantity)}</p>
             </div>
             <div className='checkout_line'></div>
           </div>
@@ -39,8 +41,7 @@ const CheckoutColumn = () => {
       <div className='checkout_line'></div>
       <div className='checkout_div'>
         <p>Total</p>
-        <p>$ {formatNumberWithDot(shippingCost + 1253)}</p>
-        {/* Modificar precio acá */}
+        <p>$ {formatNumberWithDot(total + shippingCost)}</p>
       </div>
     </div>
   );

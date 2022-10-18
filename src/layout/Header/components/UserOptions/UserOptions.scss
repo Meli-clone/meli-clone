@@ -112,11 +112,27 @@
     }
 
     .cart_btn {
+      position: relative;
       margin-left: 10px;
       font-size: 21px;
       a {
         color: $black;
         display: flex;
+      }
+      .cart_spanDiv {
+        @include flex(row, center, center);
+        position: absolute;
+        background-color: $white;
+        top: -5px;
+        right: -9px;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        .cart_span {
+          font-size: 12px;
+          color: $black;
+          text-align: center;
+        }
       }
     }
   }
