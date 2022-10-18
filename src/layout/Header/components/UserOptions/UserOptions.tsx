@@ -20,6 +20,7 @@ const UserOptions = () => {
   const { userLoggedIn, username, userImage } = useAppSelector(
     state => state.user.userInfo,
   );
+  const carrito = useAppSelector(state => state.cart.value);
 
   const dispatch = useAppDispatch();
 
@@ -30,6 +31,14 @@ const UserOptions = () => {
       dispatch(setUserInfo(userInfo));
     }
   }, []);
+
+  const handleQuantityCart = () => {
+    let total = 0;
+    carrito.map(item => {
+      total += item.quantity;
+    });
+    return total;
+  };
 
   return (
     <div className='user_options'>
@@ -103,6 +112,11 @@ const UserOptions = () => {
         <Link to='/cart'>
           <GiShoppingCart />
         </Link>
+        {carrito.length >= 1 && (
+          <div className='cart_spanDiv'>
+            <span className='cart_span'>{handleQuantityCart()}</span>
+          </div>
+        )}
       </div>
     </div>
   );
