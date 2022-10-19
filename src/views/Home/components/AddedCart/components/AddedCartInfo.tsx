@@ -2,6 +2,7 @@ import './AddedCartInfo.scss';
 import { BsCheckLg } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '@/store/hooks';
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 
 interface Props {
   product: {
@@ -13,6 +14,7 @@ interface Props {
 const AddedCartInfo = ({ product }: Props) => {
   const navigate = useNavigate();
   const cart = useAppSelector(state => state.cart.value);
+  const total = useAppSelector(state => state.summary.price);
 
   return (
     <section className='addedCart'>
@@ -38,7 +40,7 @@ const AddedCartInfo = ({ product }: Props) => {
           <div className='addedCart_textContainer'>
             <p className='addedCart_cartQuantity'>
               {cart.length} {cart.length > 1 ? 'productos' : 'producto'} en tu
-              carrito: $11.752
+              carrito: $<span>{formatNumberWithDot(total)}</span>
             </p>
             <div className='addedCart_cart_imagesContainer'>
               {cart.map((item, index) => {

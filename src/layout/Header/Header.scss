@@ -76,6 +76,7 @@
     font-size: 13px;
     @include flex(row, space-between, center);
     color: $gray;
+    cursor: pointer;
 
     div {
       @include flex(row, space-between, center);
@@ -168,6 +169,7 @@
 
     &__nav_bar {
       font-size: 14px;
+      cursor: pointer;
     }
 
     &__user_options {
