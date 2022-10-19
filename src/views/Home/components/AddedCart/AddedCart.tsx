@@ -7,13 +7,10 @@ import { addSummary } from '@/store/summary/summarySlice';
 import AddedCartInfo from './components/AddedCartInfo';
 
 const AddedCart = () => {
-  // const location = useLocation();
   const [product, setProduct] = useState();
   const dispatch = useAppDispatch();
 
   const { userLoggedIn } = useAppSelector(state => state.user.userInfo);
-
-  console.log(product);
 
   useEffect(() => {
     const productToCart = JSON.parse(
@@ -30,7 +27,6 @@ const AddedCart = () => {
       );
     }
 
-    localStorage.removeItem('tempCart');
     localStorage.removeItem('productToCart');
   }, []);
 
