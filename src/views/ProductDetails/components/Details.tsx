@@ -48,19 +48,28 @@ const Details = ({ product }: Prop) => {
     quantity: quantity,
   };
 
+  const userInfo = JSON.parse(localStorage.getItem('userInfo') ?? 'null');
   const handleAddCart = () => {
-    dispatch(addToCart(productToCart));
-    dispatch(addSummary(productSummary));
-    navigate('/', {
-      state: {
-        product: [productToCart],
-      },
-    });
+    localStorage.setItem('productToCart', JSON.stringify(productToCart));
+    if (userInfo) {
+      navigate('/');
+    } else {
+      navigate('/login');
+    }
   };
 
   const goToCart = () => {
-    dispatch(addToCart(productToCart));
-    dispatch(addSummary(productSummary));
+    if (userInfo) {
+      dispatch(addToCart(productToCart));
+      dispatch(addSummary(productSummary));
+      navigate('/checkout');
+    } else {
+      dispatch(addToCart(productToCart));
+      dispatch(addSummary(productSummary));
+      localStorage.setItem('navToCheckout', JSON.stringify(true));
+      navigate('/login');
+    }
+
     navigate('/checkout');
   };
 

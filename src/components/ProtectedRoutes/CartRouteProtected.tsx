@@ -1,13 +1,13 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
-const LoggedInValidation = () => {
+const CartRouteProtected = () => {
   const userInfo = JSON.parse(localStorage.getItem('userInfo') ?? 'null');
 
-  if (!userInfo) {
+  if (userInfo) {
     return <Outlet />;
   } else {
-    return <Navigate to='/' />;
+    return <Navigate to='/login' />;
   }
 };
 
-export default LoggedInValidation;
+export default CartRouteProtected;
