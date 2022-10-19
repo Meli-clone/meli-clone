@@ -1,4 +1,6 @@
+import { deleteAll } from '@/store/cart/cartSlice';
 import { useAppDispatch } from '@/store/hooks';
+import { deleteAllSummary } from '@/store/summary/summarySlice';
 import { useNavigate } from 'react-router-dom';
 
 //COMPONENTS AND FUNCTIONS
@@ -10,6 +12,8 @@ const LogOutBtn = () => {
 
   const logoutHandler = () => {
     localStorage.clear();
+    dispatch(deleteAll());
+    dispatch(deleteAllSummary());
     dispatch(logout());
     navigate('/');
   };
