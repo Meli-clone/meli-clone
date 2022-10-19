@@ -51,7 +51,6 @@ const Details = ({ product }: Prop) => {
   const userInfo = JSON.parse(localStorage.getItem('userInfo') ?? 'null');
   const handleAddCart = () => {
     localStorage.setItem('productToCart', JSON.stringify(productToCart));
-
     if (userInfo) {
       navigate('/');
     } else {
@@ -60,8 +59,17 @@ const Details = ({ product }: Prop) => {
   };
 
   const goToCart = () => {
-    dispatch(addToCart(productToCart));
-    dispatch(addSummary(productSummary));
+    if (userInfo) {
+      dispatch(addToCart(productToCart));
+      dispatch(addSummary(productSummary));
+      navigate('/checkout');
+    } else {
+      dispatch(addToCart(productToCart));
+      dispatch(addSummary(productSummary));
+      localStorage.setItem('navToCheckout', JSON.stringify(true));
+      navigate('/login');
+    }
+
     navigate('/checkout');
   };
 
