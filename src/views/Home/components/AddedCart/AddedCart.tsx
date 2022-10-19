@@ -1,31 +1,37 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+/* Redux */
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { addToCart } from '@/store/cart/cartSlice';
+import { addSummary } from '@/store/summary/summarySlice';
 
 import AddedCartInfo from './components/AddedCartInfo';
 
 const AddedCart = () => {
-  const location = useLocation();
+  // const location = useLocation();
   const [product, setProduct] = useState();
+  const dispatch = useAppDispatch();
 
-  const userInfo = JSON.parse(localStorage.getItem('userInfo') ?? 'null');
+  const { userLoggedIn } = useAppSelector(state => state.user.userInfo);
 
-  const productToCart = JSON.parse(
-    localStorage.getItem('productToCart') ?? 'null',
-  );
+  console.log(product);
 
   useEffect(() => {
-    if (userInfo) {
-      if (location.state) {
-        setProduct(location.state.product[0]);
-      }
-
-      if (productToCart) {
-        setProduct(productToCart);
-        localStorage.removeItem('productToCart');
-      }
-    } else {
-      localStorage.removeItem('productToCart');
+    const productToCart = JSON.parse(
+      localStorage.getItem('productToCart') ?? 'null',
+    );
+    if (userLoggedIn && productToCart) {
+      setProduct(productToCart);
+      dispatch(addToCart(productToCart));
+      dispatch(
+        addSummary({
+          price: productToCart.price,
+          quantity: productToCart.quantity,
+        }),
+      );
     }
+
+    localStorage.removeItem('tempCart');
+    localStorage.removeItem('productToCart');
   }, []);
 
   if (product) {

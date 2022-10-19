@@ -1,14 +1,17 @@
 import { useAppDispatch } from '@/store/hooks';
+import { useNavigate } from 'react-router-dom';
 
 //COMPONENTS AND FUNCTIONS
 import { logout } from '@/store/user/user.slice';
 
 const LogOutBtn = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const logoutHandler = () => {
     localStorage.clear();
     dispatch(logout());
+    navigate('/');
   };
   return <button onClick={() => logoutHandler()}>Salir</button>;
 };

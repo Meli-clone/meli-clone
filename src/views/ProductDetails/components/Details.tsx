@@ -48,20 +48,13 @@ const Details = ({ product }: Prop) => {
     quantity: quantity,
   };
 
+  const userInfo = JSON.parse(localStorage.getItem('userInfo') ?? 'null');
   const handleAddCart = () => {
-    dispatch(addToCart(productToCart));
-    dispatch(addSummary(productSummary));
-
-    const userInfo = JSON.parse(localStorage.getItem('userInfo') ?? 'null');
+    localStorage.setItem('productToCart', JSON.stringify(productToCart));
 
     if (userInfo) {
-      navigate('/', {
-        state: {
-          product: [productToCart],
-        },
-      });
+      navigate('/');
     } else {
-      localStorage.setItem('productToCart', JSON.stringify(productToCart));
       navigate('/login');
     }
   };
