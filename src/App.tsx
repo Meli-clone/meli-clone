@@ -34,8 +34,10 @@ const App = () => {
           </Route>
           <Route path='*' element={<PageNotFound />} />
         </Route>
-        <Route element={<MinimalLayout />}>
-          <Route path='/checkout' element={<Checkout />} />
+        <Route element={<CartRouteProtected />}>
+          <Route element={<MinimalLayout />}>
+            <Route path='/checkout' element={<Checkout />} />
+          </Route>
         </Route>
       </Routes>
     </Provider>
