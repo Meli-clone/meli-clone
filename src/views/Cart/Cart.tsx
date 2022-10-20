@@ -1,4 +1,5 @@
 import { useAppSelector } from '@/store/hooks';
+import { useEffect } from 'react';
 import Summary from './components/Summary';
 import ItemCart from './components/ItemCart';
 import './Cart.scss';
@@ -7,6 +8,10 @@ import { useNavigate } from 'react-router-dom';
 const Cart = () => {
   const itemsCart = useAppSelector(state => state.cart.value);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'Carrito de compras';
+  }, []);
 
   if (itemsCart.length === 0) {
     return (

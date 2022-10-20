@@ -8,8 +8,13 @@ import ShoppingInfo from './components/ShoppingInfo';
 import Slider from './components/Slider/Slider';
 import PopularCategories from './components/PopularCategories';
 import AddedCart from './components/AddedCart/AddedCart';
+import { useEffect } from 'react';
 
 const Home = () => {
+  useEffect(() => {
+    document.title = 'Planet Express';
+  }, []);
+
   return (
     <div className='home_container'>
       <AddedCart />
