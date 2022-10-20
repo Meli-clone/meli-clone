@@ -1,4 +1,5 @@
 import { Formik, Form, FormikHelpers } from 'formik';
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useAppDispatch } from '@/store/hooks';
@@ -78,6 +79,10 @@ const Login = () => {
     formikBag.setSubmitting(false);
   };
 
+  useEffect(() => {
+    document.title = 'Login';
+  }, []);
+
   const singInWithGoogleHandler = async () => {
     try {
       const { displayName, email, phoneNumber, photoURL } =
@@ -119,7 +124,7 @@ const Login = () => {
           >
             {({ isSubmitting }) => (
               <Form>
-              <div className='login_inputContainer'>
+                <div className='login_inputContainer'>
                   <CustomInput
                     label='Teléfono, e-mail o usuario'
                     name='username'

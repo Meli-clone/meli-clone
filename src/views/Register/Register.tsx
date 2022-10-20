@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 //COMPONENTS AND FUNCTIONS
 import MinimalHeader from '@/components/MinimalHeader';
@@ -12,6 +12,10 @@ import './Register.scss';
 
 const Register = () => {
   const [acceptedDHT, setAcceptedDHT] = useState(false); // AcceptedDataHandlingTerms
+
+  useEffect(() => {
+    document.title = 'Registro';
+  }, []);
 
   return (
     <div className='register'>
