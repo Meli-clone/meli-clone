@@ -1,6 +1,7 @@
 import './ProductListCard.scss';
 import { useState } from 'react';
 import { BsHeart } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 interface Products {
   id: number;
@@ -15,6 +16,7 @@ interface Props {
 
 const ProductListCard = ({ producto }: Props) => {
   const [productHover, setProductHover] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseOver = () => {
     setProductHover(true);
@@ -24,11 +26,16 @@ const ProductListCard = ({ producto }: Props) => {
     setProductHover(false);
   };
 
+  const handleClickProduct = (id: string) => {
+    navigate(`/product_details/${id}`);
+  };
+
   return (
     <div
       className='productListCard'
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
+      onClick={() => handleClickProduct(producto.id.toString())}
     >
       <button
         className='productListCard_button'

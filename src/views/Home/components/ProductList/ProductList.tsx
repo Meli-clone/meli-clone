@@ -19,12 +19,15 @@ const ProductList = () => {
   const [width] = useWindowSize();
 
   useEffect(() => {
-    getCategory('MLA1051').then(res => setProductos(res.data.results));
-    const sliceProducts = productos.slice(0, 10);
-    setProductos(sliceProducts);
-    console.log(productos);
+    getProducts();
     handleWidth();
   }, [width]);
+
+  const getProducts = async () => {
+    const res = await getCategory('MLA1051');
+    const sliceProducts = res.data.results.slice(0, 10);
+    setProductos(sliceProducts);
+  };
 
   const handleButtonRight = () => {
     setTranslate(prevState => prevState - handleWidth() - 16);
