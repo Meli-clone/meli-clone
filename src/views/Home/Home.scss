@@ -3,5 +3,11 @@
 .home_container {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 50px;
+}
+
+@media (min-width: $laptop) {
+  .home_container {
+    gap: 80px;
+  }
 }
