@@ -1,7 +1,10 @@
-import { ProductCart } from '@/store/cart/cartSlice';
-import { useAppDispatch } from '@/store/hooks';
+import {
+  ProductCart,
+  substractQuantity,
+  sumQuantity,
+} from '@/store/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { substractSummary, sumSummary } from '@/store/summary/summarySlice';
-import { useState } from 'react';
 import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 import './InfoFooterMobile.scss';
 
@@ -11,22 +14,25 @@ interface Prop {
 
 const InfoFooterMobile = ({ product }: Prop) => {
   const dispatch = useAppDispatch();
-  const [quantity, setQuantity] = useState(product.quantity);
-  const [isFull, setIsFull] = useState(false);
+  const currentProduct = useAppSelector(state =>
+    state.cart.value.find(item => item.id === product.id),
+  );
 
   const subtractQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-      dispatch(substractSummary(product.price));
+    if (currentProduct) {
+      if (currentProduct.quantity > 1) {
+        dispatch(substractQuantity(currentProduct));
+        dispatch(substractSummary(product.price));
+      }
     }
   };
 
   const addQuantity = () => {
-    if (quantity < product.stock) {
-      setQuantity(quantity + 1);
-      dispatch(sumSummary(product.price));
-    } else {
-      setIsFull(true);
+    if (currentProduct) {
+      if (currentProduct.quantity < product.stock) {
+        dispatch(sumQuantity(currentProduct));
+        dispatch(sumSummary(product.price));
+      }
     }
   };
 
@@ -36,18 +42,30 @@ const InfoFooterMobile = ({ product }: Prop) => {
         <div>
           <span
             onClick={subtractQuantity}
-            className={quantity > 1 ? 'icon' : 'icon iconDisabled'}
+            className={
+              currentProduct !== undefined
+                ? currentProduct.quantity > 1
+                  ? 'icon'
+                  : 'icon iconDisabled'
+                : ''
+            }
           >
             -
           </span>
         </div>
         <div>
-          <span>{quantity}</span>
+          <span>{currentProduct ? currentProduct.quantity : null}</span>
         </div>
         <div>
           <span
             onClick={addQuantity}
-            className={quantity > 1 ? 'icon' : 'icon iconDisabled'}
+            className={
+              currentProduct !== undefined
+                ? currentProduct.quantity > 1
+                  ? 'icon'
+                  : 'icon iconDisabled'
+                : ''
+            }
           >
             +
           </span>
@@ -55,7 +73,10 @@ const InfoFooterMobile = ({ product }: Prop) => {
       </div>
       <div className='item__price'>
         <span className='price-tag'>
-          ${formatNumberWithDot(product.price * quantity)}
+          $
+          {currentProduct !== undefined
+            ? formatNumberWithDot(product.price * currentProduct.quantity)
+            : null}
         </span>
       </div>
     </div>
