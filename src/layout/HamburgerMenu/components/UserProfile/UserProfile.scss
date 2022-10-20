@@ -9,8 +9,8 @@
   grid-template-rows: 1fr 35px;
   grid-column-gap: 0px;
   grid-row-gap: 10px;
-  height: 127px;
-  background-color: $yellow;
+  height: 177px;
+  background-color: $aqua;
 
   .profile_icon {
     height: 50px;
@@ -40,7 +40,7 @@
   }
   p {
     font-size: 12px;
-    color: $gray;
+    color: $gray-dark;
     margin-top: 5px;
   }
 
@@ -88,6 +88,15 @@
       width: 100%;
       color: $white;
       font-weight: bold;
+    }
+  }
+
+  .hamburger_menu_imgContainer {
+    @include flex(column, center, center);
+    grid-area: 3/1/4/4;
+    .hamburger_menu_img {
+      width: 80%;
+      max-width: 350px;
     }
   }
 }

@@ -5,9 +5,9 @@
 }
 
 .nav_footer_donwloadapp_banner {
-  background-color: $yellow;
-  border-top: 1px solid #f2e454;
-  border-bottom: 1px solid #f2e454;
+  background-color: $aqua;
+  border-top: 1px solid $aqua;
+  border-bottom: 1px solid $aqua;
   height: 72px;
   padding: 10px 10%;
   width: 100%;
@@ -40,10 +40,9 @@
   margin-right: 16px;
 
   img {
-    width: 39px;
-    height: 27px;
-    object-fit: cover;
-    object-position: left;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
   }
 }
 
