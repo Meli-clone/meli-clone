@@ -204,6 +204,10 @@
   width: 100%;
 }
 
+.googleButton {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: $tablet) {
   .login {
     background-color: #ededed;
