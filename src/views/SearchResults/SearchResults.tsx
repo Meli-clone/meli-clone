@@ -10,6 +10,7 @@ import DropdownFilter from './components/DropdownFilters/DropdownFilters';
 import FilterOptionsSelected from './components/FilterOptionsSelected';
 import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 import { SearchedProducts } from '@/types';
+import formatPascalCase from '@/utils/helpers/formatPascalCase';
 
 const SearchResults = () => {
   const [productsData, setProductsData] = useState<SearchedProducts>();
@@ -23,6 +24,14 @@ const SearchResults = () => {
   useEffect(() => {
     handleGetProducts(location.search);
   }, [location.search]);
+
+  useEffect(() => {
+    if (searchParams.get('q') !== null) {
+      document.title = `${formatPascalCase(
+        searchParams.get('q'),
+      )} | Planet Express`;
+    }
+  }, []);
 
   const handleGetProducts = async (search: string) => {
     const res = await getProductsByQuery(search);
@@ -48,7 +57,7 @@ const SearchResults = () => {
       <div className='search_results_grid'>
         <div className='filters_container'>
           <header className='search_results_header'>
-            <h1>{searchParams.get('q')}</h1>
+            <h1>{formatPascalCase(searchParams.get('q'))}</h1>
             <span className='total_results'>
               {formatNumberWithDot(productsData.paging.total)} resultados
             </span>

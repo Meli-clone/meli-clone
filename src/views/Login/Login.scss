@@ -7,7 +7,7 @@
   background-color: $white;
 
   .main_container {
-    @include flex(column, space-between, center);
+    @include flex(column, center, center);
     padding: 0 24px;
     flex-grow: 1;
     &__main_card {
@@ -199,6 +199,15 @@
   }
 }
 
+.login_inputContainer {
+  height: 97px;
+  width: 100%;
+}
+
+.googleButton {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: $tablet) {
   .login {
     background-color: #ededed;
@@ -206,8 +215,6 @@
 
     .main_container {
       z-index: 1;
-      margin-top: 80px;
-      justify-content: flex-start;
 
       &__main_card {
         background-color: $white;

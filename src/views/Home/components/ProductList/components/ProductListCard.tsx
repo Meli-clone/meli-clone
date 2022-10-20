@@ -2,11 +2,12 @@ import './ProductListCard.scss';
 import { useState } from 'react';
 import { BsHeart } from 'react-icons/bs';
 import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
+import { useNavigate } from 'react-router-dom';
 
 interface Products {
-  item_id: number;
+  id: number;
   title: string;
-  image: string;
+  thumbnail: string;
   price: string;
 }
 
@@ -16,6 +17,7 @@ interface Props {
 
 const ProductListCard = ({ producto }: Props) => {
   const [productHover, setProductHover] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseOver = () => {
     setProductHover(true);
@@ -25,11 +27,16 @@ const ProductListCard = ({ producto }: Props) => {
     setProductHover(false);
   };
 
+  const handleClickProduct = (id: string) => {
+    navigate(`/product_details/${id}`);
+  };
+
   return (
     <div
       className='productListCard'
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
+      onClick={() => handleClickProduct(producto.id.toString())}
     >
       <button
         className='productListCard_button'
@@ -40,7 +47,7 @@ const ProductListCard = ({ producto }: Props) => {
       <div className='productListCard_imageContainer'>
         <img
           className='productListCard_image'
-          src={producto.image}
+          src={producto.thumbnail}
           alt={producto.title}
         />
       </div>

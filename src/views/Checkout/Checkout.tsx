@@ -1,5 +1,5 @@
 import './Checkout.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CheckoutInitial from './components/Initial';
 import CheckoutForm from './components/Form';
 import Payment from './components/Payment';
@@ -7,6 +7,10 @@ import Summary from './components/Summary';
 
 const Checkout = () => {
   const [page, setPage] = useState<number>(1);
+
+  useEffect(() => {
+    document.title = 'Checkout';
+  }, []);
 
   const handleContinuar = (value: number) => {
     setPage(value);
