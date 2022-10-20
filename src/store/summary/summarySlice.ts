@@ -27,9 +27,17 @@ export const summarySlice = createSlice({
     deleteSummary: (state, action: PayloadAction<number>) => {
       state.price -= action.payload;
     },
+    deleteAllSummary: state => {
+      state.price = 0;
+    },
   },
 });
 
-export const { addSummary, sumSummary, substractSummary, deleteSummary } =
-  summarySlice.actions;
+export const {
+  addSummary,
+  sumSummary,
+  substractSummary,
+  deleteSummary,
+  deleteAllSummary,
+} = summarySlice.actions;
 export default summarySlice.reducer;

@@ -12,10 +12,9 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
 import LoggedInValidation from './components/ProtectedRoutes/LoggedInValidation';
+import CartRouteProtected from './components/ProtectedRoutes/CartRouteProtected';
 
 const App = () => {
-  console.log(import.meta.env.REACT_APP_FB_PROJECT_ID);
-
   return (
     <Provider store={store}>
       <Routes>
@@ -30,11 +29,15 @@ const App = () => {
             path='/product_details/:productID'
             element={<ProductDetails />}
           />
-          <Route path='/cart' element={<Cart />} />
+          <Route element={<CartRouteProtected />}>
+            <Route path='/cart' element={<Cart />} />
+          </Route>
           <Route path='*' element={<PageNotFound />} />
         </Route>
-        <Route element={<MinimalLayout />}>
-          <Route path='/checkout' element={<Checkout />} />
+        <Route element={<CartRouteProtected />}>
+          <Route element={<MinimalLayout />}>
+            <Route path='/checkout' element={<Checkout />} />
+          </Route>
         </Route>
       </Routes>
     </Provider>

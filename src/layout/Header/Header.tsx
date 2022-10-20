@@ -13,6 +13,7 @@ import logo from '@/assets/images/planet-express.png';
 import { IoLocationOutline } from 'react-icons/io5';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { useState } from 'react';
+import CartBtn from '@/components/CartBtnMobile';
 
 interface Props {
   mobileMenuOpened: boolean;
@@ -53,6 +54,7 @@ const Header = ({ mobileMenuOpened, setMobileMenuOpened }: Props) => {
             onToggle={() => setMobileMenuOpened(!mobileMenuOpened)}
           />
         </div>
+        <CartBtn />
         <div className='header__disney_promo'>
           <img src={disneyPromoImg} alt='logo de mercado libre'></img>
         </div>

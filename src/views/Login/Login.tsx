@@ -34,6 +34,10 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
+  const navToCheckout = JSON.parse(
+    localStorage.getItem('navToCheckout') ?? 'null',
+  );
+
   const onSubmit = async (
     values: FormValues,
     formikBag: FormikHelpers<FormValues>,
@@ -54,7 +58,13 @@ const Login = () => {
 
       localStorage.setItem('userInfo', JSON.stringify(userInfo));
       dispatch(setUserInfo(userInfo));
-      navigate('/');
+
+      if (navToCheckout) {
+        localStorage.removeItem('navToCheckout');
+        navigate('/checkout');
+      } else {
+        navigate('/');
+      }
     } catch (error) {
       Swal.fire({
         icon: 'error',
@@ -84,7 +94,12 @@ const Login = () => {
       localStorage.setItem('userInfo', JSON.stringify(userInfo));
       dispatch(setUserInfo(userInfo));
 
-      navigate('/');
+      if (navToCheckout) {
+        localStorage.removeItem('navToCheckout');
+        navigate('/checkout');
+      } else {
+        navigate('/');
+      }
     } catch (error) {
       console.log(error);
     }
