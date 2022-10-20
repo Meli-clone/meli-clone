@@ -4,13 +4,13 @@ Este proyecto es un ejercicio de front-end desarrollado colaborativamente con el
 
 La aplicación es un clon de la web de [Mercado Libre](https://www.mercadolibre.com.co/), para lo que cual se ha utilizado la [API](https://developers.mercadolibre.com.ar/) provista por la empresa.
 
-Las principales funciones de aplicacion son:
+Las principales funciones de aplicación son:
 
 - Registro y autenticación de usuarios.
-- Busqueda de articulos.
-- Vista con los resultados de la busqueda.
-- Detalle del articulo.
-- Agregar articulos al carrito.
+- Busqueda de artículos.
+- Vista con los resultados de la búsqueda.
+- Detalle del artículo.
+- Agregar artículos al carrito.
 - Realizar checkout.
 
 ---
@@ -24,16 +24,16 @@ npm i
 npm run
 ```
 
-Adicionalmente deberas configurar un proyecto de firebase para autenticacion y guardar las variables de entorno en un archivo .env en la raiz del proyecto.
+Adicionalmente deberás configurar un proyecto de firebase para autenticación y guardar las variables de entorno en un archivo .env en la raíz del proyecto.
 
 ## Estructura de archivos
 
 El código está organizado de la siguiente manera:
 
-- assets: Imagenes, logos y fuentes.
+- assets: Imágenes, logos y fuentes.
 - components: Componentes genéricos globales.
 - layouts: Componentes base para las vistas.
-- services: Peticiones externas a la aplicacion.
+- services: Peticiones externas a la aplicación.
 - stores: Archivos para el manejo de estados globales.
 - views: Componentes principales para las vistas.
 
@@ -100,10 +100,10 @@ src/
 
 **[Formik](https://formik.org/)**: se utilizó esta librería para facilitar el manejo de los formularios.
 
-**[Yup](https://github.com/jquense/yup)**: se utilizó esta librería para la validacion de formularios.
+**[Yup](https://github.com/jquense/yup)**: se utilizó esta librería para la validación de formularios.
 
 **[Redux Toolkit](https://redux-toolkit.js.org/)**: Redux Toolkit para el manejo del state global.
 
 **[sweetAlert2](https://sweetalert2.github.io/)**: sweetAlert se utilizó para facilitar la creación de alertas tipo pop-up durante la validación de formulario de login.
 
-**[Sass](https://sass-lang.com/)**: Sass como prepocesador CSS.
+**[Sass](https://sass-lang.com/)**: Sass como preprocesador CSS.
