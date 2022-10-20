@@ -1,6 +1,6 @@
 import './ProductDetails.scss';
 import { useState, useEffect } from 'react';
-import { getProductDetail } from '@/services/product';
+import { getProductDetail } from '@/services/details/details.service';
 import Details from './components/Details';
 import { useNavigate, useParams } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 //STYLES AND IMAGES
-import meliLogo2 from '@/assets/images/meli-logo2.svg';
+import logo from '@/assets/images/planet-express.png';
 import './MinimalHeader.scss';
 
 //ICONS
@@ -12,7 +12,7 @@ const MinimalHeader = () => {
     <header className='minimal_header' id='minimalHeader'>
       <div className='minimal_header__container'>
         <Link to='/' className='minimal_header__container__logo'>
-          <img src={meliLogo2}></img>
+          <img src={logo}></img>
         </Link>
         <Link to='#' className='minimal_header__container__help'>
           <TbHelp className='help_icon' />

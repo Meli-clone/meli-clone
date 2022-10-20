@@ -1,4 +1,5 @@
 import { Formik, Form, FormikHelpers } from 'formik';
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useAppDispatch } from '@/store/hooks';
@@ -78,6 +79,10 @@ const Login = () => {
     formikBag.setSubmitting(false);
   };
 
+  useEffect(() => {
+    document.title = 'Login';
+  }, []);
+
   const singInWithGoogleHandler = async () => {
     try {
       const { displayName, email, phoneNumber, photoURL } =
@@ -119,20 +124,22 @@ const Login = () => {
           >
             {({ isSubmitting }) => (
               <Form>
-                <CustomInput
-                  label='Teléfono, e-mail o usuario'
-                  name='username'
-                  type='text'
-                  placeholder=''
-                />
-
-                <CustomInput
-                  label='Contraseña'
-                  name='password'
-                  type='password'
-                  placeholder=''
-                />
-
+                <div className='login_inputContainer'>
+                  <CustomInput
+                    label='Teléfono, e-mail o usuario'
+                    name='username'
+                    type='text'
+                    placeholder=''
+                  />
+                </div>
+                <div className='login_inputContainer'>
+                  <CustomInput
+                    label='Contraseña'
+                    name='password'
+                    type='password'
+                    placeholder=''
+                  />
+                </div>
                 <button type='submit' disabled={isSubmitting}>
                   Continuar
                 </button>
@@ -145,7 +152,7 @@ const Login = () => {
           <div className='main_container__main_card__login-with-google-btn'>
             <p>o</p>
             <br></br>
-            <button onClick={singInWithGoogleHandler}>
+            <button className='googleButton' onClick={singInWithGoogleHandler}>
               Ingresa con Google
             </button>
           </div>

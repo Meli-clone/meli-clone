@@ -3,7 +3,6 @@ import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 import formatPascalCase from '@/utils/helpers/formatPascalCase';
 import Fulfillment from '@/components/Fulfillment';
 import PurchaseDiscount from '@/components/PurchaseDiscount';
-import FreeShipping from '@/components/FreeShipping';
 import { Product } from '@/types';
 import { useNavigate } from 'react-router-dom';
 
@@ -73,7 +72,6 @@ const Result = ({ product }: Prop) => {
             </div>
           </div>
           <div className='item_groud--shipping'>
-            {shipping.free_shipping && <FreeShipping />}
             {shipping.logistic_type === 'fulfillment' && <Fulfillment />}
           </div>
         </div>

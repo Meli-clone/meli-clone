@@ -15,6 +15,8 @@ export const summarySlice = createSlice({
   reducers: {
     addSummary: (state, action: PayloadAction<Summary>) => {
       state.price += action.payload.price * action.payload.quantity;
+      console.log(state.price);
+      
     },
     sumSummary: (state, action: PayloadAction<number>) => {
       state.price += action.payload;

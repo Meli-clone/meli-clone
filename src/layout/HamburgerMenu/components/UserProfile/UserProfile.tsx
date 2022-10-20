@@ -5,6 +5,7 @@ import LogOutBtn from '@/layout/components/LogOutBtn/LogOutBtn';
 
 //STYLES AND IMAGES
 import './UserProfile.scss';
+import disney from '@/assets/images/header-disney-promo.png';
 
 //ICONS
 import { HiOutlineUser } from 'react-icons/hi';
@@ -55,6 +56,13 @@ const UserProfile = () => {
           </div>
         </>
       )}
+      <div className='hamburger_menu_imgContainer'>
+        <img
+          className='hamburger_menu_img'
+          src={disney}
+          alt='Promoción Disney'
+        />
+      </div>
     </div>
   );
 };

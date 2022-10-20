@@ -88,6 +88,10 @@ const Details = ({ product }: Prop) => {
     }
   });
 
+  useEffect(() => {
+    if (product) document.title = product?.title;
+  }, []);
+
   return (
     <section className='details'>
       <div className='details_container'>

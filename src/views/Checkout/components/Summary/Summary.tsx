@@ -6,9 +6,13 @@ import { RiBillLine } from 'react-icons/ri';
 import { useAppSelector } from '@/store/hooks';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/store/hooks';
+import { deleteAllSummary } from '@/store/summary/summarySlice';
+import { deleteAll } from '@/store/cart/cartSlice';
 
 const Summary = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const { fullname, street, streetNumber } = useAppSelector(
     state => state.checkout.value.user,
   );
@@ -23,7 +27,8 @@ const Summary = () => {
       showConfirmButton: false,
       timer: 2000,
     });
-
+    dispatch(deleteAllSummary());
+    dispatch(deleteAll());
     setTimeout(() => {
       navigate('/');
     }, 2100);

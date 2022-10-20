@@ -2,22 +2,20 @@
 
 .minimal_header {
   width: 100%;
-  background: $yellow;
-  height: 50px;
-  padding: 5px 10px;
+  height: auto;
+  background: $aqua;
+  padding: 10px 10px;
   @include flex(row, start, center);
   &__container {
     &__logo {
       color: $blue;
-      height: 40px;
       display: flex;
       align-items: center;
 
       img {
-        height: 32px;
-        width: 50px;
-        object-fit: cover;
-        object-position: left;
+        height: 60px;
+        width: 60px;
+        object-fit: contain;
       }
     }
 
@@ -29,14 +27,13 @@
 
 @media only screen and (min-width: $tablet) {
   .minimal_header {
-    // position: absolute;
-    height: 280px;
-    align-items: flex-start;
+    height: auto;
   }
 }
 
 @media only screen and (min-width: $laptop) {
   .minimal_header {
+    height: auto;
     justify-content: center;
     &__container {
       @include flex(row, space-between, center);
@@ -44,7 +41,8 @@
       max-width: 1020px;
       &__logo {
         img {
-          width: auto;
+          height: 75px;
+          width: 75px;
         }
       }
       &__help {
@@ -52,6 +50,7 @@
       }
       .help_icon {
         color: $gray-dark;
+        font-size: 20px;
       }
     }
   }

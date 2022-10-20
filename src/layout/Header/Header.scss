@@ -2,8 +2,8 @@
 
 .header {
   width: 100%;
-  background: $yellow;
-  height: 87px;
+  background: $aqua;
+  height: auto;
   padding: 0px 8px;
 
   &__container {
@@ -14,23 +14,27 @@
     gap: 10px;
     width: 100%;
     max-width: $max-width;
+    padding: 15px 0;
 
     .user_options {
       display: none;
     }
   }
+  .header_logoContainer {
+    @include flex(row, center, center);
+  }
 
   &__logo {
     color: $blue;
-    height: 40px;
+    height: auto;
     display: flex;
     align-items: center;
 
     img {
-      height: 32px;
-      width: 50px;
-      object-fit: cover;
-      object-position: left;
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
+      margin-right: 5px;
     }
   }
 
@@ -85,15 +89,19 @@
       margin-left: 5px;
       color: $gray-dark;
     }
+    p {
+      color: $gray-dark;
+    }
     &__icon {
       font-size: 16px;
+      color: $gray-dark;
     }
   }
 }
 
 @media only screen and (min-width: $laptop) {
   .header {
-    height: 100px;
+    height: auto;
     @include flex(column, center, center);
 
     &__container {
@@ -102,19 +110,19 @@
       grid-template-columns: 140px 1fr 380px;
       grid-template-rows: 56px 1fr;
       grid-column-gap: 0px;
-      grid-row-gap: 0px;
+      grid-row-gap: 5px;
 
       .user_options {
         display: flex;
+        cursor: pointer;
       }
     }
 
     &__logo {
       img {
-        height: 32px;
+        height: 70px;
         width: auto;
-        object-fit: cover;
-        object-position: left;
+        object-fit: contain;
       }
     }
 
@@ -170,6 +178,11 @@
     &__nav_bar {
       font-size: 14px;
       cursor: pointer;
+      ul {
+        li {
+          color: $gray-dark;
+        }
+      }
     }
 
     &__user_options {
@@ -226,6 +239,14 @@
           margin-right: 14px;
           font-weight: 100;
         }
+      }
+    }
+
+    &__logo {
+      img {
+        height: 70px;
+        width: auto;
+        object-fit: contain;
       }
     }
   }

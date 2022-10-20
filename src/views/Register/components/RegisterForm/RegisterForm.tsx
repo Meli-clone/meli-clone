@@ -9,6 +9,7 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { registerFormSchema } from './schemas/registerFormSchema';
 import CustomInput from '@/components/CustomInput';
 import { setUserInfo } from '@/store/user/user.slice';
+import { signInWithGoogle } from '@/services/firebase';
 import { auth } from '@/services/firebase';
 
 //STYLES AND
@@ -40,6 +41,11 @@ const RegisterForm = () => {
     password: '',
     confirmPassword: '',
   };
+
+  const navToCheckout = JSON.parse(
+    localStorage.getItem('navToCheckout') ?? 'null',
+  );
+
   const onSubmit = async (
     values: FormValues,
     formikBag: FormikHelpers<FormValues>,
@@ -81,6 +87,33 @@ const RegisterForm = () => {
 
   const showPassHelp = () => {
     setShowPassHelpDes(!showPassHelpDes);
+  };
+
+  const singInWithGoogleHandler = async () => {
+    try {
+      const { displayName, email, phoneNumber, photoURL } =
+        await signInWithGoogle();
+
+      const userInfo = {
+        userLoggedIn: true,
+        username: displayName ?? '',
+        phone: phoneNumber ?? '',
+        email: email ?? '',
+        userImage: photoURL ?? '',
+      };
+
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      dispatch(setUserInfo(userInfo));
+
+      if (navToCheckout) {
+        localStorage.removeItem('navToCheckout');
+        navigate('/checkout');
+      } else {
+        navigate('/');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -178,6 +211,9 @@ const RegisterForm = () => {
         <p className='login-link'>
           ¿Ya tienes una cuenta? <Link to='/login'>Inicia sesión</Link>{' '}
         </p>
+        <div className='register_form__main_card__login-with-google-btn'>
+          <button onClick={singInWithGoogleHandler}>Ingresa con Google</button>
+        </div>
       </div>
     </div>
   );
