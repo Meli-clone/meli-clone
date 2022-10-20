@@ -107,3 +107,5 @@ src/
 **[sweetAlert2](https://sweetalert2.github.io/)**: sweetAlert se utilizó para facilitar la creación de alertas tipo pop-up durante la validación de formulario de login.
 
 **[Sass](https://sass-lang.com/)**: Sass como preprocesador CSS.
+
+**[Rest](https://jestjs.io/) y [React Testing Library](https://testing-library.com/)**: para el testeo de componentes.
