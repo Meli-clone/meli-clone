@@ -119,7 +119,7 @@ const Login = () => {
           >
             {({ isSubmitting }) => (
               <Form>
-                <div className='login_inputContainer'>
+              <div className='login_inputContainer'>
                   <CustomInput
                     label='Teléfono, e-mail o usuario'
                     name='username'
