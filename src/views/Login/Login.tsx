@@ -119,7 +119,7 @@ const Login = () => {
           >
             {({ isSubmitting }) => (
               <Form>
-                <div className="login_inputContainer">
+              <div className='login_inputContainer'>
                   <CustomInput
                     label='Teléfono, e-mail o usuario'
                     name='username'
@@ -127,7 +127,7 @@ const Login = () => {
                     placeholder=''
                   />
                 </div>
-                <div className="login_inputContainer">
+                <div className='login_inputContainer'>
                   <CustomInput
                     label='Contraseña'
                     name='password'
@@ -147,7 +147,7 @@ const Login = () => {
           <div className='main_container__main_card__login-with-google-btn'>
             <p>o</p>
             <br></br>
-            <button onClick={singInWithGoogleHandler}>
+            <button className='googleButton' onClick={singInWithGoogleHandler}>
               Ingresa con Google
             </button>
           </div>
