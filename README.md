@@ -22,7 +22,7 @@
 </div>
 
 <p align="center">
-<img src="./src/assets/gif/meli-clon-demo-gif.gif" width="700" align=center />
+<img src="./src/assets/gif/meli-clon-demo.gif" width="700" align=center />
 </p>
 
 <details>
