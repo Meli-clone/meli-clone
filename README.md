@@ -171,9 +171,12 @@ Si quieres ejecutar esta aplicación localmente puedes:
    VITE_FB_MEASUREMENT_ID = 'YOUR MEASUREMENT_ID';
    ```
 5. Inicia el servidor
+
    ```sh
    npm run dev
    ```
+
+6. Firebase solo permitira peticiones desde dominios registrados, asi que recuerda cambiar tu direccion IP en el navegardor por localhost.
 
 <br/>
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
