@@ -51,8 +51,6 @@
 
 ## 🔎 Sobre el proyecto
 
----
-
 Este proyecto es un ejercicio de front-end desarrollado colaborativamente con el fin de mejorar las habilidades de los participantes, principalmente en React, como parte de la acelaración adelantada en [Alkemy](https://www.alkemy.org/) durante un periodo de 7 semanas.
 
 La aplicación es un clon de la web de [Mercado Libre](https://www.mercadolibre.com.co/), para lo que cual se ha utilizado la [API](https://developers.mercadolibre.com.ar/) provista por la empresa.
@@ -76,8 +74,6 @@ Las principales funciones de aplicación son:
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
 ## 🤝 Colaboradores
-
----
 
 </br>
 <ul>
@@ -153,8 +149,6 @@ Las principales funciones de aplicación son:
 
 ## 🚀 Cómo ejecutar la aplicación
 
----
-
 Si quieres ejecutar esta aplicación localmente puedes:
 
 1. Clonar el repo
@@ -185,8 +179,6 @@ Si quieres ejecutar esta aplicación localmente puedes:
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
 ## 📂 Estructura de archivos
-
----
 
 El código está organizado de la siguiente manera:
 
@@ -257,8 +249,6 @@ src/
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
 ## 🛠 Herramientas adicionales
-
----
 
 **[Formik](https://formik.org/)**: se utilizó esta librería para facilitar el manejo de los formularios.
 
