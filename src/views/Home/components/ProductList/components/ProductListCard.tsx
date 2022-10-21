@@ -1,6 +1,7 @@
 import './ProductListCard.scss';
 import { useState } from 'react';
 import { BsHeart } from 'react-icons/bs';
+import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';
 import { useNavigate } from 'react-router-dom';
 
 interface Products {
@@ -51,7 +52,9 @@ const ProductListCard = ({ producto }: Props) => {
         />
       </div>
       <div className='productListCard_infoContainer'>
-        <h4 className='productListCard_price'>$ {producto.price}</h4>
+        <h4 className='productListCard_price'>
+          $ {formatNumberWithDot(Number(producto.price))}
+        </h4>
         <p
           className='productListCard_title'
           style={{ opacity: productHover ? '1' : '0' }}
