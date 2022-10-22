@@ -28,7 +28,7 @@ const SearchResults = () => {
   useEffect(() => {
     if (searchParams.get('q') !== null) {
       document.title = `${formatPascalCase(
-        searchParams.get('q'),
+        searchParams.get('q') || '',
       )} | Planet Express`;
     }
   }, []);
@@ -50,14 +50,14 @@ const SearchResults = () => {
     setFilterIsOpen(prev => !prev);
   };
 
-  if (!productsData) return;
+  if (!productsData) return null;
 
   return (
     <div className='search_results_container'>
       <div className='search_results_grid'>
         <div className='filters_container'>
           <header className='search_results_header'>
-            <h1>{formatPascalCase(searchParams.get('q'))}</h1>
+            <h1>{formatPascalCase(searchParams.get('q') || '')}</h1>
             <span className='total_results'>
               {formatNumberWithDot(productsData.paging.total)} resultados
             </span>

@@ -14,7 +14,7 @@ import { addSummary } from '@/store/summary/summarySlice';
 /* Icons */
 import { BsTruck } from 'react-icons/bs';
 import { TbArrowBack } from 'react-icons/tb';
-import { AiOutlineTrophy } from 'react-icons/Ai';
+import { AiOutlineTrophy } from 'react-icons/ai';
 import { BiCheckShield } from 'react-icons/bi';
 /* Utils */
 import formatNumberWithDot from '@/utils/helpers/formatNumberWithDot';

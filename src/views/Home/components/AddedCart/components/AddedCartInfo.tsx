@@ -16,6 +16,14 @@ const AddedCartInfo = ({ product }: Props) => {
   const cart = useAppSelector(state => state.cart.value);
   const total = useAppSelector(state => state.summary.price);
 
+  const handleQuantityCart = () => {
+    let total = 0;
+    cart.map(item => {
+      total += item.quantity;
+    });
+    return total;
+  };
+
   return (
     <section className='addedCart'>
       <div className='addedCartContainer'>
@@ -39,8 +47,9 @@ const AddedCartInfo = ({ product }: Props) => {
         <div className='addedCart_cartContainer'>
           <div className='addedCart_textContainer'>
             <p className='addedCart_cartQuantity'>
-              {cart.length} {cart.length > 1 ? 'productos' : 'producto'} en tu
-              carrito: $<span>{formatNumberWithDot(total)}</span>
+              {handleQuantityCart()}{' '}
+              {cart.length > 1 ? 'productos' : 'producto'} en tu carrito: $
+              <span>{formatNumberWithDot(total)}</span>
             </p>
             <div className='addedCart_cart_imagesContainer'>
               {cart.map((item, index) => {

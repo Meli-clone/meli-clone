@@ -1,4 +1,4 @@
-import { AiFillThunderbolt } from 'react-icons/Ai';
+import { AiFillThunderbolt } from 'react-icons/ai';
 import './Fulfillment.scss';
 
 const Fulfillment = () => {
