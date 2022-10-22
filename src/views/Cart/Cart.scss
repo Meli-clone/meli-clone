@@ -1,0 +1,54 @@
+@import '@/utils/sass/theme.scss';
+
+.cart {
+  margin: 10px auto;
+}
+
+.emptyCart {
+  margin: 10px auto;
+  width: 100%;
+  .emptyCart_div {
+    @include flex(column, center, center);
+    background-color: $white;
+    padding: 40px 20px;
+    width: 100%;
+    .emptyCart_title {
+      font-size: 20px;
+      color: $gray-dark;
+    }
+    .emptyCart_button {
+      background-color: $blue;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 15px 30px;
+      color: $white;
+      border: none;
+      border-radius: 6px;
+      margin-top: 20px;
+      &:hover {
+        background-color: $blue-dark;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .cart {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .emptyCart {
+    margin: 0 auto;
+    max-width: $max-width;
+    .emptyCart_div {
+      padding: 150px 20px;
+      .emptyCart_title {
+        font-size: 22px;
+      }
+      .emptyCart_button {
+        font-size: 18px;
+        padding: 15px 30px;
+      }
+    }
+  }
+}
