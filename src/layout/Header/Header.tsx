@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, createSearchParams } from 'react-router-dom';
 
 //COMPONENTS
 import UserOptions from './components/UserOptions';
@@ -28,7 +28,11 @@ const Header = ({ mobileMenuOpened, setMobileMenuOpened }: Props) => {
 
   const handleSearcher = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/search?q=${query}`);
+    // navigate(`/search?q=${query}`);
+    navigate({
+      pathname: '/search',
+      search: `?${createSearchParams({ q: query })}`,
+    });
   };
 
   return (
