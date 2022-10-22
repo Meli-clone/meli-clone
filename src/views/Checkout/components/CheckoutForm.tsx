@@ -1,7 +1,7 @@
 import './CheckoutForm.scss';
-import { Formik, Form, FormikHelpers } from 'formik';
+import { Formik, Form } from 'formik';
 import { checkoutSchema } from './checkoutSchema';
-import CustomInput from '@/views/components/CustomInput';
+import CustomInput from '@/components/CustomInput';
 
 interface Prop {
   handleContinuar: (value: number) => void;
