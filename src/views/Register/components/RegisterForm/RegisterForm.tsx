@@ -18,7 +18,7 @@ import './RegisterForm.scss';
 //ICONS
 import { BsPersonBadge, BsTelephone } from 'react-icons/bs';
 import { TbHelp } from 'react-icons/tb';
-import { AiOutlineLock, AiOutlineMail } from 'react-icons/Ai';
+import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
 
 interface FormValues {
   email: string;
