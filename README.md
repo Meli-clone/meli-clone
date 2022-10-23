@@ -11,9 +11,8 @@
   <p align="center">
     🛒Mercadolibre + 🤖Futurama = 🚀Este proyecto
     <br />
-    <!-- <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a> -->
     <br />
-    <a href="#">View Demo</a>
+    <a href="https://meli-clon.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/Meli-clone/meli-clone/issues">Report Bug</a>
     ·
