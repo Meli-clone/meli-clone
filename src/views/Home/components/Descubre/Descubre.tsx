@@ -13,7 +13,7 @@ const Descubre = () => {
                     </div>
                     <button className="descubre_button">Ver más</button>
                 </div>
-                <div>
+                <div className="descubre_imgContainer">
                     <img className="descubre_image" src="https://http2.mlstatic.com/D_NQ_941275-MLA51576491680_092022-C.webp" alt="Cerveza y guirnalda de flores."/>
                 </div>
             </div>
@@ -26,7 +26,7 @@ const Descubre = () => {
                     </div>
                     <button className="descubre_button">Descubre</button>
                 </div>
-                <div>
+                <div className="descubre_imgContainer">
                     <img className="descubre_image" src="https://http2.mlstatic.com/D_NQ_772193-MLA51576767876_092022-C.webp" alt="Cerveza y guirnalda de flores."/>
                 </div>
             </div>
